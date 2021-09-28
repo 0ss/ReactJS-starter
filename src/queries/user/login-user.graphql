@@ -1,0 +1,24 @@
+mutation LoginUser($loginUserInput: LoginUserInput!){
+    loginUser(loginUserInput: $loginUserInput){
+        token
+        user{
+            created_at
+            email
+            id
+            name
+            oauth_id
+            oauth_provider
+            userProject{
+                project{
+                    created_at
+                    id
+                    name
+                    projectMember{
+                        role
+                    }
+                }
+                role
+            }
+        }
+    }
+}
