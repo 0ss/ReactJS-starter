@@ -14,7 +14,7 @@ const SignIn = React.lazy(() => import("./components/SignIn"))
 const SignUp = React.lazy(() => import("./components/SignUp"))
 const ResetPassword = React.lazy(() => import("./components/ResetPassword"))
 const Dashboard = React.lazy(() => import("./components/Dashboard"))
- 
+
 // Sentry.init({
 //     dsn: "https://c606199dd2104835a53cad78e7ee5d49@o995262.ingest.sentry.io/5954093",
 //     integrations: [new Integrations.BrowserTracing()],
@@ -34,15 +34,17 @@ export const App: React.FC = () => {
             <React.Suspense fallback={<Spinner />}>
                 <Router>
                     <Switch>
- 
                         <Route path={ROUTES.SIGN_UP} component={SignUp} />
                         <Route path={ROUTES.SIGN_IN} component={SignIn} />
-                        <Route path={ROUTES.RESET_PASSWORD} component={ResetPassword} />
+                        <Route
+                            path={ROUTES.RESET_PASSWORD}
+                            component={ResetPassword}
+                        />
                         <Route path={ROUTES.PROJECT} component={Project} />
                         <Route path={ROUTES.PROJECT_TEAM} component={Project} />
                         <Route path={ROUTES.HELP} component={Project} />
-                        <Route component={Page404}/>
-                     </Switch>
+                        <Route component={Page404} />
+                    </Switch>
                 </Router>
             </React.Suspense>
         </ChakraProvider>
