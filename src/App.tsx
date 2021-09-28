@@ -17,7 +17,7 @@ const SignIn = React.lazy(() => import("./components/SignIn"))
 const SignUp = React.lazy(() => import("./components/SignUp"))
 const ResetPassword = React.lazy(() => import("./components/ResetPassword"))
 const Dashboard = React.lazy(() => import("./components/Dashboard"))
-
+ 
 /**
  * Third parties API's
  */
@@ -26,6 +26,7 @@ Sentry.init({
     integrations: [new Integrations.ReportingObserver()],
     tracesSampleRate: 1.0,
 })
+ 
 
 /**
  * App
