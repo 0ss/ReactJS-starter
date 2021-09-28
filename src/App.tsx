@@ -1,7 +1,6 @@
 import { ChakraProvider } from "@chakra-ui/react"
 import * as Integrations from "@sentry/integrations"
 import * as Sentry from "@sentry/react"
-import Amplitude from "amplitude"
 import React from "react"
 import { Toaster } from "react-hot-toast"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
@@ -9,7 +8,9 @@ import { Page404 } from "./components/Page404"
 import { Project } from "./components/Project"
 import { Spinner } from "./components/Spinner"
 import { ROUTES } from "./constants"
+import { useTrackEvent } from "./hooks/useTrackEvents"
 import { useUserQuery } from "./queries/graphql"
+import { amplitude } from "./utils/amplitude"
 /**
  * Lazy Route
  */
@@ -21,8 +22,6 @@ const Dashboard = React.lazy(() => import("./components/Dashboard"))
 /**
  * Third parties API's
  */
-console.log(process.env)
-const amplitude = new Amplitude(process.env.REACT_APP_AMPLITUDE_API_KEY as string)
 Sentry.init({
     dsn: process.env.REACT_APP_SENTRY_DSN,
     integrations: [new Integrations.ReportingObserver()],
@@ -36,22 +35,10 @@ export const App: React.FC = () => {
     const { data, loading, error } = useUserQuery({
         fetchPolicy: "network-only",
     })
-    amplitude.track({
-        event_type: 'some value', // required
-        user_id: 'some-user-id', // only required if device id is not passed in
-        device_id: 'some-device-id', // only required if user id is not passed in
-        session_id: 1492789357923, // must be unix timestamp in ms, not required
-        event_properties: {
-          //...
-        },
-        user_properties: {
-          //...
-        }
-      })
     if (data?.user?.email && data?.user?.id) {
         Sentry.setUser({ id: data.user.id, email: data.user.email })
     }
-    
+    useTrackEvent()
     return (
         <ChakraProvider>
             <Toaster />
