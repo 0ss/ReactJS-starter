@@ -7,9 +7,6 @@ import { PrivateRoute } from "./components/PrivateRoute"
 import { Spinner } from "./components/Spinner"
 import { Page404 } from "./components/Page404"
 import { Project } from "./components/Project"
-import { ResetPassword } from "./components/ResetPassword"
-import { SignIn } from "./components/SignIn"
-import { SignUp } from "./components/SignUp"
 import { ROUTES } from "./constants"
 import { useUserQuery } from "./queries/graphql"
 
@@ -17,7 +14,7 @@ const SignIn = React.lazy(() => import("./components/SignIn"))
 const SignUp = React.lazy(() => import("./components/SignUp"))
 const ResetPassword = React.lazy(() => import("./components/ResetPassword"))
 const Dashboard = React.lazy(() => import("./components/Dashboard"))
-
+ 
 // Sentry.init({
 //     dsn: "https://c606199dd2104835a53cad78e7ee5d49@o995262.ingest.sentry.io/5954093",
 //     integrations: [new Integrations.BrowserTracing()],
