@@ -1,16 +1,15 @@
 import { ChakraProvider } from "@chakra-ui/react"
 import * as Integrations from "@sentry/integrations"
 import * as Sentry from "@sentry/react"
-import React from "react"
+import React, { useEffect } from "react"
 import { Toaster } from "react-hot-toast"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import { Page404 } from "./components/Page404"
 import { Project } from "./components/Project"
 import { Spinner } from "./components/Spinner"
-import { ROUTES } from "./constants"
-import { useTrackEvent } from "./hooks/useTrackEvents"
+import { EVENTS, ROUTES } from "./constants"
 import { useUserQuery } from "./queries/graphql"
-import { amplitude } from "./utils/amplitude"
+import { amplitude, tracker } from "./utils/amplitude"
 /**
  * Lazy Route
  */
@@ -38,7 +37,9 @@ export const App: React.FC = () => {
     if (data?.user?.email && data?.user?.id) {
         Sentry.setUser({ id: data.user.id, email: data.user.email })
     }
-    useTrackEvent()
+    useEffect(() => {
+       tracker(EVENTS.INIT,data?.user)
+    }, [])
     return (
         <ChakraProvider>
             <Toaster />

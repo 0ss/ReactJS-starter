@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@amplitude/node": "^1.8.4",
     "@amplitude/types": "^1.8.4",
     "@apollo/client": "^3.4.10",
     "@chakra-ui/icons": "^1.0.15",
