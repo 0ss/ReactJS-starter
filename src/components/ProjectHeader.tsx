@@ -1,21 +1,12 @@
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import {
-  Avatar,
-  Box,
-  Button,
-  Flex,
+  Box, Flex,
   HStack,
   IconButton,
-  Link,
-  Menu,
-  MenuButton,
-  MenuDivider,
-  MenuItem,
-  MenuList,
-  Select,
+  Link, Select,
   Stack,
   useColorModeValue,
-  useDisclosure,
+  useDisclosure
 } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 
