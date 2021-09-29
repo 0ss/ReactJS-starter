@@ -15,7 +15,7 @@ export const SocialMediaButtons: React.FC<SocialMediaButtonsProps> = ({
 }) => {
     const responseGoogle = (e : any) =>{
         console.log(',',e)
-    }
+    } 
     
     return (
         <VStack spacing={3}>
