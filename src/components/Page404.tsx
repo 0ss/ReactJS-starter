@@ -9,7 +9,7 @@ export const Page404: React.FC<Page404Props> = ({}) => {
     <Box style={{ backgroundColor: COLOR_MAIN_DARK }} h="100vh" color="white">
       <VStack pt={"44"} spacing={3}>
         <Heading size={'4xl'} as={'h1'}>404</Heading>
-        <Heading as="h4" size="md">
+        <Heading as="h4" size="md" textAlign={'center'}>
           There's nothing here, there page does not exist
         </Heading>
         <Button
