@@ -16,6 +16,7 @@ import FeedbacknessCharLogo from "../svgs/feedbackness-char.png";
 import FeedbacknessLogo from "../svgs/feedbackness-logo.png";
 import { CreateProjectModal } from "./CreateProjectModal";
 import { NavLink } from "./NavLink";
+import { ProjectHeaderSelect } from "./ProjectHeaderSelect";
 
 interface ProjectHeaderProps {}
 
@@ -33,7 +34,6 @@ const Links: Array<{ name: string; url: string }> = [
 export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [authToken, setAuthToken] = useAuthToken();
-  const [isModalOpen, setModalOpen] = useState(false);
   return (
     <>
       <Box pt={5}>
@@ -57,12 +57,7 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
                 />
               </Link>
             </Box>
-            <Select placeholder="Projects " bgColor="gray.200">
-              <option value="option1">Option 1</option>
-              <option value="option2">Option 2</option>
-              <option value="option3">Option 3</option>
-              <option value="option3">Create Project ✨</option>
-            </Select>
+            <ProjectHeaderSelect />
           </HStack>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
             {Links.map((arr, i) => (
@@ -98,7 +93,6 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
           </Box>
         ) : null}
       </Box>
-      <CreateProjectModal isOpen={isModalOpen} />
     </>
   );
 };

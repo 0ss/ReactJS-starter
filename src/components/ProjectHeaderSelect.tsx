@@ -3,6 +3,7 @@ import {
   Button,
   Menu,
   MenuButton,
+  MenuDivider,
   MenuItem,
   MenuList,
   Modal,
@@ -15,24 +16,35 @@ import {
   useDisclosure,
   UseDisclosureProps,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
+import { COLOR_MAIN_MEDIUM_LIGHT } from "../constants";
+import { CreateProjectModal } from "./CreateProjectModal";
 
 interface ProjectHeaderSelectProps {}
 export const ProjectHeaderSelect: React.FC<ProjectHeaderSelectProps> = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
+
   return (
     <>
       <Menu>
-        <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-          Actions
+        <MenuButton
+          fontWeight={"normal"}
+          bg={"gray.200"}
+          as={Button}
+          rightIcon={<ChevronDownIcon />}
+        >
+          Projects
         </MenuButton>
         <MenuList>
-          <MenuItem>Download</MenuItem>
-          <MenuItem>Create a Copy</MenuItem>
-          <MenuItem>Mark as Draft</MenuItem>
-          <MenuItem>Delete</MenuItem>
-          <MenuItem>Attend a Workshop</MenuItem>
+          <MenuItem>Todo List</MenuItem>
+          <MenuItem>Senior Project</MenuItem>
+          <MenuDivider />
+          <MenuItem fontWeight={"semibold"} onClick={onOpen}>
+            💡 Create Project
+          </MenuItem>
         </MenuList>
       </Menu>
+      <CreateProjectModal isOpen={isOpen} onClose={onClose} onOpen={onOpen} />
     </>
   );
 };
