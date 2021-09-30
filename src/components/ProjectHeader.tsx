@@ -8,12 +8,13 @@ import {
   Stack,
   useDisclosure,
 } from "@chakra-ui/react";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
 import FeedbacknessCharLogo from "../svgs/feedbackness-char.png";
 import FeedbacknessLogo from "../svgs/feedbackness-logo.png";
+import { CreateProjectModal } from "./CreateProjectModal";
 import { NavLink } from "./NavLink";
 
 interface ProjectHeaderProps {}
@@ -32,7 +33,7 @@ const Links: Array<{ name: string; url: string }> = [
 export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [authToken, setAuthToken] = useAuthToken();
-
+  const [isModalOpen, setModalOpen] = useState(false);
   return (
     <>
       <Box pt={5}>
@@ -60,6 +61,7 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
+              <option value="option3">Create Project ✨</option>
             </Select>
           </HStack>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
@@ -82,13 +84,7 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
           />
         </Flex>
         {isOpen ? (
-          <Box
-            shadow={"sm"}
-            px={7}
-            pb={5}
-            mt={5}
-            display={{ md: "none" }}
-          >
+          <Box shadow={"sm"} px={7} pb={5} mt={5} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
               {Links.map((arr, i) => (
                 <NavLink key={i} name={arr.name} url={arr.url} />
@@ -102,6 +98,7 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
           </Box>
         ) : null}
       </Box>
+      <CreateProjectModal isOpen={isModalOpen} />
     </>
   );
 };
