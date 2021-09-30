@@ -8,7 +8,7 @@ interface ProjectProps {
 
 export const Project : React.FC<ProjectProps> = ({}) => {
     return (
-        <Box style={{backgroundColor:'var(--bg-color-main)'}}>
+        <Box>
             <ProjectHeader />
         </Box>
     )
