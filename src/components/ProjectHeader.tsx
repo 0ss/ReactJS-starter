@@ -84,8 +84,8 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
         {isOpen ? (
           <Box
             shadow={"sm"}
-            pb={4}
-            textAlign={"center"}
+            px={7}
+            pb={5}
             mt={5}
             display={{ md: "none" }}
           >
