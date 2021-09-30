@@ -12,6 +12,7 @@ import {
 import React from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../constants";
+import { useAuthToken } from "../hooks/useAuthToken";
 import FeedbacknessCharLogo from "../svgs/feedbackness-char.png";
 import FeedbacknessLogo from "../svgs/feedbackness-logo.png";
 import { NavLink } from "./NavLink";
@@ -20,10 +21,6 @@ interface ProjectHeaderProps {}
 
 const Links: Array<{ name: string; url: string }> = [
   {
-    name: "Feedback",
-    url: "/",
-  },
-  {
     name: "Help",
     url: "/help",
   },
@@ -31,18 +28,15 @@ const Links: Array<{ name: string; url: string }> = [
     name: "Team",
     url: "/team",
   },
-  {
-    name: "Signout",
-    url: "/signout",
-  },
 ];
 
 export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [authToken] = useAuthToken();
 
   return (
     <>
-      <Box px={4} pt={5} bg={'white'} shadow={'sm'}>
+      <Box px={4} pt={5} bg={"white"} shadow={"sm"}>
         <Flex
           h={16}
           mx={{ md: 16 }}
@@ -78,6 +72,7 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
             {Links.map((arr, i) => (
               <NavLink key={i} name={arr.name} url={arr.url} />
             ))}
+            <NavLink name={"Sign out"} url={ROUTES.HOME} />
           </HStack>
           <IconButton
             size={"md"}
@@ -93,6 +88,7 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
               {Links.map((arr, i) => (
                 <NavLink key={i} name={arr.name} url={arr.url} />
               ))}
+              <NavLink name={"Sign out"} url={ROUTES.HOME} />
             </Stack>
           </Box>
         ) : null}
