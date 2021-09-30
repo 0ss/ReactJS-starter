@@ -1,15 +1,18 @@
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
+import { Image } from "@chakra-ui/image";
 import {
   Box,
   Flex,
   HStack,
   IconButton,
-  Link,
   Select,
   Stack,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { ReactNode } from "react";
+import React from "react";
+import { Link } from "react-router-dom";
+import { ROUTES } from "../constants";
+import FeedbacknessCharLogo from "../svgs/feedbackness-char.png";
 import FeedbacknessLogo from "../svgs/feedbackness-logo.png";
 import { NavLink } from "./NavLink";
 
@@ -47,8 +50,23 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
           justifyContent={["space-between"]}
         >
           <HStack spacing={8} alignItems={"center"}>
-            <Box>
-              <img width={220} src={FeedbacknessLogo} loading="lazy" />
+            <Box display={{ base: "none", md: "flex" }}>
+              <Link to={ROUTES.HOME}>
+                <img
+                  width={220}
+                  src={FeedbacknessLogo}
+                  alt="feedbackness logo"
+                />
+              </Link>
+            </Box>
+            <Box display={{ base: "flex", md: "none" }}>
+              <Link to={ROUTES.HOME}>
+                <img
+                  width={45}
+                  src={FeedbacknessCharLogo}
+                  alt="feedbackness logo"
+                />
+              </Link>
             </Box>
             <Select placeholder="Projects " bgColor="gray.200">
               <option value="option1">Option 1</option>
