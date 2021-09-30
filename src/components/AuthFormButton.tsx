@@ -16,6 +16,7 @@ export const AuthFormButton: React.FC<AuthFormButtonProps> = ({
     return (
         <Button
             w={"full"}
+            size={'sm'}
             type={type as any}
             disabled={isSubmit}
             style={{ backgroundColor: COLOR_MAIN_DARK }}

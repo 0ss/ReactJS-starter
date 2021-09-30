@@ -27,6 +27,7 @@ export const SocialMediaButtons: React.FC<SocialMediaButtonsProps> = ({
                 render={({ onClick, disabled }) => (
                     <Button
                         w={"full"}
+                        size={'sm'}
                         type={type as any}
                         borderColor={"black"}
                         borderWidth={1}
@@ -46,6 +47,7 @@ export const SocialMediaButtons: React.FC<SocialMediaButtonsProps> = ({
             ></GoogleLogin>
             <Button
                 w={"full"}
+                size={'sm'}
                 type={type as any}
                 borderColor={"black"}
                 borderWidth={1}

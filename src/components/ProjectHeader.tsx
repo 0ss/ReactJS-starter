@@ -35,7 +35,7 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
 
   return (
     <>
-      <Box px={4}>
+      <Box px={4} mt={5} mx={2}>
         <Flex
           h={16}
           mx={{ md: 16 }}
@@ -43,10 +43,10 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
           justifyContent={["space-between"]}
         >
           <HStack spacing={8} alignItems={"center"}>
-            <Box>
-              <img width={120} src={FeedbacknessLogo} loading="lazy" />
+            <Box > 
+              <img width={220} src={FeedbacknessLogo} loading="lazy" />
             </Box>
-            <Select placeholder="Select option">
+            <Select placeholder="Projects " bgColor='gray.200'>
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
