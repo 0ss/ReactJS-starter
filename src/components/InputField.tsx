@@ -19,6 +19,7 @@ export const InputField: React.FC<InputFieldProps> = ({ ...props }) => {
                 value={props.value}
                 onChange={props.onChange}
                 px={4}
+                size={'sm'}
                 fontSize={"sm"}
                 focusBorderColor={"none"}
                 bgColor={"gray.100"}
