@@ -42,7 +42,7 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
 
   return (
     <>
-      <Box px={4} mt={5} mx={2}>
+      <Box px={4} pt={5} bg={'white'} shadow={'sm'}>
         <Flex
           h={16}
           mx={{ md: 16 }}
@@ -88,7 +88,7 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
           />
         </Flex>
         {isOpen ? (
-          <Box pb={4} display={{ md: "none" }}>
+          <Box pb={4} mt={5} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
               {Links.map((arr, i) => (
                 <NavLink key={i} name={arr.name} url={arr.url} />
@@ -97,7 +97,6 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
           </Box>
         ) : null}
       </Box>
-      <Box p={4}>Main Content Here</Box>
     </>
   );
 };
