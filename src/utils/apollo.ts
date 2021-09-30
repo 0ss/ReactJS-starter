@@ -1,15 +1,14 @@
 import { ApolloClient, from, HttpLink, InMemoryCache } from "@apollo/client"
 import { REACT_APP_GRAPHQL_URL } from "../constants"
-import { useAuthToken } from "../hooks/useAuthToken"
+import { AUTH_TOKEN, useAuthToken } from "../hooks/useAuthToken"
 import { onError } from "@apollo/client/link/error"
 
-const [authToken] = useAuthToken()
 
 const httpLink = new HttpLink({
     uri: REACT_APP_GRAPHQL_URL,
     credentials: "include",
     headers: {
-        Authorization: `Bearer ${authToken}`,
+        Authorization: `Bearer ${localStorage.getItem(AUTH_TOKEN)}`,
     },
 })
 const errorLink = onError(({ graphQLErrors, networkError }) => {
