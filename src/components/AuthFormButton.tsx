@@ -12,7 +12,6 @@ export const AuthFormButton: React.FC<AuthFormButtonProps> = ({
     isSubmit,
     children,
 }) => {
-    console.log(isSubmit)
     const Children = () =>  <>{children}</>
     return (
         <Button
