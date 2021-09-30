@@ -1,7 +1,7 @@
 import { Box, Center, Divider, Heading } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 import { useAuthToken } from "../hooks/useAuthToken";
-import FeedbacknessLogo from "../svgs/feedbackness-logo.png";
+import { Feedbackness } from "../svgs/Feedbackness";
 
 interface AuthFormProps extends React.HTMLProps<HTMLFormElement> {
   heading: string;
@@ -37,7 +37,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({
           }}
         >
           <Center pb={6}>
-            <img width={120} src={FeedbacknessLogo} loading="lazy" />
+            <Feedbackness width={120}/>
           </Center>
           <Divider />
           <Heading fontSize="2xl" py={3}>

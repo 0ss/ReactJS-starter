@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../constants";
-import FeedbacknessImage from "./feedbackness-char.png";
+import FeedbacknessImage from "./feedbackness.png";
 
 interface FeedbacknessProps {
-  width: string;
+  width: number;
 }
 
 export const Feedbackness: React.FC<FeedbacknessProps> = ({ width }) => {

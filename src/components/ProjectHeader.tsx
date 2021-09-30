@@ -4,17 +4,16 @@ import {
   Flex,
   HStack,
   IconButton,
-  Select,
   Stack,
   useDisclosure,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { ROUTES } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
+import { Feedbackness } from "../svgs/Feedbackness";
 import FeedbacknessCharLogo from "../svgs/feedbackness-char.png";
-import FeedbacknessLogo from "../svgs/feedbackness-logo.png";
-import { CreateProjectModal } from "./CreateProjectModal";
+import { FeedbacknessChar } from "../svgs/FeedbacknessChar";
 import { NavLink } from "./NavLink";
 import { ProjectHeaderSelect } from "./ProjectHeaderSelect";
 
@@ -40,22 +39,10 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
         <Flex h={16} alignItems={"center"} justifyContent={["space-between"]}>
           <HStack spacing={8} alignItems={"center"}>
             <Box display={{ base: "none", md: "flex" }}>
-              <Link to={ROUTES.HOME}>
-                <img
-                  width={220}
-                  src={FeedbacknessLogo}
-                  alt="feedbackness logo"
-                />
-              </Link>
+              <Feedbackness width={120} />
             </Box>
             <Box display={{ base: "flex", md: "none" }}>
-              <Link to={ROUTES.HOME}>
-                <img
-                  width={45}
-                  src={FeedbacknessCharLogo}
-                  alt="feedbackness logo"
-                />
-              </Link>
+              <FeedbacknessChar width={25} />
             </Box>
             <ProjectHeaderSelect />
           </HStack>

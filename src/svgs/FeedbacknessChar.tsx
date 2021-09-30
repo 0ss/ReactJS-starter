@@ -4,7 +4,7 @@ import { ROUTES } from "../constants";
 import FeedbacknessCharImage from "./feedbackness-char.png";
 
 interface FeedbacknessCharProps {
-  width: string;
+  width: number;
 }
 
 export const FeedbacknessChar: React.FC<FeedbacknessCharProps> = ({
