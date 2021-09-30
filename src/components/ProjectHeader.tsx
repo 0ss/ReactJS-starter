@@ -32,7 +32,7 @@ const Links: Array<{ name: string; url: string }> = [
 
 export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  const [authToken] = useAuthToken();
+  const [authToken, setAuthToken] = useAuthToken();
 
   return (
     <>
@@ -72,7 +72,7 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
             {Links.map((arr, i) => (
               <NavLink key={i} name={arr.name} url={arr.url} />
             ))}
-            <NavLink name={"Sign out"} url={ROUTES.HOME} />
+            <NavLink name={"Sign out"} url={ROUTES.HOME} onClick={() => setAuthToken('')} />
           </HStack>
           <IconButton
             size={"md"}
@@ -88,7 +88,7 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
               {Links.map((arr, i) => (
                 <NavLink key={i} name={arr.name} url={arr.url} />
               ))}
-              <NavLink name={"Sign out"} url={ROUTES.HOME} />
+              <NavLink name={"Sign out"} url={ROUTES.HOME} onClick={() => setAuthToken('')}/>
             </Stack>
           </Box>
         ) : null}
