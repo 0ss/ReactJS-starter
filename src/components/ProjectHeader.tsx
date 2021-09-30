@@ -1,5 +1,4 @@
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
-import { Image } from "@chakra-ui/image";
 import {
   Box,
   Flex,
@@ -36,13 +35,8 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
 
   return (
     <>
-      <Box px={4} pt={5} bg={"white"} shadow={"sm"}>
-        <Flex
-          h={16}
-          mx={{ md: 16 }}
-          alignItems={"center"}
-          justifyContent={["space-between"]}
-        >
+      <Box pt={5}>
+        <Flex h={16} alignItems={"center"} justifyContent={["space-between"]}>
           <HStack spacing={8} alignItems={"center"}>
             <Box display={{ base: "none", md: "flex" }}>
               <Link to={ROUTES.HOME}>
@@ -72,10 +66,15 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
             {Links.map((arr, i) => (
               <NavLink key={i} name={arr.name} url={arr.url} />
             ))}
-            <NavLink name={"Sign out"} url={ROUTES.HOME} onClick={() => setAuthToken('')} />
+            <NavLink
+              name={"Sign out"}
+              url={ROUTES.HOME}
+              onClick={() => setAuthToken("")}
+            />
           </HStack>
           <IconButton
             size={"md"}
+            mx={2}
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
             aria-label={"Open Menu"}
             display={{ md: "none" }}
@@ -83,12 +82,22 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
           />
         </Flex>
         {isOpen ? (
-          <Box pb={4} mt={5} display={{ md: "none" }}>
+          <Box
+            shadow={"sm"}
+            pb={4}
+            textAlign={"center"}
+            mt={5}
+            display={{ md: "none" }}
+          >
             <Stack as={"nav"} spacing={4}>
               {Links.map((arr, i) => (
                 <NavLink key={i} name={arr.name} url={arr.url} />
               ))}
-              <NavLink name={"Sign out"} url={ROUTES.HOME} onClick={() => setAuthToken('')}/>
+              <NavLink
+                name={"Sign out"}
+                url={ROUTES.HOME}
+                onClick={() => setAuthToken("")}
+              />
             </Stack>
           </Box>
         ) : null}
