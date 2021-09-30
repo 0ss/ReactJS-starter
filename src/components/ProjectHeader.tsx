@@ -6,29 +6,33 @@ import {
   IconButton,
   Link,
   Select,
-  Stack, useDisclosure
+  Stack,
+  useDisclosure,
 } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
 import FeedbacknessLogo from "../svgs/feedbackness-logo.png";
+import { NavLink } from "./NavLink";
 
 interface ProjectHeaderProps {}
 
-const Links = ["Feedback", "Team", "Help", "Signout"];
-
-const NavLink = ({ children }: { children: ReactNode }) => (
-  <Link
-    px={2}
-    py={1}
-    rounded={"md"}
-    _hover={{
-      textDecoration: "none",
-      bg: "gray.200",
-    }}
-    href={"#"}
-  >
-    {children}
-  </Link>
-);
+const Links: Array<{ name: string; url: string }> = [
+  {
+    name: "Feedback",
+    url: "/",
+  },
+  {
+    name: "Help",
+    url: "/help",
+  },
+  {
+    name: "Team",
+    url: "/team",
+  },
+  {
+    name: "Signout",
+    url: "/signout",
+  },
+];
 
 export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -43,18 +47,18 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
           justifyContent={["space-between"]}
         >
           <HStack spacing={8} alignItems={"center"}>
-            <Box > 
+            <Box>
               <img width={220} src={FeedbacknessLogo} loading="lazy" />
             </Box>
-            <Select placeholder="Projects " bgColor='gray.200'>
+            <Select placeholder="Projects " bgColor="gray.200">
               <option value="option1">Option 1</option>
               <option value="option2">Option 2</option>
               <option value="option3">Option 3</option>
             </Select>
           </HStack>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
-            {Links.map((link) => (
-              <NavLink key={link}>{link}</NavLink>
+            {Links.map((arr, i) => (
+              <NavLink key={i} name={arr.name} url={arr.url} />
             ))}
           </HStack>
           <IconButton
@@ -68,8 +72,8 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
         {isOpen ? (
           <Box pb={4} display={{ md: "none" }}>
             <Stack as={"nav"} spacing={4}>
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+              {Links.map((arr, i) => (
+                <NavLink key={i} name={arr.name} url={arr.url} />
               ))}
             </Stack>
           </Box>
