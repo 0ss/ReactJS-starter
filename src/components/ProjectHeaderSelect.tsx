@@ -26,11 +26,12 @@ export const ProjectHeaderSelect: React.FC<ProjectHeaderSelectProps> = () => {
 
   return (
     <>
-      <Menu>
+      <Menu >
         <MenuButton
           fontWeight={"normal"}
-          bg={"gray.200"}
+          bg={"gray.500"}
           as={Button}
+          w={'100%'}
           rightIcon={<ChevronDownIcon />}
         >
           Projects

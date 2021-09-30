@@ -38,12 +38,6 @@ export const ProjectHeader: React.FC<ProjectHeaderProps> = ({}) => {
       <Box pt={5}>
         <Flex h={16} alignItems={"center"} justifyContent={["space-between"]}>
           <HStack spacing={8} alignItems={"center"}>
-            <Box display={{ base: "none", md: "flex" }}>
-              <Feedbackness width={120} />
-            </Box>
-            <Box display={{ base: "flex", md: "none" }}>
-              <FeedbacknessChar width={25} />
-            </Box>
             <ProjectHeaderSelect />
           </HStack>
           <HStack as={"nav"} spacing={4} display={{ base: "none", md: "flex" }}>
