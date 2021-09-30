@@ -9,7 +9,7 @@ import {
   Stack, useDisclosure
 } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
-import FeedbacknessLogo from "../svgs/Feedbackness-logo.jpg";
+import FeedbacknessLogo from "../svgs/feedbackness-logo.png";
 
 interface ProjectHeaderProps {}
 
