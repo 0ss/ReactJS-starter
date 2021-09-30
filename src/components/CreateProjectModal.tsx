@@ -11,28 +11,54 @@ import {
   UseDisclosureProps,
 } from "@chakra-ui/react";
 import React from "react";
+import {
+  COLOR_MAIN_DARK,
+  COLOR_MAIN_MEDIUM_DARK,
+  COLOR_MAIN_MEDIUM_LIGHT,
+} from "../constants";
+import { InputField } from "./InputField";
 
-interface CreateProjectModalProps extends UseDisclosureProps {
-
-}
-export const CreateProjectModal: React.FC<CreateProjectModalProps> = (
-    { isOpen, onClose }
-) => {
+interface CreateProjectModalProps extends UseDisclosureProps {}
+export const CreateProjectModal: React.FC<CreateProjectModalProps> = ({
+  isOpen,
+  onClose,
+}) => {
   return (
     <>
-
       <Modal isOpen={isOpen!} onClose={onClose!}>
         <ModalOverlay />
         <ModalContent>
-          <ModalHeader>Modal Title</ModalHeader>
+          <ModalHeader textAlign={"center"}>Create Your Project</ModalHeader>
           <ModalCloseButton />
-          <ModalBody></ModalBody>
+          <ModalBody>
+            <InputField label="Project Name" placeholder={"feedbackness.com"} />
+          </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme="blue" mr={3} onClick={onClose}>
-              Close
+            <Button
+              size={"sm"}
+              fontWeight={"semibold"}
+              mr={3}
+              onClick={onClose}
+              style={{
+                backgroundColor: COLOR_MAIN_MEDIUM_DARK,
+              }}
+              _hover={{
+                opacity: 0.8,
+              }}
+            >
+              Create
             </Button>
-            <Button variant="ghost">Secondary Action</Button>
+            <Button
+              onClick={onClose}
+              size={"sm"}
+              bg={"gray.200"}
+              _hover={{
+                opacity: 0.8,
+              }}
+            >
+              Go back
+            </Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
