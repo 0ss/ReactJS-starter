@@ -9,6 +9,7 @@ export const enum ROUTES {
     RESET_PASSWORD = "/reset-password/:token",
     PROJECT = "/project/:id",
     PROJECT_TEAM = "project/:id/team",
+    ANALYTICS = "project/:id/analytics",
     HELP = "/help",
 }
 

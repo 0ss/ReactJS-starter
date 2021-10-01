@@ -4,9 +4,7 @@ import React from "react";
 import { ROUTES } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
 import { Feedbackness } from "../svgs/Feedbackness";
-import { CreateProjectModal } from "./CreateProjectModal";
 import { NavLink } from "./NavLink";
-import { ProjectHeader } from "./ProjectHeader";
 import { ProjectHeaderSelect } from "./ProjectHeaderSelect";
 
 interface ProjectProps {}
@@ -43,22 +41,15 @@ export const Project: React.FC<ProjectProps> = ({}) => {
             </Box>
             <ProjectHeaderSelect />
           </Box>
-          <VStack spacing={3} align={'stretch'}>
-            <Box w={'full'} _hover={{
-              backgroundColor:'red'
-            }}>
-              Hellossssssssssss
-            </Box>
+          <VStack spacing={3} align={"stretch"}>
             {Links.map((arr, i) => (
               <NavLink key={i} name={arr.name} url={arr.url} />
             ))}
-           <Box w={'full'}>
-           <NavLink
+            <NavLink
               name={"Sign out"}
               url={ROUTES.HOME}
               onClick={() => setAuthToken("")}
             />
-           </Box>
           </VStack>
         </Flex>
       </Flex>
