@@ -30,19 +30,14 @@ export const Project: React.FC<ProjectProps> = ({}) => {
     <Flex mx={20}>
       <Flex
         pos="sticky"
-        minH={"100vh"}
         py={"12"}
         bg={"gray.400"}
         w={"230px"}
         flexDir="column"
         as={"aside"}
       >
-        <Flex
-          pos="sticky"
-          flexDir="column"
-          as="nav"
-        >
-          <Box mb={20} pos={'sticky'}>
+        <Flex pos="sticky" top={12} flexDir="column" as="nav">
+          <Box mb={20} pos={"sticky"}>
             <Box mb={3}>
               <Feedbackness width={120} />
             </Box>
@@ -63,74 +58,11 @@ export const Project: React.FC<ProjectProps> = ({}) => {
         </Flex>
       </Flex>
       <Box>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
-        <ProjectHeader />
-        <Heading>Hello world</Heading>
-        <Heading>Hello world</Heading>
+        {Array(40)
+          .fill(null)
+          .map((e) => (
+            <Heading>Hello world</Heading>
+          ))}
       </Box>
     </Flex>
   );
