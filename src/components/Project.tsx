@@ -1,4 +1,4 @@
-import { Box, Heading } from "@chakra-ui/layout";
+import { Box, Heading, VStack } from "@chakra-ui/layout";
 import { Flex, useDisclosure } from "@chakra-ui/react";
 import React from "react";
 import { ROUTES } from "../constants";
@@ -43,18 +43,23 @@ export const Project: React.FC<ProjectProps> = ({}) => {
             </Box>
             <ProjectHeaderSelect />
           </Box>
-          <div>Hello</div>
-          <div>Hello</div>
-          <div>Hello</div>
-          <div>Hello</div>
-          {Links.map((arr, i) => (
-            <NavLink key={i} name={arr.name} url={arr.url} />
-          ))}
-          <NavLink
-            name={"Sign out"}
-            url={ROUTES.HOME}
-            onClick={() => setAuthToken("")}
-          />
+          <VStack spacing={3} align={'stretch'}>
+            <Box w={'full'} _hover={{
+              backgroundColor:'red'
+            }}>
+              Hellossssssssssss
+            </Box>
+            {Links.map((arr, i) => (
+              <NavLink key={i} name={arr.name} url={arr.url} />
+            ))}
+           <Box w={'full'}>
+           <NavLink
+              name={"Sign out"}
+              url={ROUTES.HOME}
+              onClick={() => setAuthToken("")}
+            />
+           </Box>
+          </VStack>
         </Flex>
       </Flex>
       <Box>
