@@ -8,8 +8,6 @@ interface NavLinkProps {
 }
 export const NavLink: React.FC<NavLinkProps> = ({ name, url,onClick }) => (
   <Link
-    px={2}
-    py={1}
     rounded={"md"}
     _hover={{
       textDecoration: "none",
