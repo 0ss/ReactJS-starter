@@ -29,7 +29,8 @@ export const ProjectHeaderSelect: React.FC<ProjectHeaderSelectProps> = () => {
       <Menu >
         <MenuButton
           fontWeight={"normal"}
-          bg={"gray.500"}
+          bg={"white"}
+          textAlign={'left'}
           as={Button}
           w={'100%'}
           rightIcon={<ChevronDownIcon />}

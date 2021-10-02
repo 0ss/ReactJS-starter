@@ -10,13 +10,13 @@ import { Feedbackness } from "../svgs/Feedbackness";
 import { NavLink } from "./NavLink";
 import { ProjectHeaderSelect } from "./ProjectHeaderSelect";
 import { VscSignOut } from "react-icons/vsc";
+import { useProjectLocation } from "../hooks/useProjectLocation";
 interface ProjectProps {}
 
 export const Project: React.FC<ProjectProps> = ({}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [authToken, setAuthToken] = useAuthToken();
-  const { id } = useParams<{ id: string }>();
-  const location = useLocation();
+  const location = useProjectLocation()
   return (
     <Flex mx={20}>
       <Flex pos="sticky" py={"12"} w={"230px"} flexDir="column" as={"aside"}>
@@ -27,8 +27,8 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           as="nav"
           display={{ base: "none", md: "flex" }}
         >
-          <Box mb={20} pos={"sticky"}>
-            <Box mb={3}>
+          <Box mb={20}>
+            <Box mb={3} ml={1}>
               <Feedbackness width={120} />
             </Box>
             <ProjectHeaderSelect />
@@ -36,19 +36,21 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           <VStack spacing={3} align={"stretch"}>
             <NavLink
               name={"Dashboard"}
-              url={`${location.pathname}/analytics`}
+              url={`${location}/`}
               icon={<IoAnalyticsOutline size={18} />}
             />
             <NavLink
               name={"Team"}
-              url={`${location.pathname}/team`}
+              url={`${location}/team`}
               icon={<AiOutlineTeam size={18} />}
             />
             <NavLink
               name={"Settings"}
-              url={`${location.pathname}/team`}
+              url={`${location}/settings`}
               icon={<IoSettingsOutline size={18} />}
             />
+          </VStack>
+          <VStack mt={20} spacing={3} align={"stretch"}>
             <NavLink
               name={"Sign out"}
               icon={<VscSignOut size={18} />}
