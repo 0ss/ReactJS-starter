@@ -11,6 +11,7 @@ import { NavLink } from "./NavLink";
 import { ProjectHeaderSelect } from "./ProjectHeaderSelect";
 import { VscSignOut } from "react-icons/vsc";
 import { useProjectLocation } from "../hooks/useProjectLocation";
+import { ProjectSidebar } from "./ProjectSidebar";
 interface ProjectProps {}
 
 export const Project: React.FC<ProjectProps> = ({}) => {
@@ -18,56 +19,41 @@ export const Project: React.FC<ProjectProps> = ({}) => {
   const [authToken, setAuthToken] = useAuthToken();
   const location = useProjectLocation();
   return (
-    <Flex mx={{base:'0', md:'20'}}>
-      <Flex
-        display={{ base: "none", md: "flex" }}
-        pos="sticky"
-        py={"12"}
-        w={"230px"}
-        flexDir="column"
-        as={"aside"}
-      >
-        <Flex pos="sticky" top={12} flexDir="column" as="nav">
-          <Box mb={20}>
-            <Box mb={3} ml={1}>
-              <Feedbackness width={120} />
-            </Box>
-            <ProjectHeaderSelect />
-          </Box>
-          <VStack spacing={5} align={"stretch"}>
-            <NavLink
-              name={"Dashboard"}
-              url={`${location}/`}
-              icon={<IoAnalyticsOutline size={18} />}
-            />
-            <NavLink
-              name={"Team"}
-              url={`${location}/team`}
-              icon={<AiOutlineTeam size={18} />}
-            />
-            <NavLink
-              name={"Settings"}
-              url={`${location}/settings`}
-              icon={<IoSettingsOutline size={18} />}
-            />
-          </VStack>
-          <VStack mt={"48"} spacing={3} align={"stretch"}>
-            <NavLink
-              name={"Sign out"}
-              icon={<VscSignOut size={18} />}
-              url={ROUTES.HOME}
-              onClick={() => setAuthToken("")}
-            />
-          </VStack>
-        </Flex>
-      </Flex>
-      <Box p={20}>
-        {Array(40)
-          .fill(null)
-          .map((e) => (
-            <Heading>Hello world</Heading>
-          ))}
-      </Box>
+    <Flex mx={{ base: "0", md: "20" }}>
+      <ProjectSidebar>
+        <VStack spacing={5} align={"stretch"}>
+          <NavLink
+            name={"Dashboard"}
+            url={`${location}/`}
+            icon={<IoAnalyticsOutline size={18} />}
+          />
+          <NavLink
+            name={"Team"}
+            url={`${location}/team`}
+            icon={<AiOutlineTeam size={18} />}
+          />
+          <NavLink
+            name={"Settings"}
+            url={`${location}/settings`}
+            icon={<IoSettingsOutline size={18} />}
+          />
+        </VStack>
+        <VStack mt={"48"} spacing={3} align={"stretch"}>
+          <NavLink
+            name={"Sign out"}
+            icon={<VscSignOut size={18} />}
+            url={ROUTES.HOME}
+            onClick={() => setAuthToken("")}
+          />
+        </VStack>
+        <Box p={20}>
+          {Array(40)
+            .fill(null)
+            .map((e) => (
+              <Heading>Hello world</Heading>
+            ))}
+        </Box>
+      </ProjectSidebar>
     </Flex>
   );
 };
