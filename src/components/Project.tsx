@@ -1,5 +1,5 @@
-import { Box, Center, Heading, HStack, VStack } from "@chakra-ui/layout";
-import { Flex, useDisclosure } from "@chakra-ui/react";
+import { Box, Heading, Stack, VStack } from "@chakra-ui/layout";
+import { Flex } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineTeam } from "react-icons/ai";
 import { IoAnalyticsOutline, IoSettingsOutline } from "react-icons/io5";
@@ -7,15 +7,16 @@ import { VscSignOut } from "react-icons/vsc";
 import { ROUTES } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
 import { useProjectLocation } from "../hooks/useProjectLocation";
+import { AnalyticsCard } from "./AnalyticsCard";
 import { NavLink } from "./NavLink";
 import { ProjectSidebar } from "./ProjectSidebar";
-interface ProjectProps {}
 
+interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const [authToken, setAuthToken] = useAuthToken();
   const location = useProjectLocation();
   return (
-    <Flex mx={{ base: "3", md: "20" }}>
+    <Flex mx={{ base: "3", md: "20" }} maxWidth={"max"}>
       <ProjectSidebar>
         <VStack spacing={5} align={"stretch"}>
           <NavLink
@@ -43,22 +44,14 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           />
         </VStack>
       </ProjectSidebar>
-      <Box p={20}>
+      <Box p={20} w={"full"}>
         <Heading mb={5}>Analytics Overview</Heading>
-        <HStack>
-          <Flex
-            justifyContent={"center"}
-            w={"64"}
-            p={10}
-            borderRadius={"lg"}
-            bgColor={"white"}
-          >
-            <VStack>
-              <Heading size={"lg"}>3214</Heading>
-              <Box>Total Feedbacks</Box>
-            </VStack>
-          </Flex>
-        </HStack>
+        <Stack spacing={8}
+         direction={['column','column','row']}>
+          <AnalyticsCard heading={"3422"} desc={"Total Feedbacks"} />
+          <AnalyticsCard heading={"3422"} desc={"Total Feedbacks"} />
+          <AnalyticsCard heading={"3422"} desc={"Total Feedbacks"} />
+        </Stack>
       </Box>
     </Flex>
   );
