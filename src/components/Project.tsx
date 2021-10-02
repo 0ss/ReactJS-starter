@@ -1,21 +1,17 @@
-import { Box, Heading, VStack } from "@chakra-ui/layout";
+import { Box, Center, Heading, HStack, VStack } from "@chakra-ui/layout";
 import { Flex, useDisclosure } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineTeam } from "react-icons/ai";
 import { IoAnalyticsOutline, IoSettingsOutline } from "react-icons/io5";
-import { useLocation, useParams } from "react-router";
+import { VscSignOut } from "react-icons/vsc";
 import { ROUTES } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
-import { Feedbackness } from "../svgs/Feedbackness";
-import { NavLink } from "./NavLink";
-import { ProjectHeaderSelect } from "./ProjectHeaderSelect";
-import { VscSignOut } from "react-icons/vsc";
 import { useProjectLocation } from "../hooks/useProjectLocation";
+import { NavLink } from "./NavLink";
 import { ProjectSidebar } from "./ProjectSidebar";
 interface ProjectProps {}
 
 export const Project: React.FC<ProjectProps> = ({}) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   const [authToken, setAuthToken] = useAuthToken();
   const location = useProjectLocation();
   return (
@@ -48,12 +44,22 @@ export const Project: React.FC<ProjectProps> = ({}) => {
         </VStack>
       </ProjectSidebar>
       <Box p={20}>
-          {Array(40)
-            .fill(null)
-            .map((e) => (
-              <Heading>Hello world</Heading>
-            ))}
-        </Box>
+        <Heading mb={5}>Analytics Overview</Heading>
+        <HStack>
+          <Flex
+            justifyContent={"center"}
+            w={"64"}
+            p={10}
+            borderRadius={"lg"}
+            bgColor={"white"}
+          >
+            <VStack>
+              <Heading size={"lg"}>3214</Heading>
+              <Box>Total Feedbacks</Box>
+            </VStack>
+          </Flex>
+        </HStack>
+      </Box>
     </Flex>
   );
 };
