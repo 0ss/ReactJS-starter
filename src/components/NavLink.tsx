@@ -1,12 +1,20 @@
-import React from "react";
-import { Link } from "@chakra-ui/react";
+import React, { ReactNode } from "react";
+import { Box, Flex, Link, LinkProps } from "@chakra-ui/react";
 
-interface NavLinkProps {
+interface NavLinkProps extends LinkProps {
   name: string;
   url: string;
-  onClick? : () => void
+  icon?: ReactNode;
+  onClick?: () => void;
 }
-export const NavLink: React.FC<NavLinkProps> = ({ name, url,onClick }) => (
+export const NavLink: React.FC<NavLinkProps> = ({
+  name,
+  url,
+  icon,
+  fontSize,
+  fontFamily,
+  onClick,
+}) => (
   <Link
     px={2}
     py={1}
@@ -16,8 +24,13 @@ export const NavLink: React.FC<NavLinkProps> = ({ name, url,onClick }) => (
       bg: "gray.200",
     }}
     href={url}
+    fontSize={fontSize || "sm"}
+    fontWeight={fontFamily || "semibold"}
     onClick={onClick}
   >
-    {name}
+    <Flex verticalAlign={"bottom"}>
+      {icon}
+      <Box ml={2}>{name}</Box>
+    </Flex>
   </Link>
 );
