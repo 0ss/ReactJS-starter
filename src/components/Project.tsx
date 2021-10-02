@@ -19,7 +19,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
   const [authToken, setAuthToken] = useAuthToken();
   const location = useProjectLocation();
   return (
-    <Flex mx={{ base: "0", md: "20" }}>
+    <Flex mx={{ base: "3", md: "20" }}>
       <ProjectSidebar>
         <VStack spacing={5} align={"stretch"}>
           <NavLink
@@ -46,14 +46,14 @@ export const Project: React.FC<ProjectProps> = ({}) => {
             onClick={() => setAuthToken("")}
           />
         </VStack>
-        <Box p={20}>
+      </ProjectSidebar>
+      <Box p={20}>
           {Array(40)
             .fill(null)
             .map((e) => (
               <Heading>Hello world</Heading>
             ))}
         </Box>
-      </ProjectSidebar>
     </Flex>
   );
 };
