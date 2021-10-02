@@ -1,5 +1,5 @@
 import React, { ReactNode } from "react";
-import { Box, Flex, Link, LinkProps } from "@chakra-ui/react";
+import { Box, Center, Flex, HStack, Link, LinkProps } from "@chakra-ui/react";
 
 interface NavLinkProps extends LinkProps {
   name: string;
@@ -28,9 +28,11 @@ export const NavLink: React.FC<NavLinkProps> = ({
     fontWeight={fontFamily || "semibold"}
     onClick={onClick}
   >
-    <Flex verticalAlign={"bottom"}>
-      {icon}
-      <Box ml={2}>{name}</Box>
-    </Flex>
+    <HStack>
+      <Center>
+        {icon}
+        <Box ml={2}>{name}</Box>
+      </Center>
+    </HStack>
   </Link>
 );
