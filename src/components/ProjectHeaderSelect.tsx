@@ -26,13 +26,24 @@ export const ProjectHeaderSelect: React.FC<ProjectHeaderSelectProps> = () => {
 
   return (
     <>
-      <Menu >
+      <Menu>
         <MenuButton
+          shadow={"sm"}
+          borderRadius={"lg"}
+          border={"solid"}
+          borderWidth={"thin"}
+          borderColor={"gray.200"}
           fontWeight={"normal"}
           bg={"white"}
-          textAlign={'left'}
+          textAlign={"left"}
           as={Button}
-          w={'100%'}
+          w={"100%"}
+          _hover={{
+            backgroundColor: "white",
+          }}
+          _active={{
+            backgroundColor: "white",
+          }}
           rightIcon={<ChevronDownIcon />}
         >
           Projects

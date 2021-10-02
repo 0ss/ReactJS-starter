@@ -16,24 +16,25 @@ interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [authToken, setAuthToken] = useAuthToken();
-  const location = useProjectLocation()
+  const location = useProjectLocation();
   return (
-    <Flex mx={20}>
-      <Flex pos="sticky" py={"12"} w={"230px"} flexDir="column" as={"aside"}>
-        <Flex
-          pos="sticky"
-          top={12}
-          flexDir="column"
-          as="nav"
-          display={{ base: "none", md: "flex" }}
-        >
+    <Flex mx={{base:'0', md:'20'}}>
+      <Flex
+        display={{ base: "none", md: "flex" }}
+        pos="sticky"
+        py={"12"}
+        w={"230px"}
+        flexDir="column"
+        as={"aside"}
+      >
+        <Flex pos="sticky" top={12} flexDir="column" as="nav">
           <Box mb={20}>
             <Box mb={3} ml={1}>
               <Feedbackness width={120} />
             </Box>
             <ProjectHeaderSelect />
           </Box>
-          <VStack spacing={3} align={"stretch"}>
+          <VStack spacing={5} align={"stretch"}>
             <NavLink
               name={"Dashboard"}
               url={`${location}/`}
@@ -50,7 +51,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
               icon={<IoSettingsOutline size={18} />}
             />
           </VStack>
-          <VStack mt={20} spacing={3} align={"stretch"}>
+          <VStack mt={"48"} spacing={3} align={"stretch"}>
             <NavLink
               name={"Sign out"}
               icon={<VscSignOut size={18} />}
@@ -60,7 +61,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           </VStack>
         </Flex>
       </Flex>
-      <Box>
+      <Box p={20}>
         {Array(40)
           .fill(null)
           .map((e) => (
