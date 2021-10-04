@@ -11,7 +11,7 @@ export const AnalyticsCard: React.FC<AnalyticsCardProps> = ({
   desc,
 }) => {
   return (
-    <VStack w={'72'} p={10} borderRadius={"lg"} bgColor={"white"}>
+    <VStack w={'64'} p={10} borderRadius={"lg"} bgColor={"white"}>
       <Heading size={"lg"}>{heading}</Heading>
       <Box>{desc}</Box>
     </VStack>

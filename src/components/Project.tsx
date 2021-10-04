@@ -16,7 +16,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
   const [authToken, setAuthToken] = useAuthToken();
   const location = useProjectLocation();
   return (
-    <Flex mx={{ base: "3", md: "20" }} maxWidth={"max"}>
+    <Flex mx={{ base: "0", md: "14" }} maxWidth={"full"}>
       <ProjectSidebar>
         <VStack spacing={5} align={"stretch"}>
           <NavLink
@@ -44,7 +44,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           />
         </VStack>
       </ProjectSidebar>
-      <Box p={'16'}  w={"max"}>
+      <Box p={'14'} maxWidth={'full'} alignItems={'center'}>
         <Heading mb={5}>Analytics Overview</Heading>
         <Stack spacing={8}
          direction={['column','column','row']}>

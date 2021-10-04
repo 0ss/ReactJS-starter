@@ -13,39 +13,39 @@ export const ProjectSidebar: React.FC<ProjectSidebarProps> = ({ children }) => {
 
   return (
     <>
-        <Flex
-          display={{ base: isOpen ? "flex" : "none", md: "flex" }}
-          pos="sticky"
-          py={"12"}
-          w={"230px"}
-          flexDir="column"
-          as={"aside"}
-        >
-          <Flex pos="sticky" top={12} flexDir="column" as="nav">
-            <Box mb={20} as={"section"}>
-              <HStack mb={3} ml={1} as={"figure"}>
-                <Box display={{ base: "none", md: "flex" }}>
-                  <Feedbackness width={120} />
-                </Box>
-                <Box display={{ base: "flex", md: "none" }}>
-                  <FeedbacknessChar width={18} />
-                </Box>
-                <Spacer />
-                <IconButton
-                  size={"sm"}
-                  color={"gray.600"}
-                  mx={2}
-                  icon={<CloseIcon />}
-                  aria-label={"Close Menu"}
-                  display={{ md: "none" }}
-                  onClick={onClose}
-                />
-              </HStack>
-              <ProjectHeaderSelect />
-            </Box>
-          </Flex>
-          {children}
+      <Flex
+        display={{ base: isOpen ? "flex" : "none", md: "flex" }}
+        pos="sticky"
+        py={"4"}
+        flexDir="column"
+        as={"aside"}
+        w={'200px'}
+      >
+        <Flex pos="sticky" flexDir="column" as="nav">
+          <Box mb={20} as={"section"}>
+            <HStack mb={3} ml={1} as={"figure"}>
+              <Box display={{ base: "none", md: "flex" }}>
+                <Feedbackness width={120} />
+              </Box>
+              <Box display={{ base: "flex", md: "none" }}>
+                <FeedbacknessChar width={18} />
+              </Box>
+              <Spacer />
+              <IconButton
+                size={"sm"}
+                color={"gray.600"}
+                mx={2}
+                icon={<CloseIcon />}
+                aria-label={"Close Menu"}
+                display={{ md: "none" }}
+                onClick={onClose}
+              />
+            </HStack>
+            <ProjectHeaderSelect />
+          </Box>
         </Flex>
+        {children}
+      </Flex>
       {!isOpen && (
         <IconButton
           size={"lg"}
