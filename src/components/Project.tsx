@@ -44,7 +44,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           />
         </VStack>
       </ProjectSidebar>
-      <Box p={20} w={"full"}>
+      <Box p={'16'}  w={"max"}>
         <Heading mb={5}>Analytics Overview</Heading>
         <Stack spacing={8}
          direction={['column','column','row']}>
