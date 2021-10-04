@@ -37,6 +37,7 @@ export const ProjectHeaderSelect: React.FC<ProjectHeaderSelectProps> = () => {
           bg={"white"}
           textAlign={"left"}
           as={Button}
+          fontSize={"sm"}
           w={"100%"}
           _hover={{
             backgroundColor: "white",
@@ -48,7 +49,7 @@ export const ProjectHeaderSelect: React.FC<ProjectHeaderSelectProps> = () => {
         >
           Projects
         </MenuButton>
-        <MenuList>
+        <MenuList fontSize={"sm"}>
           <MenuItem>Todo List</MenuItem>
           <MenuItem>Senior Project</MenuItem>
           <MenuDivider />
