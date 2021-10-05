@@ -1,4 +1,13 @@
-import { Box, Divider, Heading, Spacer, Stack, VStack } from "@chakra-ui/layout";
+import {
+  Box,
+  Divider,
+  Heading,
+  Spacer,
+  Stack,
+  VStack,
+  Text,
+  HStack
+} from "@chakra-ui/layout";
 import { Flex } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineTeam } from "react-icons/ai";
@@ -57,22 +66,26 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           <AnalyticsCard m={"3"} heading={"3422"} desc={"Total Feedbacks"} />
           <AnalyticsCard heading={"3422"} desc={"Total Feedbacks"} />
         </Flex>
-        <Box fontSize={'sm'}>
-
-        </Box>
+        <Box fontSize={"sm"}></Box>
         <Stack
           mt={"3"}
           spacing={8}
           direction={["column", "column", "column", "row"]}
         >
-          <Box
-            p={"2"}
-            bg={"white"}
-            borderRadius={"lg"}
-            width={"full"}
-          >
-               <Box>dsf asd</Box>
-            <Box>dsf asd</Box>
+          <Box p={"2"} bg={"white"} borderRadius={"lg"} width={"full"}>
+            <Flex justifyContent={'space-evenly'}>
+            <VStack p={0} borderRadius={"lg"} bgColor={"white"}>
+              <Heading size={"md"}>33%</Heading>
+              <Text fontSize={'xs'}>Issue</Text>
+            </VStack>
+            <VStack p={0} borderRadius={"lg"} bgColor={"white"}>
+              <Heading size={"md"}>33%</Heading>
+              <Text fontSize={'xs'}>Idea</Text>
+            </VStack><VStack p={0} borderRadius={"lg"} bgColor={"white"}>
+              <Heading size={"md"}>33%</Heading>
+              <Text fontSize={'xs'}>Other</Text>
+            </VStack>
+            </Flex >
             <Divider />
             <VictoryPie
               colorScale={[
@@ -86,7 +99,6 @@ export const Project: React.FC<ProjectProps> = ({}) => {
                 { x: "Other", y: 55 },
               ]}
             />
-         
           </Box>
           <Spacer />
           <Box width={"full"} bg={"white"} p={"2"} borderRadius={"lg"}>
