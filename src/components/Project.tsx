@@ -47,7 +47,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
       <Box p={'14'} maxWidth={'full'} alignItems={'center'}>
         <Heading mb={5}>Analytics Overview</Heading>
         <Stack spacing={8}
-         direction={['column','column','row']}>
+         direction={['column','column','column','row']}>
           <AnalyticsCard heading={"3422"} desc={"Total Feedbacks"} />
           <AnalyticsCard heading={"3422"} desc={"Total Feedbacks"} />
           <AnalyticsCard heading={"3422"} desc={"Total Feedbacks"} />
