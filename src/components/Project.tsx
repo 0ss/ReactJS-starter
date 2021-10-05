@@ -1,4 +1,4 @@
-import { Box, Heading, Spacer, Stack, VStack } from "@chakra-ui/layout";
+import { Box, Divider, Heading, Spacer, Stack, VStack } from "@chakra-ui/layout";
 import { Flex } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineTeam } from "react-icons/ai";
@@ -11,6 +11,7 @@ import { AnalyticsCard } from "./AnalyticsCard";
 import { NavLink } from "./NavLink";
 import { ProjectSidebar } from "./ProjectSidebar";
 import { VictoryPie } from "victory";
+import { ArrowBackIcon, ArrowDownIcon } from "@chakra-ui/icons";
 interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const [authToken, setAuthToken] = useAuthToken();
@@ -56,20 +57,36 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           <AnalyticsCard m={"3"} heading={"3422"} desc={"Total Feedbacks"} />
           <AnalyticsCard heading={"3422"} desc={"Total Feedbacks"} />
         </Flex>
+        <Box fontSize={'sm'}>
+
+        </Box>
         <Stack
           mt={"3"}
           spacing={8}
           direction={["column", "column", "column", "row"]}
         >
-          <Box p={"2"} bg={"white"}  borderRadius={"lg"} width={"full"}>
+          <Box
+            p={"2"}
+            bg={"white"}
+            borderRadius={"lg"}
+            width={"full"}
+          >
+               <Box>dsf asd</Box>
+            <Box>dsf asd</Box>
+            <Divider />
             <VictoryPie
-              colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
+              colorScale={[
+                "var(--light-red)",
+                "var(--yellow)",
+                "var(--dull-gray)",
+              ]}
               data={[
-                { x: "Cats", y: 35 },
-                { x: "Dogs", y: 40 },
-                { x: "Birds", y: 55 },
+                { x: "Issue", y: 35 },
+                { x: "Idea", y: 40 },
+                { x: "Other", y: 55 },
               ]}
             />
+         
           </Box>
           <Spacer />
           <Box width={"full"} bg={"white"} p={"2"} borderRadius={"lg"}>
