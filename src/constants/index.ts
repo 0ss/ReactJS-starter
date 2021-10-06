@@ -36,6 +36,16 @@ export const COLOR_IDEA = "var(--yellow)"
 export const COLOR_OTHER = "var(--dull-gray)"
 
 /**
+ * EMOJIES
+ */
+export const EMOJI_VERY_HAPPY = ''
+export const EMOJI_HAPPY = ''
+export const EMOJI_NEUTRAL = ''
+export const EMOJI_SAD = ''
+export const EMOJI_VERY_SAD = ''
+
+
+/**
  * ENV
  */
 export const REACT_APP_GRAPHQL_URL = process.env.REACT_APP_GRAPHQL_URL
