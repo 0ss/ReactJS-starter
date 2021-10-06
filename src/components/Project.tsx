@@ -6,7 +6,7 @@ import {
   Stack,
   VStack,
   Text,
-  HStack
+  HStack,
 } from "@chakra-ui/layout";
 import { Flex } from "@chakra-ui/react";
 import React from "react";
@@ -19,8 +19,9 @@ import { useProjectLocation } from "../hooks/useProjectLocation";
 import { AnalyticsCard } from "./AnalyticsCard";
 import { NavLink } from "./NavLink";
 import { ProjectSidebar } from "./ProjectSidebar";
-import { VictoryPie } from "victory";
+import { VictoryPie, VictoryChart, VictoryBar } from "victory";
 import { ArrowBackIcon, ArrowDownIcon } from "@chakra-ui/icons";
+import { ChartStatLabel } from "./ChartStatLabel";
 interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const [authToken, setAuthToken] = useAuthToken();
@@ -73,26 +74,22 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           direction={["column", "column", "column", "row"]}
         >
           <Box p={"2"} bg={"white"} borderRadius={"lg"} width={"full"}>
-            <Flex justifyContent={'space-evenly'}>
-            <VStack p={0} borderRadius={"lg"} bgColor={"white"}>
-              <Heading size={"md"}>33%</Heading>
-              <Text fontSize={'xs'}>Issue</Text>
-            </VStack>
-            <VStack p={0} borderRadius={"lg"} bgColor={"white"}>
-              <Heading size={"md"}>33%</Heading>
-              <Text fontSize={'xs'}>Idea</Text>
-            </VStack><VStack p={0} borderRadius={"lg"} bgColor={"white"}>
-              <Heading size={"md"}>33%</Heading>
-              <Text fontSize={'xs'}>Other</Text>
-            </VStack>
-            </Flex >
+            <Flex justifyContent={"space-evenly"}>
+              <ChartStatLabel
+                perc={"33%"}
+                label={"issue"}
+                color={COLOR_ISSUE}
+              />
+              <ChartStatLabel perc={"33%"} label={"idea"} color={COLOR_IDEA} />{" "}
+              <ChartStatLabel
+                perc={"33%"}
+                label={"other"}
+                color={COLOR_OTHER}
+              />
+            </Flex>
             <Divider />
             <VictoryPie
-              colorScale={[
-                COLOR_ISSUE,
-                COLOR_IDEA,
-                COLOR_OTHER,
-              ]}
+              colorScale={[COLOR_ISSUE, COLOR_IDEA, COLOR_OTHER]}
               data={[
                 { x: "Issue", y: 35 },
                 { x: "Idea", y: 40 },
@@ -102,14 +99,17 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           </Box>
           <Spacer />
           <Box width={"full"} bg={"white"} p={"2"} borderRadius={"lg"}>
-            <VictoryPie
-              colorScale={["tomato", "orange", "gold", "cyan", "navy"]}
-              data={[
-                { x: "Cats", y: 35 },
-                { x: "Dogs", y: 40 },
-                { x: "Birds", y: 55 },
-              ]}
-            />
+            <VictoryChart
+            domainPadding={10}>
+              <VictoryBar
+                style={{ data: { fill: "#c43a31" } }}
+                data={[   { x: 1, y: 2, y0: 1 },
+                  { x: 2, y: 3, y0: 2 },
+                  { x: 3, y: 5, y0: 2 },
+                  { x: 4, y: 4, y0: 3 },
+                  { x: 5, y: 6, y0: 3 }]}
+              />
+            </VictoryChart>
           </Box>
         </Stack>
       </Box>
