@@ -13,7 +13,7 @@ import React from "react";
 import { AiOutlineTeam } from "react-icons/ai";
 import { IoAnalyticsOutline, IoSettingsOutline } from "react-icons/io5";
 import { VscSignOut } from "react-icons/vsc";
-import { ROUTES } from "../constants";
+import { COLOR_IDEA, COLOR_ISSUE, COLOR_OTHER, ROUTES } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
 import { useProjectLocation } from "../hooks/useProjectLocation";
 import { AnalyticsCard } from "./AnalyticsCard";
@@ -89,9 +89,9 @@ export const Project: React.FC<ProjectProps> = ({}) => {
             <Divider />
             <VictoryPie
               colorScale={[
-                "var(--light-red)",
-                "var(--yellow)",
-                "var(--dull-gray)",
+                COLOR_ISSUE,
+                COLOR_IDEA,
+                COLOR_OTHER,
               ]}
               data={[
                 { x: "Issue", y: 35 },

@@ -31,6 +31,9 @@ export const COLOR_MAIN_MEDIUM_DARK = "#A6B1E1"
 export const COLOR_MAIN_MEDIUM_LIGHT = "#DCD6F7"
 export const COLOR_MAIN_LIGHT = "#F4EEFF"
 export const COLOR_WHITE_LIGHT = "#F1F1F1"
+export const COLOR_ISSUE = "var(--light-red)"
+export const COLOR_IDEA = "var(--yellow)"
+export const COLOR_OTHER = "var(--dull-gray)"
 
 /**
  * ENV
