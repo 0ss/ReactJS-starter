@@ -1,8 +1,9 @@
+import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
   Box,
   Divider,
-  Heading, Stack,
-  VStack
+  Heading, HStack, Spacer, Stack,
+  VStack,
 } from "@chakra-ui/layout";
 import { Flex } from "@chakra-ui/react";
 import React from "react";
@@ -22,6 +23,7 @@ import { useProjectLocation } from "../hooks/useProjectLocation";
 import { AnalyticsCard } from "./AnalyticsCard";
 import { BarChartMenu } from "./BarChartMenu";
 import { ChartStatLabel } from "./ChartStatLabel";
+import { FeedbackCard } from "./FeedbackCard";
 import { NavLink } from "./NavLink";
 import { ProjectSidebar } from "./ProjectSidebar";
 
@@ -124,10 +126,8 @@ export const Project: React.FC<ProjectProps> = ({}) => {
             </VictoryChart>
           </Box>
         </Stack>
-        <Stack bgColor={'white'} mt={'72'}>
-          <Box>
-            Hello world
-          </Box>
+        <Stack bgColor={'white'} mt={'16'} >
+            <FeedbackCard />
         </Stack>
       </Box>
     </Flex>
