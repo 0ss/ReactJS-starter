@@ -1,41 +1,30 @@
 import {
   Box,
   Divider,
-  Heading,
-  Spacer,
-  Stack,
-  VStack,
-  Text,
-  HStack,
+  Heading, Stack,
+  VStack
 } from "@chakra-ui/layout";
-import { Flex, Select } from "@chakra-ui/react";
+import { Flex } from "@chakra-ui/react";
 import React from "react";
 import { AiOutlineTeam } from "react-icons/ai";
 import { IoAnalyticsOutline, IoSettingsOutline } from "react-icons/io5";
 import { VscSignOut } from "react-icons/vsc";
 import {
+  VictoryBar, VictoryChart, VictoryPie
+} from "victory";
+import {
   COLOR_IDEA,
-  COLOR_ISSUE,
-  COLOR_MAIN_DARK,
-  COLOR_OTHER,
-  ROUTES,
+  COLOR_ISSUE, COLOR_OTHER,
+  ROUTES
 } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
 import { useProjectLocation } from "../hooks/useProjectLocation";
 import { AnalyticsCard } from "./AnalyticsCard";
+import { BarChartMenu } from "./BarChartMenu";
+import { ChartStatLabel } from "./ChartStatLabel";
 import { NavLink } from "./NavLink";
 import { ProjectSidebar } from "./ProjectSidebar";
-import {
-  VictoryPie,
-  VictoryChart,
-  VictoryBar,
-  VictoryArea,
-  VictoryTooltip,
-} from "victory";
-import { ArrowBackIcon, ArrowDownIcon } from "@chakra-ui/icons";
-import { ChartStatLabel } from "./ChartStatLabel";
-import ReactFrappeChart from "react-frappe-charts";
-import { BarChartMenu } from "./BarChartMenu";
+
 interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const [authToken, setAuthToken] = useAuthToken();
@@ -84,10 +73,10 @@ export const Project: React.FC<ProjectProps> = ({}) => {
         <Box fontSize={"sm"}></Box>
         <Stack
           mt={"3"}
-          w={'auto'}
+          w={"auto"}
           direction={["column", "column", "column", "row"]}
         >
-          <Box  p={"2"} bg={"white"} borderRadius={"lg"}>
+          <Box p={"2"} bg={"white"} borderRadius={"lg"}>
             <Flex justifyContent={"space-evenly"}>
               <ChartStatLabel
                 perc={"33%"}
@@ -125,10 +114,6 @@ export const Project: React.FC<ProjectProps> = ({}) => {
                         : COLOR_OTHER,
                   },
                 }}
-                animate={{
-                  duration: 2000,
-                  onLoad: { duration: 1000 },
-                }}
                 labels={({ datum }) => `${datum.y}`}
                 data={[
                   { x: "issue", y: 27, y0: 0 },
@@ -137,6 +122,11 @@ export const Project: React.FC<ProjectProps> = ({}) => {
                 ]}
               />
             </VictoryChart>
+          </Box>
+        </Stack>
+        <Stack bgColor={'white'} mt={'72'}>
+          <Box>
+            Hello world
           </Box>
         </Stack>
       </Box>
