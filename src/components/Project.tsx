@@ -35,6 +35,7 @@ import {
 import { ArrowBackIcon, ArrowDownIcon } from "@chakra-ui/icons";
 import { ChartStatLabel } from "./ChartStatLabel";
 import ReactFrappeChart from "react-frappe-charts";
+import { BarChartMenu } from "./BarChartMenu";
 interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const [authToken, setAuthToken] = useAuthToken();
@@ -111,11 +112,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
             />
           </Box>
           <Box bg={"white"} p={"2"} borderRadius={"lg"}>
-            <Select>
-              <option>
-                d
-              </option>
-            </Select>
+            <BarChartMenu />
             <VictoryChart domainPadding={20}>
               <VictoryBar
                 style={{
