@@ -9,7 +9,9 @@ import React from "react";
 import { AiOutlineTeam } from "react-icons/ai";
 import { IoAnalyticsOutline, IoSettingsOutline } from "react-icons/io5";
 import { VscSignOut } from "react-icons/vsc";
-
+import {
+  VictoryBar, VictoryChart, VictoryPie
+} from "victory";
 import {
   COLOR_IDEA,
   COLOR_ISSUE, COLOR_OTHER,
@@ -22,10 +24,6 @@ import { BarChartMenu } from "./BarChartMenu";
 import { ChartStatLabel } from "./ChartStatLabel";
 import { NavLink } from "./NavLink";
 import { ProjectSidebar } from "./ProjectSidebar";
-
-const VictoryBar = React.lazy(() => import('victory').then(module => ({default: module.VictoryBar})))
-const VictoryChart = React.lazy(() => import('victory').then(module => ({default: module.VictoryChart})))
-const VictoryPie = React.lazy(() => import('victory').then(module => ({default: module.VictoryPie})))
 
 interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
