@@ -25,6 +25,7 @@ export const FeedbackCard = ({}) => {
       borderColor={"transparent"}
       p={"3"}
       w={"full"}
+      shadow={'md'}
       _hover={{
         textDecoration: "none",
         border: "1px",
