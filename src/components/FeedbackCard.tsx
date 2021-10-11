@@ -87,7 +87,12 @@ export const FeedbackCard = ({}) => {
               COUNTRY
             </Text>
             <Text fontSize={"sm"}>
-              <ReactCountryFlag countryCode="SA" />
+              <img
+                src={`https://flagcdn.com/20x15/${"sa"}.png`}
+                loading="lazy"
+                alt="flag"
+              />
+              {/* <ReactCountryFlag countryCode="SA" /> */}
             </Text>
           </VStack>
           <VStack spacing={"0"} alignItems={"left"}>
