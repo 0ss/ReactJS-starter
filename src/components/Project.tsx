@@ -2,7 +2,10 @@ import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
   Box,
   Divider,
-  Heading, HStack, Spacer, Stack,
+  Heading,
+  HStack,
+  Spacer,
+  Stack,
   VStack,
 } from "@chakra-ui/layout";
 import { Flex } from "@chakra-ui/react";
@@ -10,14 +13,8 @@ import React from "react";
 import { AiOutlineTeam } from "react-icons/ai";
 import { IoAnalyticsOutline, IoSettingsOutline } from "react-icons/io5";
 import { VscSignOut } from "react-icons/vsc";
-import {
-  VictoryBar, VictoryChart, VictoryPie
-} from "victory";
-import {
-  COLOR_IDEA,
-  COLOR_ISSUE, COLOR_OTHER,
-  ROUTES
-} from "../constants";
+import { VictoryBar, VictoryChart, VictoryPie } from "victory";
+import { COLOR_IDEA, COLOR_ISSUE, COLOR_OTHER, ROUTES } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
 import { useProjectLocation } from "../hooks/useProjectLocation";
 import { AnalyticsCard } from "./AnalyticsCard";
@@ -126,10 +123,30 @@ export const Project: React.FC<ProjectProps> = ({}) => {
             </VictoryChart>
           </Box>
         </Stack>
-        <Stack bgColor={'white'} mt={'16'} >
-            <FeedbackCard />
-        </Stack>
+        <VStack
+          spacing={"8"}
+          bgColor={'white'}
+          mt={"16"}
+          h={"full"}
+          borderRadius={"lg"}
+          alignItems={'start'}
+          width={'full'}
+        >
+          {Array(15)
+            .fill(null)
+            .map((e) => (
+              <>
+              <FeedbackCard />
+              </>
+
+            ))}
+        </VStack>
       </Box>
     </Flex>
   );
 };
+
+
+
+
+
