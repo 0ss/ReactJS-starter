@@ -11,11 +11,16 @@ import {
   useDisclosure,
   ScaleFade,
   Button,
+  Code,
 } from "@chakra-ui/react";
 import React from "react";
 //@ts-ignore
 import ReactCountryFlag from "react-country-flag";
-import { COLOR_MAIN_DARK, COLOR_MAIN_LIGHT, COLOR_MAIN_MEDIUM_DARK } from "../constants";
+import {
+  COLOR_MAIN_DARK,
+  COLOR_MAIN_LIGHT,
+  COLOR_MAIN_MEDIUM_DARK,
+} from "../constants";
 import { FeedbackTags } from "./FeedbackTags";
 
 interface FeedbackCardProps {}
@@ -27,13 +32,14 @@ export const FeedbackCard = ({}) => {
       cursor={!isOpen ? "pointer" : "default"}
       onClick={!isOpen ? onToggle : () => null}
       flexDir="column"
-      borderRadius={"lg"}
-      transition={'all'}
+      transition={"all"}
       borderColor={"transparent"}
       p={"3"}
-      shadow={isOpen ? 'md' :'none'}
+      shadow={isOpen ? "md" : "none"}
       w={"full"}
-    
+      _hover={{
+        backgroundColor:!isOpen ? 'gray.200' : ''
+      }}
     >
       <VStack spacing={"3"}>
         <Stack direction={["column", "column", "row"]} w={"full"}>
@@ -155,11 +161,40 @@ export const FeedbackCard = ({}) => {
               mt={"5"}
             >
               <Spacer />
-              <Button _hover={{
-                backgroundColor:COLOR_MAIN_MEDIUM_DARK
-              }} size={'sm'} bgColor={COLOR_MAIN_MEDIUM_DARK} color={'white'}>
+              <Button
+                _hover={{
+                  backgroundColor: COLOR_MAIN_MEDIUM_DARK,
+                }}
+                size={"sm"}
+                bgColor={COLOR_MAIN_MEDIUM_DARK}
+                color={"white"}
+              >
                 Archive
               </Button>
+            </Stack>
+            <Stack
+              spacing={["1", "2", "16"]}
+              direction={["column", "column", "row"]}
+              mt={"5"}
+            >
+              <VStack spacing={"0"} alignItems={"left"}>
+                <Text
+                  fontSize={"xs"}
+                  fontWeight={"semibold"}
+                  color={"gray.500"}
+                >
+                  <code>
+                    METADATA
+                  </code>
+                </Text>
+                <Text fontSize={"sm"}>
+                  <img
+                    src={`https://flagcdn.com/20x15/${"sa"}.png`}
+                    loading="lazy"
+                    alt="flag"
+                  />
+                </Text>
+              </VStack>
             </Stack>
           </Box>
         </ScaleFade>

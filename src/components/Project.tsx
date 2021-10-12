@@ -124,29 +124,24 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           </Box>
         </Stack>
         <VStack
-          bgColor={'white'}
+          bgColor={"white"}
           mt={"16"}
           h={"full"}
+          spacing={0}
           borderRadius={"lg"}
-          alignItems={'start'}
-          width={'full'}
+          alignItems={"start"}
+          width={"full"}
         >
           {Array(15)
             .fill(null)
             .map((e) => (
               <>
-              <FeedbackCard />
-              <Divider />
+                <FeedbackCard />
+                <Divider />
               </>
-
             ))}
         </VStack>
       </Box>
     </Flex>
   );
 };
-
-
-
-
-
