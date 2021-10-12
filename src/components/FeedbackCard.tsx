@@ -12,6 +12,7 @@ import {
 import React from "react";
 //@ts-ignore
 import ReactCountryFlag from "react-country-flag";
+import { FeedbackTags } from "./FeedbackTags";
 
 interface FeedbackCardProps {}
 
@@ -32,9 +33,9 @@ export const FeedbackCard = ({}) => {
         borderColor: "gray.500",
       }}
     >
-      <VStack spacing={"5"}>
+      <VStack spacing={"3"}>
         <Stack direction={["column", "column", "row"]} w={"full"}>
-          <Text>Text</Text>
+          <FeedbackTags type={'other'} />
           <Spacer />
           <Text fontSize={"sm"} color={"gray"}>
             2 months ago

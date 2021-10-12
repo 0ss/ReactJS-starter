@@ -83,8 +83,8 @@ body {
   --dark: #333342;
   --light-red: #ff7474;
   --orange: #ff845d;
-  --green: #00b85c;
-  --light-green: rgba(64, 190, 136, 0.1);
+  --green: rgb(255, 0, 0);
+  
   --gray: #527189;
   --dark-gray: #333342;
   --light-gray: #666c7e;
@@ -108,4 +108,5 @@ body {
   --base: #fff;
   --inverse-of-base: #333342;
   --bg-color-main: rgb(237,242,247);
+
 }

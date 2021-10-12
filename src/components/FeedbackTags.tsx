@@ -1,13 +1,17 @@
-import React from 'react'
+import { Badge, Box, Center } from "@chakra-ui/layout";
+import React from "react";
+import { COLOR_ISSUE } from "../constants";
 
 interface FeedbackTagsProps {
-    
+  type: "issue" | "idea" | "other";
 }
 
-export const FeedbackTags = ({}) => {
-    return (
-        <div>
-            
-        </div>
-    )
-}
+export const FeedbackTags: React.FC<FeedbackTagsProps> = ({ type }) => {
+  const colors = {
+    issue: "red",
+    idea: "yellow",
+    other: "gray",
+  };
+
+  return <Badge colorScheme={colors[type!]}>ISSUE</Badge>;
+};
