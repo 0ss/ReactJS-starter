@@ -12,6 +12,7 @@ export const FeedbackTags: React.FC<FeedbackTagsProps> = ({ type }) => {
     idea: "yellow",
     other: "gray",
   };
+  console.log(colors[type!]);
 
-  return <Badge colorScheme={colors[type!]}>ISSUE</Badge>;
+  return <Badge colorScheme={colors[type!]}>{type.toUpperCase()}</Badge>;
 };
