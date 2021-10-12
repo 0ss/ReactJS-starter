@@ -9,31 +9,31 @@ import {
   Link,
   Stack,
   useDisclosure,
+  ScaleFade,
+  Button,
 } from "@chakra-ui/react";
 import React from "react";
 //@ts-ignore
 import ReactCountryFlag from "react-country-flag";
+import { COLOR_MAIN_DARK, COLOR_MAIN_LIGHT, COLOR_MAIN_MEDIUM_DARK } from "../constants";
 import { FeedbackTags } from "./FeedbackTags";
 
 interface FeedbackCardProps {}
 
 export const FeedbackCard = ({}) => {
-  const { onOpen, onClose, isOpen } = useDisclosure();
+  const { onOpen, onClose, isOpen, onToggle } = useDisclosure();
   return (
     <Flex
-      cursor={"pointer"}
+      cursor={!isOpen ? "pointer" : "default"}
+      onClick={!isOpen ? onToggle : () => null}
       flexDir="column"
       borderRadius={"lg"}
-      border={"1px"}
+      transition={'all'}
       borderColor={"transparent"}
       p={"3"}
+      shadow={isOpen ? 'md' :'none'}
       w={"full"}
-      shadow={"md"}
-      _hover={{
-        textDecoration: "none",
-        border: "1px",
-        borderColor: "gray.500",
-      }}
+    
     >
       <VStack spacing={"3"}>
         <Stack direction={["column", "column", "row"]} w={"full"}>
@@ -55,69 +55,114 @@ export const FeedbackCard = ({}) => {
           </span>
           <Spacer />
           {isOpen ? (
-            <ChevronUpIcon onClick={onClose} />
+            <ChevronUpIcon cursor={"pointer"} onClick={onToggle} />
           ) : (
-            <ChevronDownIcon onClick={onOpen} />
+            <ChevronDownIcon cursor={"pointer"} onClick={onToggle} />
           )}
         </Stack>
       </VStack>
       {isOpen && (
-        <Box mt={"5"}>
-          <Stack
-            direction={["column", "column", "row"]}
-            spacing={["1", "2", "16"]}
-          >
-            <VStack spacing={"0"} alignItems={"left"}>
-              <Text fontSize={"xs"} fontWeight={"semibold"} color={"gray.500"}>
-                PAGE
-              </Text>
-              <Link fontSize={"sm"}>https://www.google.com/hello/world</Link>
-            </VStack>
-            <VStack spacing={"0"} alignItems={"left"}>
-              <Text fontSize={"xs"} fontWeight={"semibold"} color={"gray.500"}>
-                IMAGE
-              </Text>
-              <Text fontSize={"sm"}>SA</Text>
-            </VStack>
-            <VStack spacing={"0"} alignItems={"left"}>
-              <Text fontSize={"xs"} fontWeight={"semibold"} color={"gray.500"}>
-                DEVICE
-              </Text>
-              <Text fontSize={"sm"}>Tablet </Text>
-            </VStack>
-          </Stack>
-          <Stack
-            spacing={["1", "2", "16"]}
-            direction={["column", "column", "row"]}
-            mt={"5"}
-          >
-            <VStack spacing={"0"} alignItems={"left"}>
-              <Text fontSize={"xs"} fontWeight={"semibold"} color={"gray.500"}>
-                COUNTRY
-              </Text>
-              <Text fontSize={"sm"}>
-                <img
-                  src={`https://flagcdn.com/20x15/${"sa"}.png`}
-                  loading="lazy"
-                  alt="flag"
-                />
-                {/* <ReactCountryFlag countryCode="SA" /> */}
-              </Text>
-            </VStack>
-            <VStack spacing={"0"} alignItems={"left"}>
-              <Text fontSize={"xs"} fontWeight={"semibold"} color={"gray.500"}>
-                BROWSER
-              </Text>
-              <Text fontSize={"sm"}>Chrome 10</Text>
-            </VStack>
-            <VStack spacing={"0"} alignItems={"left"}>
-              <Text fontSize={"xs"} fontWeight={"semibold"} color={"gray.500"}>
-                OS
-              </Text>
-              <Text fontSize={"sm"}>Windows 10</Text>
-            </VStack>
-          </Stack>
-        </Box>
+        <ScaleFade initialScale={0.9} in={isOpen}>
+          <Box mt={"5"}>
+            <Stack
+              direction={["column", "column", "row"]}
+              spacing={["1", "2", "16"]}
+            >
+              <VStack spacing={"0"} alignItems={"left"}>
+                <Text
+                  fontSize={"xs"}
+                  fontWeight={"semibold"}
+                  color={"gray.500"}
+                >
+                  PAGE
+                </Text>
+                <Link
+                  href={"https://www.google.com/hello/world"}
+                  as={"a"}
+                  target={"_blank"}
+                  fontSize={"sm"}
+                >
+                  https://www.google.com/hello/world
+                </Link>
+              </VStack>
+              <VStack spacing={"0"} alignItems={"left"}>
+                <Text
+                  fontSize={"xs"}
+                  fontWeight={"semibold"}
+                  color={"gray.500"}
+                >
+                  IMAGE
+                </Text>
+                <Text fontSize={"sm"}>SA</Text>
+              </VStack>
+              <VStack spacing={"0"} alignItems={"left"}>
+                <Text
+                  fontSize={"xs"}
+                  fontWeight={"semibold"}
+                  color={"gray.500"}
+                >
+                  DEVICE
+                </Text>
+                <Text fontSize={"sm"}>Tablet </Text>
+              </VStack>
+            </Stack>
+            <Stack
+              spacing={["1", "2", "16"]}
+              direction={["column", "column", "row"]}
+              mt={"5"}
+            >
+              <VStack spacing={"0"} alignItems={"left"}>
+                <Text
+                  fontSize={"xs"}
+                  fontWeight={"semibold"}
+                  color={"gray.500"}
+                >
+                  COUNTRY
+                </Text>
+                <Text fontSize={"sm"}>
+                  <img
+                    src={`https://flagcdn.com/20x15/${"sa"}.png`}
+                    loading="lazy"
+                    alt="flag"
+                  />
+                  {/* <ReactCountryFlag countryCode="SA" /> */}
+                </Text>
+              </VStack>
+              <VStack spacing={"0"} alignItems={"left"}>
+                <Text
+                  fontSize={"xs"}
+                  fontWeight={"semibold"}
+                  color={"gray.500"}
+                >
+                  BROWSER
+                </Text>
+                <Text fontSize={"sm"}>Chrome 10</Text>
+              </VStack>
+              <VStack spacing={"0"} alignItems={"left"}>
+                <Text
+                  fontSize={"xs"}
+                  fontWeight={"semibold"}
+                  color={"gray.500"}
+                >
+                  OS
+                </Text>
+                <Text fontSize={"sm"}>Windows 10</Text>
+              </VStack>
+            </Stack>
+            <Stack
+              spacing={["1", "2", "16"]}
+              direction={["column", "column", "row"]}
+              mt={"5"}
+            >
+              <Spacer />
+              <Button _hover={{
+                backgroundColor:COLOR_MAIN_MEDIUM_DARK
+              }} size={'sm'} bgColor={COLOR_MAIN_MEDIUM_DARK} color={'white'}>
+                Archive
+              </Button>
+            </Stack>
+          </Box>
+        </ScaleFade>
       )}
     </Flex>
   );

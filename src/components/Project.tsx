@@ -124,7 +124,6 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           </Box>
         </Stack>
         <VStack
-          spacing={"8"}
           bgColor={'white'}
           mt={"16"}
           h={"full"}
@@ -137,6 +136,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
             .map((e) => (
               <>
               <FeedbackCard />
+              <Divider />
               </>
 
             ))}
