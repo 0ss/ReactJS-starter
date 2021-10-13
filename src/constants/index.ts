@@ -31,7 +31,7 @@ export const COLOR_MAIN_MEDIUM_DARK = "#A6B1E1"
 export const COLOR_MAIN_MEDIUM_LIGHT = "#DCD6F7"
 export const COLOR_MAIN_LIGHT = "#F4EEFF"
 export const COLOR_WHITE_LIGHT = "#F1F1F1"
-export const COLOR_ISSUE = "var(--chakra-colors-red-200)"
+export const COLOR_ISSUE = "var(--chakra-colors-red-400)"
 export const COLOR_IDEA = "var(--chakra-colors-yellow-300)"
 export const COLOR_OTHER = "var(--chakra-colors-gray-500)"
 
