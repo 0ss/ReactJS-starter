@@ -36,7 +36,7 @@ export const BarChartMenu = ({}) => {
           }}
           rightIcon={<ChevronDownIcon />}
         >
-          Today
+          All
         </MenuButton>
         <MenuList fontSize={"sm"}>
           <MenuItem>Today</MenuItem>
