@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 import { BsCalendar } from "react-icons/bs";
-
+import { ALL, LAST_6_MONTHS, LAST_MONTH, LAST_WEEK, TODAY } from '../constants'
 interface BarChartMenuProps {}
 export const BarChartMenu = ({}) => {
   return (
@@ -22,13 +22,13 @@ export const BarChartMenu = ({}) => {
         size={"sm"}
         borderRadius={"lg"}
       >
-        <option value="all" selected>
+        <option value={ALL} selected>
           All
         </option>
-        <option value="today">Today</option>
-        <option value="last_week">Last Week</option>
-        <option value="last_month">Last Month</option>
-        <option value="last_6_months">Last 6 Months</option>
+        <option value={TODAY}>Today</option>
+        <option value={LAST_WEEK}>Last Week</option>
+        <option value={LAST_MONTH}>Last Month</option>
+        <option value={LAST_6_MONTHS}>Last 6 Months</option>
       </Select>
     </>
   );
