@@ -5,46 +5,31 @@ import {
   MenuButton,
   MenuItem,
   MenuList,
+  Select,
   useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 import { BsCalendar } from "react-icons/bs";
-interface BarChartMenuProps {}
 
+interface BarChartMenuProps {}
 export const BarChartMenu = ({}) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <>
-      <Menu>
-        <MenuButton
-          shadow={"sm"}
-          borderRadius={"lg"}
-          border={"solid"}
-          borderWidth={"thin"}
-          borderColor={"gray.200"}
-          fontWeight={"normal"}
-          bg={"white"}
-          textAlign={"left"}
-          as={Button}
-          fontSize={"sm"}
-          w={"100%"}
-          _hover={{
-            backgroundColor: "white",
-          }}
-          _active={{
-            backgroundColor: "white",
-          }}
-          rightIcon={<ChevronDownIcon />}
-        >
+      <Select
+        onChange={(e) => {
+          console.log(e.target.value);
+        }}
+        size={"sm"}
+        borderRadius={"lg"}
+      >
+        <option value="all" selected>
           All
-        </MenuButton>
-        <MenuList fontSize={"sm"}>
-          <MenuItem>Today</MenuItem>
-          <MenuItem>Last Week</MenuItem>
-          <MenuItem>Last Month</MenuItem>
-          <MenuItem>Last 6 Month</MenuItem>
-        </MenuList>
-      </Menu>
+        </option>
+        <option value="today">Today</option>
+        <option value="last_week">Last Week</option>
+        <option value="last_month">Last Month</option>
+        <option value="last_6_months">Last 6 Months</option>
+      </Select>
     </>
   );
 };
