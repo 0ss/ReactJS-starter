@@ -56,7 +56,11 @@ export const LAST_6_MONTHS = "last_6_months";
 /**
  * Project Feedback Type
  */
-// export const ALL_FEEDBACK = 
+export const ALL_FEEDBACK = "all_feedback"
+export const ISSUE = "ISSUE"
+export const IDEA = "IDEA"
+export const OTHER = "OTHER"
+
 /**
  * ENV
  */
