@@ -17,6 +17,7 @@ import { VictoryBar, VictoryChart, VictoryPie } from "victory";
 import { COLOR_IDEA, COLOR_ISSUE, COLOR_OTHER, ROUTES } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
 import { useProjectLocation } from "../hooks/useProjectLocation";
+import { ProjectStore, useProjectStore } from "../hooks/useStore";
 import { AnalyticsCard } from "./AnalyticsCard";
 import { BarChartMenu } from "./BarChartMenu";
 import { ChartStatLabel } from "./ChartStatLabel";
@@ -28,6 +29,7 @@ interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const [authToken, setAuthToken] = useAuthToken();
   const location = useProjectLocation();
+
   return (
     <Flex mx={{ base: "0", md: "14" }} maxWidth={"full"}>
       <ProjectSidebar>
