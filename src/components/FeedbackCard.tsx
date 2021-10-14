@@ -14,13 +14,15 @@ import {
   Code,
 } from "@chakra-ui/react";
 import React from "react";
-//@ts-ignore
-import ReactCountryFlag from "react-country-flag";
 import {
   COLOR_MAIN_DARK,
   COLOR_MAIN_LIGHT,
   COLOR_MAIN_MEDIUM_DARK,
+  IDEA,
+  ISSUE,
+  OTHER,
 } from "../constants";
+import { random } from "../utils/random";
 import { FeedbackTags } from "./FeedbackTags";
 
 interface FeedbackCardProps {}
@@ -38,12 +40,12 @@ export const FeedbackCard = ({}) => {
       shadow={isOpen ? "md" : "none"}
       w={"full"}
       _hover={{
-        backgroundColor:!isOpen ? 'gray.200' : ''
+        backgroundColor: !isOpen ? "gray.200" : "",
       }}
     >
       <VStack spacing={"3"}>
         <Stack direction={["column", "column", "row"]} w={"full"}>
-          <FeedbackTags type={"idea"} />
+          <FeedbackTags type={random([ISSUE, IDEA, OTHER])} />
           <Spacer />
           <Text fontSize={"sm"} color={"gray"}>
             2 months ago
@@ -183,9 +185,7 @@ export const FeedbackCard = ({}) => {
                   fontWeight={"semibold"}
                   color={"gray.500"}
                 >
-                  <code>
-                    METADATA
-                  </code>
+                  <code>METADATA</code>
                 </Text>
                 <Text fontSize={"sm"}>
                   <img
