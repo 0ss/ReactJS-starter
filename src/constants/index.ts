@@ -45,7 +45,7 @@ export const EMOJI_SAD = "";
 export const EMOJI_VERY_SAD = "";
 
 /**
- * BarCharMenu src\components\BarChartMenu.tsx option values
+ * Project time range
  */
 export const ALL = "today";
 export const TODAY = "today";
