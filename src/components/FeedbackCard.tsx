@@ -25,9 +25,31 @@ import {
 import { random } from "../utils/random";
 import { FeedbackTags } from "./FeedbackTags";
 
-interface FeedbackCardProps {}
+interface FeedbackCardProps {
+  type: typeof ISSUE | typeof IDEA | typeof OTHER;
+  content: string;
+  date: string;
+  page: string;
+  image: string;
+  device: "tablet " | "smartphone" | "desktop";
+  country: string;
+  os: string;
+  browser: string;
+  metadata: Object;
+}
 
-export const FeedbackCard = ({}) => {
+export const FeedbackCard: React.FC<FeedbackCardProps> = ({
+  type,
+  content,
+  date,
+  page,
+  image,
+  device,
+  country,
+  os,
+  browser,
+  metadata,
+}) => {
   const { onOpen, onClose, isOpen, onToggle } = useDisclosure();
   return (
     <Flex
@@ -45,10 +67,10 @@ export const FeedbackCard = ({}) => {
     >
       <VStack spacing={"3"}>
         <Stack direction={["column", "column", "row"]} w={"full"}>
-          <FeedbackTags type={random([ISSUE, IDEA, OTHER])} />
+          <FeedbackTags type={type} />
           <Spacer />
           <Text fontSize={"sm"} color={"gray"}>
-            2 months ago
+            {date}
           </Text>
         </Stack>
         <Stack
@@ -57,10 +79,7 @@ export const FeedbackCard = ({}) => {
           wordBreak={"break-word"}
           w={"full"}
         >
-          <span>
-            adiojas ioasjdiosaj oijasdio jaoijdaios joiajdio ajiodoaijd ojiij
-            dijjij ij ij
-          </span>
+          <span>{content}</span>
           <Spacer />
           {isOpen ? (
             <ChevronUpIcon cursor={"pointer"} onClick={onToggle} />
@@ -90,7 +109,7 @@ export const FeedbackCard = ({}) => {
                   target={"_blank"}
                   fontSize={"sm"}
                 >
-                  https://www.google.com/hello/world
+                  {page}
                 </Link>
               </VStack>
               <VStack spacing={"0"} alignItems={"left"}>
@@ -99,7 +118,7 @@ export const FeedbackCard = ({}) => {
                   fontWeight={"semibold"}
                   color={"gray.500"}
                 >
-                  IMAGE
+                  {image}
                 </Text>
                 <Text fontSize={"sm"}>SA</Text>
               </VStack>
@@ -111,7 +130,7 @@ export const FeedbackCard = ({}) => {
                 >
                   DEVICE
                 </Text>
-                <Text fontSize={"sm"}>Tablet </Text>
+                <Text fontSize={"sm"}>{device}</Text>
               </VStack>
             </Stack>
             <Stack
@@ -129,7 +148,7 @@ export const FeedbackCard = ({}) => {
                 </Text>
                 <Text fontSize={"sm"}>
                   <img
-                    src={`https://flagcdn.com/20x15/${"sa"}.png`}
+                    src={`https://flagcdn.com/20x15/${country}.png`}
                     loading="lazy"
                     alt="flag"
                   />
@@ -144,7 +163,7 @@ export const FeedbackCard = ({}) => {
                 >
                   BROWSER
                 </Text>
-                <Text fontSize={"sm"}>Chrome 10</Text>
+                <Text fontSize={"sm"}>{browser}</Text>
               </VStack>
               <VStack spacing={"0"} alignItems={"left"}>
                 <Text
@@ -154,7 +173,7 @@ export const FeedbackCard = ({}) => {
                 >
                   OS
                 </Text>
-                <Text fontSize={"sm"}>Windows 10</Text>
+                <Text fontSize={"sm"}>{os}</Text>
               </VStack>
             </Stack>
             <Stack

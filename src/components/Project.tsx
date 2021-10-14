@@ -29,7 +29,6 @@ interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const [authToken, setAuthToken] = useAuthToken();
   const location = useProjectLocation();
-
   return (
     <Flex mx={{ base: "0", md: "14" }} maxWidth={"full"}>
       <ProjectSidebar>
