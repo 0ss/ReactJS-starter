@@ -1,16 +1,8 @@
-import { ChevronDownIcon } from "@chakra-ui/icons";
 import {
-  Button,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
-  Select,
-  useDisclosure,
+  Select
 } from "@chakra-ui/react";
 import React from "react";
-import { BsCalendar } from "react-icons/bs";
-import { ALL_TIME, LAST_6_MONTHS, LAST_MONTH, LAST_WEEK, TODAY } from '../constants'
+import { ALL_TIME, LAST_6_MONTHS, LAST_MONTH, LAST_WEEK, TODAY } from '../constants';
 interface BarChartMenuProps {}
 export const BarChartMenu = ({}) => {
   return (
