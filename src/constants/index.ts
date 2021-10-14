@@ -47,12 +47,16 @@ export const EMOJI_VERY_SAD = "";
 /**
  * Project time range
  */
-export const ALL = "today";
+export const ALL_TIME = "all_time";
 export const TODAY = "today";
 export const LAST_WEEK = "last_week";
 export const LAST_MONTH = "month";
 export const LAST_6_MONTHS = "last_6_months";
 
+/**
+ * Project Feedback Type
+ */
+// export const ALL_FEEDBACK = 
 /**
  * ENV
  */
