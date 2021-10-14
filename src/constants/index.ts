@@ -6,7 +6,8 @@ export const enum ROUTES {
 
   SIGN_UP = "/signup",
   SIGN_IN = "/signin",
-  RESET_PASSWORD = "/reset-password/:token",
+  RESET_PASSWORD = "/reset-password/",
+  CONFIRM_RESET_PASSWORD = "/reset-password/:token",
   PROJECT = "/project/:id",
   PROJECT_TEAM = "project/:id/team",
   ANALYTICS = "project/:id/analytics",

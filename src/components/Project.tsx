@@ -18,6 +18,7 @@ import { COLOR_IDEA, COLOR_ISSUE, COLOR_OTHER, ROUTES } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
 import { useProjectLocation } from "../hooks/useProjectLocation";
 import { ProjectStore, useProjectStore } from "../hooks/useStore";
+import { random } from "../utils/random";
 import { AnalyticsCard } from "./AnalyticsCard";
 import { BarChartMenu } from "./BarChartMenu";
 import { ChartStatLabel } from "./ChartStatLabel";
@@ -135,9 +136,21 @@ export const Project: React.FC<ProjectProps> = ({}) => {
         >
           {Array(15)
             .fill(null)
-            .map((e) => (
+            .map((e,i) => (
               <>
-                <FeedbackCard />
+                <FeedbackCard 
+                browser={random(['Chrome','FireFox','Edge'])}
+                content={'Lorem publishing industries for previewing layouts and visual mockups'}
+                country={'sa'}
+                date={new Date().toString()}
+                device={'tablet '}
+                type={'issue'}
+                image={'ss'}
+                metadata={{}}
+                os={'windows'}
+                page={'ss'}
+                key={i}
+                />
                 <Divider />
               </>
             ))}
