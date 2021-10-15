@@ -25,10 +25,10 @@ import {
 import { random } from "../utils/random";
 import { FeedbackTags } from "./FeedbackTags";
 
-interface FeedbackCardProps {
+export interface FeedbackCardProps {
   type: typeof ISSUE | typeof IDEA | typeof OTHER;
   content: string;
-  date: string;
+  date: string | Date;
   page: string;
   image: string;
   device: "tablet " | "smartphone" | "desktop";
@@ -50,6 +50,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
   browser,
   metadata,
 }) => {
+  console.log(type)
   const { onOpen, onClose, isOpen, onToggle } = useDisclosure();
   return (
     <Flex
@@ -118,9 +119,14 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
                   fontWeight={"semibold"}
                   color={"gray.500"}
                 >
-                  {image}
+                  IMAGE
                 </Text>
-                <Text fontSize={"sm"}>SA</Text>
+                <Box size={'sm'} width={'20'} cursor="zoom-in" _hover={{
+                  border:'1.5px solid black',
+                  borderRadius:'sm'
+                }}>
+                  <img src={image} loading="lazy" alt="feedback image" />
+                </Box>
               </VStack>
               <VStack spacing={"0"} alignItems={"left"}>
                 <Text

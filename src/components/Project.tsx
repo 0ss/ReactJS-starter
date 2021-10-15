@@ -14,7 +14,7 @@ import { AiOutlineTeam } from "react-icons/ai";
 import { IoAnalyticsOutline, IoSettingsOutline } from "react-icons/io5";
 import { VscSignOut } from "react-icons/vsc";
 import { VictoryBar, VictoryChart, VictoryPie } from "victory";
-import { COLOR_IDEA, COLOR_ISSUE, COLOR_OTHER, ROUTES } from "../constants";
+import { COLOR_IDEA, COLOR_ISSUE, COLOR_OTHER, IDEA, ISSUE, OTHER, ROUTES } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
 import { useProjectLocation } from "../hooks/useProjectLocation";
 import { ProjectStore, useProjectStore } from "../hooks/useStore";
@@ -22,14 +22,31 @@ import { random } from "../utils/random";
 import { AnalyticsCard } from "./AnalyticsCard";
 import { BarChartMenu } from "./BarChartMenu";
 import { ChartStatLabel } from "./ChartStatLabel";
-import { FeedbackCard } from "./FeedbackCard";
+import { FeedbackCard, FeedbackCardProps,  } from "./FeedbackCard";
 import { NavLink } from "./NavLink";
 import { ProjectSidebar } from "./ProjectSidebar";
-
+import * as faker from 'faker'
 interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const [authToken, setAuthToken] = useAuthToken();
   const location = useProjectLocation();
+  const feedbacks : Array<FeedbackCardProps>= Array(40).fill({
+    type : random([ISSUE,OTHER,IDEA]),
+    browser: random(['Edge', 'FireFox', 'Chrome','Brave']),
+    country : faker.address.countryCode().toLowerCase(),
+    content: faker.lorem.lines(2),
+    date: faker.date.past().toString(),
+    device: random(['smartphone','desktop']),
+    image: 'https://feedbackness.s3.us-east-2.amazonaws.com/Feedbackness-logo.jpg',
+    os: random(['Mac OS','WIndows 10','Ubunto','Cent OS']),
+    page :'/home',
+    // metadata: {
+    //   userId:faker.datatype.uuid(),
+    //   username: faker.internet.userName(),
+    //   email: faker.internet.email()
+    // }
+
+  } as FeedbackCardProps);
   return (
     <Flex mx={{ base: "0", md: "14" }} maxWidth={"full"}>
       <ProjectSidebar>
@@ -134,26 +151,24 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           alignItems={"start"}
           width={"full"}
         >
-          {Array(15)
-            .fill(null)
-            .map((e,i) => (
-              <>
-                <FeedbackCard 
-                browser={random(['Chrome','FireFox','Edge'])}
-                content={'Lorem publishing industries for previewing layouts and visual mockups'}
-                country={'sa'}
-                date={new Date().toString()}
-                device={'tablet '}
-                type={'issue'}
-                image={'ss'}
-                metadata={{}}
-                os={'windows'}
-                page={'ss'}
-                key={i}
-                />
-                <Divider />
-              </>
-            ))}
+          {feedbacks.map((e, i) => (
+            <>
+              <FeedbackCard
+                browser={e.browser}
+                content={e.content}
+                country={e.country}
+                date={e.date}
+                device={e.device}
+                type={e.type}
+                image={e.image}
+                metadata={e.metadata}
+                os={e.os}
+                page={e.page}
+                key={i+1}
+              />
+              <Divider />
+            </>
+          ))}
         </VStack>
       </Box>
     </Flex>
