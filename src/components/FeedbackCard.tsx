@@ -23,6 +23,7 @@ import {
   OTHER,
 } from "../constants";
 import { random } from "../utils/random";
+import { FeedbackImageDialog } from "./FeedbackImageDialog";
 import { FeedbackTags } from "./FeedbackTags";
 
 export interface FeedbackCardProps {
@@ -50,8 +51,14 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
   browser,
   metadata,
 }) => {
-  console.log(type)
+  console.log(type);
   const { onOpen, onClose, isOpen, onToggle } = useDisclosure();
+  const {
+    onOpen: onOpenImage,
+    onClose: onCloseImage,
+    isOpen: isOpenImage,
+  } = useDisclosure();
+
   return (
     <Flex
       cursor={!isOpen ? "pointer" : "default"}
@@ -121,11 +128,22 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
                 >
                   IMAGE
                 </Text>
-                <Box size={'sm'} width={'20'} cursor="zoom-in" _hover={{
-                  border:'1.5px solid black',
-                  borderRadius:'sm'
-                }}>
+                <Box
+                  size={"sm"}
+                  width={"20"}
+                  cursor="zoom-in"
+                  _hover={{
+                    borderRadius: "sm",
+                  }}
+                  onClick={onOpenImage}
+                >
                   <img src={image} loading="lazy" alt="feedback image" />
+                  <FeedbackImageDialog
+                    onClose={onCloseImage}
+                    isOpen={isOpenImage}
+                  >
+                    <img src={image} loading="lazy" alt="feedback image" />
+                  </FeedbackImageDialog>
                 </Box>
               </VStack>
               <VStack spacing={"0"} alignItems={"left"}>
