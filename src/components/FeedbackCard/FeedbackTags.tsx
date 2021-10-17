@@ -1,6 +1,6 @@
 import { Badge, Box, Center } from "@chakra-ui/layout";
 import React from "react";
-import { COLOR_ISSUE, IDEA, ISSUE, OTHER } from "../constants";
+import { COLOR_ISSUE, IDEA, ISSUE, OTHER } from "../../constants";
 
 interface FeedbackTagsProps {
   type: typeof ISSUE | typeof IDEA | typeof OTHER;

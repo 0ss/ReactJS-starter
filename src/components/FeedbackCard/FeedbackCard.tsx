@@ -1,29 +1,16 @@
 import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import {
-  Flex,
-  Text,
-  HStack,
-  Spacer,
-  VStack,
-  Box,
-  Link,
-  Stack,
-  useDisclosure,
-  ScaleFade,
-  Button,
-  Code,
+  Box, Button, Flex, Link, ScaleFade, Spacer, Stack, Text, useDisclosure, VStack
 } from "@chakra-ui/react";
 import React from "react";
 import {
-  COLOR_MAIN_DARK,
-  COLOR_MAIN_LIGHT,
-  COLOR_MAIN_MEDIUM_DARK,
+  COLOR_MAIN_DARK, COLOR_MAIN_MEDIUM_DARK,
   IDEA,
   ISSUE,
-  OTHER,
-} from "../constants";
-import { random } from "../utils/random";
-import { CountryImage } from "./CountryImage";
+  OTHER
+} from "../../constants";
+import { CountryImage } from "../CountryImage";
+import { FeedbackCardLine } from "./FeedbackCardLine";
 import { FeedbackCardText } from "./FeedbackCardText";
 import { FeedbackImageDialog } from "./FeedbackImageDialog";
 import { FeedbackTags } from "./FeedbackTags";
@@ -67,14 +54,13 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
       flexDir="column"
       transition={"all"}
       borderColor={"transparent"}
-      // p={"3"}
       shadow={isOpen ? "md" : "none"}
       w={"full"}
       _hover={{
         backgroundColor: !isOpen ? "gray.200" : "",
       }}
     >
-      <VStack p={'3'}  spacing={"3"}>
+      <VStack p={"3"} spacing={"3"}>
         <Stack direction={["column", "column", "row"]} w={"full"}>
           <FeedbackTags type={type} />
           <Spacer />
@@ -99,7 +85,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
       </VStack>
       {isOpen && (
         <ScaleFade initialScale={0.9} in={isOpen}>
-          <Box p={'3'} mt={"5"}>
+          <Box p={"3"} mt={"5"}>
             <Stack
               direction={["column", "column", "row"]}
               spacing={["1", "2", "16"]}
@@ -162,11 +148,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
                 <Text fontSize={"sm"}>{os}</Text>
               </VStack>
             </Stack>
-            <Stack
-              spacing={["1", "2", "16"]}
-              direction={["column", "column", "row"]}
-              mt={"5"}
-            >
+            <FeedbackCardLine>
               <Spacer />
               <Button
                 _hover={{
@@ -178,38 +160,33 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
               >
                 Archive
               </Button>
-            </Stack>
+            </FeedbackCardLine>
           </Box>
           <Stack
-              spacing={["1", "2", "16"]}
-              direction={["column", "column", "row"]}
-              mt={"2"}
-            >
-              <VStack spacing={"0"} alignItems={"left"}>
-                <FeedbackCardText>
-                  <code>METADATA</code>
-                </FeedbackCardText>
-                <Flex w={'4xl'} fontSize={"sm"} bgColor={COLOR_MAIN_DARK}>
-                 <Box color={'white'}>
-                   Key
-                 </Box>
-                 <Box color={'white'} bgColor={COLOR_MAIN_MEDIUM_DARK}>
-                   Value
-                 </Box>
-                 <Box color={'white'}>
-                   Key
-                 </Box>
-                 <Box color={'white'} bgColor={COLOR_MAIN_MEDIUM_DARK}>
-                   Value
-                 </Box> <Box color={'white'}>
-                   Key
-                 </Box>
-                 <Box color={'white'} bgColor={COLOR_MAIN_MEDIUM_DARK}>
-                   Value
-                 </Box>
-                </Flex>
-              </VStack>
-            </Stack>
+            spacing={["1", "2", "16"]}
+            direction={["column", "column", "row"]}
+            mt={"2"}
+          >
+            <VStack spacing={"0"} alignItems={"left"}>
+              <FeedbackCardText>
+                <code>METADATA</code>
+              </FeedbackCardText>
+              <Flex w={"4xl"} fontSize={"sm"} bgColor={COLOR_MAIN_DARK}>
+                <Box color={"white"}>Key</Box>
+                <Box color={"white"} bgColor={COLOR_MAIN_MEDIUM_DARK}>
+                  Value
+                </Box>
+                <Box color={"white"}>Key</Box>
+                <Box color={"white"} bgColor={COLOR_MAIN_MEDIUM_DARK}>
+                  Value
+                </Box>{" "}
+                <Box color={"white"}>Key</Box>
+                <Box color={"white"} bgColor={COLOR_MAIN_MEDIUM_DARK}>
+                  Value
+                </Box>
+              </Flex>
+            </VStack>
+          </Stack>
         </ScaleFade>
       )}
     </Flex>
