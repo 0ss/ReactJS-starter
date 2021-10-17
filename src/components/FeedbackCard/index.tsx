@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Flex,
+  HStack,
   Link,
   ScaleFade,
   Spacer,
@@ -14,7 +15,9 @@ import {
 import React from "react";
 import {
   COLOR_MAIN_DARK,
+  COLOR_MAIN_LIGHT,
   COLOR_MAIN_MEDIUM_DARK,
+  COLOR_MAIN_MEDIUM_LIGHT,
   IDEA,
   ISSUE,
   OTHER,
@@ -24,6 +27,7 @@ import { FeedbackCardContainer } from "./FeedbackCardContainer";
 import { FeedbackCardLine } from "./FeedbackCardLine";
 import { FeedbackCardText } from "./FeedbackCardText";
 import { FeedbackImageDialog } from "./FeedbackImageDialog";
+import { FeedbackMetadata } from "./FeedbackMetadata";
 import { FeedbackTags } from "./FeedbackTags";
 
 export interface FeedbackCardProps {
@@ -103,7 +107,6 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
               </VStack>
               <VStack spacing={"0"} alignItems={"left"}>
                 <FeedbackCardText>IMAGE</FeedbackCardText>
-
                 <Box
                   size={"sm"}
                   width={"20"}
@@ -124,7 +127,6 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
               </VStack>
               <VStack spacing={"0"} alignItems={"left"}>
                 <FeedbackCardText>DEVICE</FeedbackCardText>
-
                 <Text fontSize={"sm"}>{device}</Text>
               </VStack>
             </Stack>
@@ -161,32 +163,13 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
                 Archive
               </Button>
             </FeedbackCardLine>
-          </Box>
-          <Stack
-            spacing={["1", "2", "16"]}
-            direction={["column", "column", "row"]}
-            mt={"2"}
-          >
             <VStack spacing={"0"} alignItems={"left"}>
               <FeedbackCardText>
-                <code>METADATA</code>
+                METADATA
               </FeedbackCardText>
-              <Flex w={"4xl"} fontSize={"sm"} bgColor={COLOR_MAIN_DARK}>
-                <Box color={"white"}>Key</Box>
-                <Box color={"white"} bgColor={COLOR_MAIN_MEDIUM_DARK}>
-                  Value
-                </Box>
-                <Box color={"white"}>Key</Box>
-                <Box color={"white"} bgColor={COLOR_MAIN_MEDIUM_DARK}>
-                  Value
-                </Box>{" "}
-                <Box color={"white"}>Key</Box>
-                <Box color={"white"} bgColor={COLOR_MAIN_MEDIUM_DARK}>
-                  Value
-                </Box>
-              </Flex>
+             <FeedbackMetadata metadata={metadata}/>
             </VStack>
-          </Stack>
+          </Box>
         </ScaleFade>
       )}
     </FeedbackCardContainer>
