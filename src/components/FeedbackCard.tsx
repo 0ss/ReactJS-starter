@@ -23,6 +23,7 @@ import {
   OTHER,
 } from "../constants";
 import { random } from "../utils/random";
+import { CountryImage } from "./CountryImage";
 import { FeedbackCardText } from "./FeedbackCardText";
 import { FeedbackImageDialog } from "./FeedbackImageDialog";
 import { FeedbackTags } from "./FeedbackTags";
@@ -52,8 +53,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
   browser,
   metadata,
 }) => {
-  console.log(type);
-  const { onOpen, onClose, isOpen, onToggle } = useDisclosure();
+  const { isOpen, onToggle } = useDisclosure();
   const {
     onOpen: onOpenImage,
     onClose: onCloseImage,
@@ -150,11 +150,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
               <VStack spacing={"0"} alignItems={"left"}>
                 <FeedbackCardText>COUNTRY</FeedbackCardText>
                 <Text fontSize={"sm"}>
-                  <img
-                    src={`https://flagcdn.com/20x15/${country}.png`}
-                    loading="lazy"
-                    alt="flag"
-                  />
+                  <CountryImage code={country} />
                 </Text>
               </VStack>
               <VStack spacing={"0"} alignItems={"left"}>
@@ -193,11 +189,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
                   <code>METADATA</code>
                 </FeedbackCardText>
                 <Text fontSize={"sm"}>
-                  <img
-                    src={`https://flagcdn.com/20x15/${"sa"}.png`}
-                    loading="lazy"
-                    alt="flag"
-                  />
+                  <CountryImage code={"sa"} />
                 </Text>
               </VStack>
             </Stack>
