@@ -46,7 +46,9 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           metadata: {
             userId:faker.datatype.uuid(),
             username: faker.internet.userName(),
-            email: faker.internet.email()
+            email: faker.internet.email(),
+            phone:faker.phone.phoneNumber(),
+            music: faker.music.genre()
           }
         } as FeedbackCardProps)
     );

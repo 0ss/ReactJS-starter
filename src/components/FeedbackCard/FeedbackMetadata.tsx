@@ -1,4 +1,4 @@
-import { HStack, Box } from "@chakra-ui/layout";
+import { HStack, Box, Flex } from "@chakra-ui/layout";
 import React from "react";
 import { COLOR_MAIN_DARK, COLOR_MAIN_LIGHT } from "../../constants";
 
@@ -12,7 +12,7 @@ export const FeedbackMetadata: React.FC<FeedbackMetadataProps> = ({
   const data = [];
   for (const key in metadata) {
     data.push(
-      <HStack spacing={0}>
+      <HStack my={'1.5'} mr={'2'} spacing={0}>
         <Box
           fontSize={"xs"}
           borderTopRadius={"md"}
@@ -42,5 +42,5 @@ export const FeedbackMetadata: React.FC<FeedbackMetadataProps> = ({
       </HStack>
     );
   }
-  return <HStack fontSize={"sm"} spacing={'3'}>{data}</HStack>;
+  return <Flex fontSize={"sm"} spacing={'3'} flexWrap={'wrap'}>{data}</Flex>;
 };
