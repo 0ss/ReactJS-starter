@@ -1,15 +1,26 @@
 import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import {
-  Box, Button, Flex, Link, ScaleFade, Spacer, Stack, Text, useDisclosure, VStack
+  Box,
+  Button,
+  Flex,
+  Link,
+  ScaleFade,
+  Spacer,
+  Stack,
+  Text,
+  useDisclosure,
+  VStack,
 } from "@chakra-ui/react";
 import React from "react";
 import {
-  COLOR_MAIN_DARK, COLOR_MAIN_MEDIUM_DARK,
+  COLOR_MAIN_DARK,
+  COLOR_MAIN_MEDIUM_DARK,
   IDEA,
   ISSUE,
-  OTHER
+  OTHER,
 } from "../../constants";
 import { CountryImage } from "../CountryImage";
+import { FeedbackCardContainer } from "./FeedbackCardContainer";
 import { FeedbackCardLine } from "./FeedbackCardLine";
 import { FeedbackCardText } from "./FeedbackCardText";
 import { FeedbackImageDialog } from "./FeedbackImageDialog";
@@ -40,7 +51,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
   browser,
   metadata,
 }) => {
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen: isOpenCard, onToggle: onToggleCard } = useDisclosure();
   const {
     onOpen: onOpenImage,
     onClose: onCloseImage,
@@ -48,18 +59,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
   } = useDisclosure();
 
   return (
-    <Flex
-      cursor={!isOpen ? "pointer" : "default"}
-      onClick={!isOpen ? onToggle : () => null}
-      flexDir="column"
-      transition={"all"}
-      borderColor={"transparent"}
-      shadow={isOpen ? "md" : "none"}
-      w={"full"}
-      _hover={{
-        backgroundColor: !isOpen ? "gray.200" : "",
-      }}
-    >
+    <FeedbackCardContainer isOpen={isOpenCard} onToggle={onToggleCard}>
       <VStack p={"3"} spacing={"3"}>
         <Stack direction={["column", "column", "row"]} w={"full"}>
           <FeedbackTags type={type} />
@@ -76,15 +76,15 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
         >
           <span>{content}</span>
           <Spacer />
-          {isOpen ? (
-            <ChevronUpIcon cursor={"pointer"} onClick={onToggle} />
+          {isOpenCard ? (
+            <ChevronUpIcon cursor={"pointer"} onClick={onToggleCard} />
           ) : (
-            <ChevronDownIcon cursor={"pointer"} onClick={onToggle} />
+            <ChevronDownIcon cursor={"pointer"} onClick={onToggleCard} />
           )}
         </Stack>
       </VStack>
-      {isOpen && (
-        <ScaleFade initialScale={0.9} in={isOpen}>
+      {isOpenCard && (
+        <ScaleFade initialScale={0.9} in={isOpenCard}>
           <Box p={"3"} mt={"5"}>
             <Stack
               direction={["column", "column", "row"]}
@@ -189,6 +189,6 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
           </Stack>
         </ScaleFade>
       )}
-    </Flex>
+    </FeedbackCardContainer>
   );
 };
