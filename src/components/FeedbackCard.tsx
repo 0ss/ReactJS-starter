@@ -23,6 +23,7 @@ import {
   OTHER,
 } from "../constants";
 import { random } from "../utils/random";
+import { FeedbackCardText } from "./FeedbackCardText";
 import { FeedbackImageDialog } from "./FeedbackImageDialog";
 import { FeedbackTags } from "./FeedbackTags";
 
@@ -104,13 +105,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
               spacing={["1", "2", "16"]}
             >
               <VStack spacing={"0"} alignItems={"left"}>
-                <Text
-                  fontSize={"xs"}
-                  fontWeight={"semibold"}
-                  color={"gray.500"}
-                >
-                  PAGE
-                </Text>
+                <FeedbackCardText>PAGE</FeedbackCardText>
                 <Link
                   href={"https://www.google.com/hello/world"}
                   as={"a"}
@@ -121,13 +116,8 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
                 </Link>
               </VStack>
               <VStack spacing={"0"} alignItems={"left"}>
-                <Text
-                  fontSize={"xs"}
-                  fontWeight={"semibold"}
-                  color={"gray.500"}
-                >
-                  IMAGE
-                </Text>
+                <FeedbackCardText>IMAGE</FeedbackCardText>
+
                 <Box
                   size={"sm"}
                   width={"20"}
@@ -147,13 +137,8 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
                 </Box>
               </VStack>
               <VStack spacing={"0"} alignItems={"left"}>
-                <Text
-                  fontSize={"xs"}
-                  fontWeight={"semibold"}
-                  color={"gray.500"}
-                >
-                  DEVICE
-                </Text>
+                <FeedbackCardText>DEVICE</FeedbackCardText>
+
                 <Text fontSize={"sm"}>{device}</Text>
               </VStack>
             </Stack>
@@ -163,40 +148,21 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
               mt={"5"}
             >
               <VStack spacing={"0"} alignItems={"left"}>
-                <Text
-                  fontSize={"xs"}
-                  fontWeight={"semibold"}
-                  color={"gray.500"}
-                >
-                  COUNTRY
-                </Text>
+                <FeedbackCardText>COUNTRY</FeedbackCardText>
                 <Text fontSize={"sm"}>
                   <img
                     src={`https://flagcdn.com/20x15/${country}.png`}
                     loading="lazy"
                     alt="flag"
                   />
-                  {/* <ReactCountryFlag countryCode="SA" /> */}
                 </Text>
               </VStack>
               <VStack spacing={"0"} alignItems={"left"}>
-                <Text
-                  fontSize={"xs"}
-                  fontWeight={"semibold"}
-                  color={"gray.500"}
-                >
-                  BROWSER
-                </Text>
+                <FeedbackCardText>BROWSER</FeedbackCardText>
                 <Text fontSize={"sm"}>{browser}</Text>
               </VStack>
               <VStack spacing={"0"} alignItems={"left"}>
-                <Text
-                  fontSize={"xs"}
-                  fontWeight={"semibold"}
-                  color={"gray.500"}
-                >
-                  OS
-                </Text>
+                <FeedbackCardText>OS</FeedbackCardText>
                 <Text fontSize={"sm"}>{os}</Text>
               </VStack>
             </Stack>
@@ -223,13 +189,9 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
               mt={"5"}
             >
               <VStack spacing={"0"} alignItems={"left"}>
-                <Text
-                  fontSize={"xs"}
-                  fontWeight={"semibold"}
-                  color={"gray.500"}
-                >
+                <FeedbackCardText>
                   <code>METADATA</code>
-                </Text>
+                </FeedbackCardText>
                 <Text fontSize={"sm"}>
                   <img
                     src={`https://flagcdn.com/20x15/${"sa"}.png`}
