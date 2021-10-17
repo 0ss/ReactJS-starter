@@ -67,14 +67,14 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
       flexDir="column"
       transition={"all"}
       borderColor={"transparent"}
-      p={"3"}
+      // p={"3"}
       shadow={isOpen ? "md" : "none"}
       w={"full"}
       _hover={{
         backgroundColor: !isOpen ? "gray.200" : "",
       }}
     >
-      <VStack spacing={"3"}>
+      <VStack p={'3'}  spacing={"3"}>
         <Stack direction={["column", "column", "row"]} w={"full"}>
           <FeedbackTags type={type} />
           <Spacer />
@@ -99,7 +99,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
       </VStack>
       {isOpen && (
         <ScaleFade initialScale={0.9} in={isOpen}>
-          <Box mt={"5"}>
+          <Box p={'3'} mt={"5"}>
             <Stack
               direction={["column", "column", "row"]}
               spacing={["1", "2", "16"]}
@@ -149,9 +149,9 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
             >
               <VStack spacing={"0"} alignItems={"left"}>
                 <FeedbackCardText>COUNTRY</FeedbackCardText>
-                <Text fontSize={"sm"}>
+                <Box fontSize={"sm"} mt={10}>
                   <CountryImage code={country} />
-                </Text>
+                </Box>
               </VStack>
               <VStack spacing={"0"} alignItems={"left"}>
                 <FeedbackCardText>BROWSER</FeedbackCardText>
@@ -179,21 +179,37 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
                 Archive
               </Button>
             </Stack>
-            <Stack
+          </Box>
+          <Stack
               spacing={["1", "2", "16"]}
               direction={["column", "column", "row"]}
-              mt={"5"}
+              mt={"2"}
             >
               <VStack spacing={"0"} alignItems={"left"}>
                 <FeedbackCardText>
                   <code>METADATA</code>
                 </FeedbackCardText>
-                <Text fontSize={"sm"}>
-                  <CountryImage code={"sa"} />
-                </Text>
+                <Flex w={'4xl'} fontSize={"sm"} bgColor={COLOR_MAIN_DARK}>
+                 <Box color={'white'}>
+                   Key
+                 </Box>
+                 <Box color={'white'} bgColor={COLOR_MAIN_MEDIUM_DARK}>
+                   Value
+                 </Box>
+                 <Box color={'white'}>
+                   Key
+                 </Box>
+                 <Box color={'white'} bgColor={COLOR_MAIN_MEDIUM_DARK}>
+                   Value
+                 </Box> <Box color={'white'}>
+                   Key
+                 </Box>
+                 <Box color={'white'} bgColor={COLOR_MAIN_MEDIUM_DARK}>
+                   Value
+                 </Box>
+                </Flex>
               </VStack>
             </Stack>
-          </Box>
         </ScaleFade>
       )}
     </Flex>
