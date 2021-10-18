@@ -157,22 +157,21 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           width={"full"}
         >
           {feedbacks.map((e, i) => (
-            <>
+            <Box  key={i*10}  w={'full'}>
               <FeedbackCard
-                browser={e.browser}
-                content={e.content}
-                country={e.country}
-                date={e.date}
-                device={e.device}
-                type={e.type}
-                image={e.image}
-                metadata={e.metadata}
-                os={e.os}
-                page={e.page}
-                key={i + 1}
+                browser={e?.browser}
+                content={e?.content}
+                country={e?.country}
+                date={e?.date}
+                device={e?.device}
+                type={e?.type}
+                image={e?.image}
+                metadata={e?.metadata}
+                os={e?.os}
+                page={e?.page}
               />
-              <Divider />
-            </>
+              <Divider/>
+            </Box>
           ))}
         </VStack>
       </Box>

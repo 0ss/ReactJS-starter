@@ -13,8 +13,9 @@ export const BarChartMenu = ({}) => {
         }}
         size={"sm"}
         borderRadius={"lg"}
+        defaultValue={ALL_TIME}
       >
-        <option value={ALL_TIME} selected>
+        <option value={ALL_TIME}>
           All Time
         </option>
         <option value={TODAY}>Today</option>

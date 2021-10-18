@@ -12,7 +12,7 @@ export const FeedbackMetadata: React.FC<FeedbackMetadataProps> = ({
   const data = [];
   for (const key in metadata) {
     data.push(
-      <HStack my={'1.5'} mr={'2'} spacing={0}>
+      <HStack key={Math.random()} my={'1.5'} mr={'2'} spacing={0}>
         <Box
           fontSize={"xs"}
           borderTopRadius={"md"}

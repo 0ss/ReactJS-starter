@@ -9,7 +9,6 @@ import { Project } from "./components/Project";
 import { Spinner } from "./components/Spinner";
 import { EVENTS, ROUTES } from "./constants";
 import { useUserQuery } from "./queries/graphql";
-import { amplitude, tracker } from "./utils/amplitude";
 /**
  * Lazy Route
  */
@@ -37,9 +36,6 @@ export const App: React.FC = () => {
   if (data?.user?.email && data?.user?.id) {
     Sentry.setUser({ id: data.user.id, email: data.user.email });
   }
-  useEffect(() => {
-    tracker(EVENTS.INIT, data?.user);
-  }, []);
   return (
     <ChakraProvider>
       <Toaster />
