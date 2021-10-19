@@ -3,7 +3,7 @@ import { Flex } from "@chakra-ui/react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
-import { COLOR_MAIN_MEDIUM_DARK, ROUTES } from "../constants";
+import { COLOR_MAIN_LIGHT, COLOR_MAIN_MEDIUM_DARK, ROUTES } from "../constants";
 import { useResetPasswordMutation } from "../queries/graphql";
 import { extractError } from "../utils/extractError";
 import { AuthForm } from "./AuthForm";
@@ -28,7 +28,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({}) => {
           <PersonWithPhoneSvg />
         </Box>
       }
-      bgColor={COLOR_MAIN_MEDIUM_DARK}
+      bgColor={COLOR_MAIN_LIGHT}
       heading={"Reset Your Password"}
       onSubmit={async (e) => {
         try {

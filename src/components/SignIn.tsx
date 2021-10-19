@@ -2,7 +2,7 @@ import { Box, Divider, HStack, Text } from "@chakra-ui/layout";
 import { Flex } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { COLOR_MAIN_LIGHT, ROUTES } from "../constants";
+import { COLOR_MAIN_DARK, COLOR_MAIN_LIGHT, ROUTES } from "../constants";
 import { AuthForm } from "./AuthForm";
 import { AuthFormButton } from "./AuthFormButton";
 import { InputField } from "./InputField";
@@ -23,7 +23,7 @@ const SignIn: React.FC<SignInProps> = ({}) => {
           <PersonWithPhoneSvg />
         </Box>
       }
-      bgColor={COLOR_MAIN_LIGHT}
+      bgColor={COLOR_MAIN_DARK}
       onSubmit={(e) => {
         setIsSubmit(true);
         toast.error("s");
