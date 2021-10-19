@@ -31,6 +31,7 @@ import { FeedbackMetadata } from "./FeedbackMetadata";
 import { FeedbackTags } from "./FeedbackTags";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { isEmptyObj } from "../../utils/isEmptyObj";
 dayjs.extend(relativeTime);
 
 export interface FeedbackCardProps {
@@ -64,7 +65,8 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
     onClose: onCloseImage,
     isOpen: isOpenImage,
   } = useDisclosure();
-console.log(JSON.stringify(metadata) === JSON.stringify({}))
+  const isMetadata =  JSON.stringify(metadata) === JSON.stringify({})
+
   return (
     <FeedbackCardContainer isOpen={isOpenCard} onToggle={onToggleCard}>
       <VStack p={"3"} spacing={"3"}>
@@ -166,7 +168,7 @@ console.log(JSON.stringify(metadata) === JSON.stringify({}))
                 Archive
               </Button>
             </FeedbackCardLine>
-            {!(JSON.stringify(metadata) === JSON.stringify({})) ?  (
+            {!isMetadata ?  (
               <VStack mt={"5"} spacing={"0"} alignItems={"left"}>
                 <FeedbackCardText>METADATA</FeedbackCardText>
                 <FeedbackMetadata metadata={[metadata]} />
