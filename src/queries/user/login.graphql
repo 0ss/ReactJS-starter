@@ -1,16 +1,16 @@
-mutation LoginUser($loginUserInput: LoginUserInput!){
-    loginUser(loginUserInput: $loginUserInput){
+mutation Login($loginUserInput: LoginUserInput!){
+    login(loginUserInput: $loginUserInput){
         token
         user{
-            created_at
+            createdAt
             email
             id
             name
-            oauth_id
-            oauth_provider
+            socialId
+            socialProvider
             userProject{
                 project{
-                    created_at
+                    createdAt
                     id
                     name
                     projectMember{

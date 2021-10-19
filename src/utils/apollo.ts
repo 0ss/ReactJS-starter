@@ -5,7 +5,7 @@ import { onError } from "@apollo/client/link/error"
 
 
 const httpLink = new HttpLink({
-    uri: REACT_APP_GRAPHQL_URL,
+    uri: 'http://192.168.100.3:3000/api/graphql',
     credentials: "include",
     headers: {
         Authorization: `Bearer ${localStorage.getItem(AUTH_TOKEN)}`,

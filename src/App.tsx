@@ -8,7 +8,6 @@ import { Page404 } from "./components/Page404";
 import { Project } from "./components/Project";
 import { Spinner } from "./components/Spinner";
 import { EVENTS, ROUTES } from "./constants";
-import { useUserQuery } from "./queries/graphql";
 /**
  * Lazy Route
  */
@@ -30,12 +29,14 @@ Sentry.init({
  * App
  */
 export const App: React.FC = () => {
-  const { data, loading, error } = useUserQuery({
-    fetchPolicy: "network-only",
-  });
-  if (data?.user?.email && data?.user?.id) {
-    Sentry.setUser({ id: data.user.id, email: data.user.email });
-  }
+  // const { data, loading, error } = useUserQuery({
+  //   fetchPolicy: "network-only",
+  // });
+  // console.log(data)
+  
+  // if (data?.user?.email && data?.user?.id) {
+  //   Sentry.setUser({ id: data.user.id, email: data.user.email });
+  // }
   return (
     <ChakraProvider>
       <Toaster />

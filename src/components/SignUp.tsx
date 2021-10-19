@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 import { COLOR_MAIN_MEDIUM_LIGHT, ROUTES } from "../constants";
-import { useSignupUserMutation } from "../queries/graphql";
+import { useRegisterMutation } from "../queries/graphql";
 import { AuthForm } from "./AuthForm";
 import { AuthFormButton } from "./AuthFormButton";
 import { InputField } from "./InputField";
@@ -22,7 +22,7 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
     password: "",
   });
   const [isSubmit, setIsSubmit] = useState(false);
-  const [register] = useSignupUserMutation();
+  const [register] = useRegisterMutation()
   const handleSignupUserInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
     setSignupUserInput({
@@ -46,7 +46,7 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
         try {
           const res = await register({
             variables: {
-              signupUserInput: {
+              registerUserInput: {
                 ...signupUserInput,
               },
             },
