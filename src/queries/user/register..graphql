@@ -1,13 +1,13 @@
 mutation Register($registerUserInput: RegisterUserInput!) {
-    register(registerUserInput: $registerUserInput) {
-        token
-        user {
-            createdAt
-            email
-            id
-            name
-            socialId
-            socialProvider
-        }
+  register(registerUserInput: $registerUserInput) {
+    token
+    user {
+      createdAt
+      email
+      id
+      name
+      socialId
+      socialProvider
     }
+  }
 }

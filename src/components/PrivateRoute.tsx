@@ -1,37 +1,37 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 import {
-    Redirect,
-    Route,
-    RouteComponentProps,
-    RouteProps,
-} from "react-router-dom"
-import { ROUTES } from "../constants"
-import { Spinner } from "./Spinner"
+  Redirect,
+  Route,
+  RouteComponentProps,
+  RouteProps,
+} from "react-router-dom";
+import { ROUTES } from "../constants";
+import { Spinner } from "./Spinner";
 
 type PrivateRouteProps = RouteProps & {
-    component: React.FC<RouteComponentProps>
-}
+  component: React.FC<RouteComponentProps>;
+};
 
 export const PrivateRoute: React.FC<PrivateRouteProps> = ({
-    component: Component, // Aliasing a Variable, check comments bellow ;)
-    ...rest
+  component: Component, // Aliasing a Variable, check comments bellow ;)
+  ...rest
 }) => {
-    const { data, loading } = {data : '', loading:''}
+  const { data, loading } = { data: "", loading: "" };
 
-    if (loading) return <Spinner />
-    return (
-        <Route
-            {...rest}
-            // render={(props) =>
-            //     // !!data?.user ? (
-            //     //     <Component {...props} />
-            //     // ) : (
-            //     //     <Redirect to={ROUTES.SIGN_IN} />
-            //     // )
-            // }
-        />
-    )
-}
+  if (loading) return <Spinner />;
+  return (
+    <Route
+      {...rest}
+      // render={(props) =>
+      //     // !!data?.user ? (
+      //     //     <Component {...props} />
+      //     // ) : (
+      //     //     <Redirect to={ROUTES.SIGN_IN} />
+      //     // )
+      // }
+    />
+  );
+};
 
 /**
  * let obj = {

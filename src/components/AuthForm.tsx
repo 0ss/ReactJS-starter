@@ -37,7 +37,7 @@ export const AuthForm: React.FC<AuthFormProps> = ({
           }}
         >
           <Center pb={6}>
-            <Feedbackness width={120}/>
+            <Feedbackness width={120} />
           </Center>
           <Divider />
           <Heading fontSize="2xl" py={3}>

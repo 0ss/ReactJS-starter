@@ -33,7 +33,7 @@ export const App: React.FC = () => {
   //   fetchPolicy: "network-only",
   // });
   // console.log(data)
-  
+
   // if (data?.user?.email && data?.user?.id) {
   //   Sentry.setUser({ id: data.user.id, email: data.user.email });
   // }
@@ -50,7 +50,10 @@ export const App: React.FC = () => {
               path={ROUTES.RESET_PASSWORD}
               component={ResetPassword}
             />
-            <Route path={ROUTES.CONFIRM_RESET_PASSWORD} component={ResetPassword} />
+            <Route
+              path={ROUTES.CONFIRM_RESET_PASSWORD}
+              component={ResetPassword}
+            />
             <Route path={ROUTES.PROJECT} component={Project} />
             <Route exact path={ROUTES.PROJECT_TEAM} component={Project} />
             <Route path={ROUTES.HELP} component={Project} />

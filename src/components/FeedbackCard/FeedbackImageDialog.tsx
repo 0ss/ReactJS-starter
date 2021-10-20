@@ -21,7 +21,6 @@ export const FeedbackImageDialog: React.FC<FeedbackImageDialogProps> = ({
 }) => {
   return (
     <>
-    
       <Modal isOpen={isOpen!} onClose={onClose!}>
         <ModalOverlay />
         <ModalContent>

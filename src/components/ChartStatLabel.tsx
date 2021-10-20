@@ -15,15 +15,15 @@ export const ChartStatLabel: React.FC<ChartStatLabelProps> = ({
   return (
     <VStack p={0} borderRadius={"lg"} bgColor={"white"}>
       <Heading size={"md"}>{perc}</Heading>
-      <Flex alignItems={'center'}>
+      <Flex alignItems={"center"}>
         <Box
           style={{
             backgroundColor: color,
           }}
-          mx={'1'}
-          height={'2'}
-          width={'2'}
-          borderRadius={'lg'}
+          mx={"1"}
+          height={"2"}
+          width={"2"}
+          borderRadius={"lg"}
         ></Box>
         <Text fontSize={"xs"}>{label}</Text>
       </Flex>

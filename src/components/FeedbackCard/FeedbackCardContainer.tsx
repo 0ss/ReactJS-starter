@@ -22,7 +22,7 @@ export const FeedbackCardContainer: React.FC<FeedbackCardContainerProps> = ({
         backgroundColor: !isOpen ? "gray.200" : "",
       }}
     >
-        {children}
+      {children}
     </Flex>
   );
 };

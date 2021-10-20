@@ -65,7 +65,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
     onClose: onCloseImage,
     isOpen: isOpenImage,
   } = useDisclosure();
-  const isMetadata =  JSON.stringify(metadata) === JSON.stringify({})
+  const isMetadata = JSON.stringify(metadata) === JSON.stringify({});
 
   return (
     <FeedbackCardContainer isOpen={isOpenCard} onToggle={onToggleCard}>
@@ -168,7 +168,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
                 Archive
               </Button>
             </FeedbackCardLine>
-            {!isMetadata ?  (
+            {!isMetadata ? (
               <VStack mt={"5"} spacing={"0"} alignItems={"left"}>
                 <FeedbackCardText>METADATA</FeedbackCardText>
                 <FeedbackMetadata metadata={[metadata]} />

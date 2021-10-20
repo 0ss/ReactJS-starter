@@ -1,24 +1,24 @@
-mutation Login($loginUserInput: LoginUserInput!){
-    login(loginUserInput: $loginUserInput){
-        token
-        user{
-            createdAt
-            email
-            id
-            name
-            socialId
-            socialProvider
-            userProject{
-                project{
-                    createdAt
-                    id
-                    name
-                    projectMember{
-                        role
-                    }
-                }
-                role
-            }
+mutation Login($loginUserInput: LoginUserInput!) {
+  login(loginUserInput: $loginUserInput) {
+    token
+    user {
+      createdAt
+      email
+      id
+      name
+      socialId
+      socialProvider
+      userProject {
+        project {
+          createdAt
+          id
+          name
+          projectMember {
+            role
+          }
         }
+        role
+      }
     }
+  }
 }

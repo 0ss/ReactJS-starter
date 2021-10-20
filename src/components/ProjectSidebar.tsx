@@ -16,13 +16,13 @@ export const ProjectSidebar: React.FC<ProjectSidebarProps> = ({ children }) => {
       <Flex
         display={{ base: isOpen ? "flex" : "none", md: "flex" }}
         pos={"sticky"}
-        top={'2'}
+        top={"2"}
         py={"4"}
         flexDir="column"
         as={"aside"}
         w={"230px"}
       >
-        <Flex top={'3.5'} position="sticky" flexDir="column" as="nav">
+        <Flex top={"3.5"} position="sticky" flexDir="column" as="nav">
           <Box mb={20} as={"section"}>
             <HStack mb={3} ml={1} as={"figure"}>
               <Box display={{ base: "none", md: "flex" }}>

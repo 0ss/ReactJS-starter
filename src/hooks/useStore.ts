@@ -7,7 +7,7 @@ import {
   LAST_MONTH,
   LAST_WEEK,
   OTHER,
-  IDEA
+  IDEA,
 } from "../constants";
 
 type ProjectTimeRange =
@@ -24,10 +24,9 @@ type ProjectFeedbackType =
 
 export interface ProjectStore {
   projectTimeRange: ProjectTimeRange;
-  projectFeedbackType: ProjectFeedbackType
+  projectFeedbackType: ProjectFeedbackType;
   changeProjectTimeRange: (p: ProjectTimeRange) => void;
   changeProjectFeedbackType: (p: ProjectFeedbackType) => void;
-
 }
 
 export const useProjectStore = create<ProjectStore>((set) => ({

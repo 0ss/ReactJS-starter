@@ -22,7 +22,7 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
     password: "",
   });
   const [isSubmit, setIsSubmit] = useState(false);
-  const [register] = useRegisterMutation()
+  const [register] = useRegisterMutation();
   const handleSignupUserInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.target as HTMLInputElement;
     setSignupUserInput({

@@ -44,12 +44,12 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           os: random(["Mac OS", "WIndows 10", "Ubunto", "Cent OS"]),
           page: "/home",
           metadata: {
-            userId:faker.datatype.uuid(),
+            userId: faker.datatype.uuid(),
             username: faker.internet.userName(),
             email: faker.internet.email(),
-            phone:faker.phone.phoneNumber(),
-            music: faker.music.genre()
-          }
+            phone: faker.phone.phoneNumber(),
+            music: faker.music.genre(),
+          },
         } as FeedbackCardProps)
     );
   return (
@@ -157,7 +157,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           width={"full"}
         >
           {feedbacks.map((e, i) => (
-            <Box  key={i*10}  w={'full'}>
+            <Box key={i * 10} w={"full"}>
               <FeedbackCard
                 browser={e?.browser}
                 content={e?.content}
@@ -170,7 +170,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
                 os={e?.os}
                 page={e?.page}
               />
-              <Divider/>
+              <Divider />
             </Box>
           ))}
         </VStack>
