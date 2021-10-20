@@ -5,14 +5,14 @@ import toast from "react-hot-toast";
 import { Link, useParams } from "react-router-dom";
 import { COLOR_MAIN_LIGHT, ROUTES } from "../constants";
 import { useResetPasswordMutation } from "../queries/graphql";
-import PersonWithPhoneSvg from "../svgs/PersonWithPhoneSvg";
 import { extractError } from "../utils/extractError";
 import { AuthForm } from "./AuthForm";
 import { AuthFormButton } from "./AuthFormButton";
 import { InputField } from "./InputField";
 
-const PersonYogaSvg = React.lazy(() => import("../svgs/PersonYogaSvg"));
-interface ResetPasswordProps {}
+const PersonWithPhoneSvg = React.lazy(
+  () => import("../svgs/PersonWithPhoneSvg")
+);interface ResetPasswordProps {}
 
 const ResetPassword: React.FC<ResetPasswordProps> = ({}) => {
   const [email, setEmail] = useState("");
