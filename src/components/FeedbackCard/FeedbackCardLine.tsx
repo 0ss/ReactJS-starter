@@ -1,7 +1,5 @@
-import { Button } from "@chakra-ui/button";
-import { Stack, Spacer } from "@chakra-ui/layout";
-import React, { Props } from "react";
-import { COLOR_MAIN_MEDIUM_DARK } from "../../constants";
+import { Stack } from "@chakra-ui/layout";
+import React from "react";
 
 interface FeedbackCardLineProps {
   mt?: string;

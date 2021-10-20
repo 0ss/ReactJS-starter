@@ -6,15 +6,11 @@ import {
   ModalContent,
   ModalFooter,
   ModalHeader,
-  ModalOverlay,
-  useDisclosure,
-  UseDisclosureProps,
+  ModalOverlay, UseDisclosureProps
 } from "@chakra-ui/react";
 import React from "react";
 import {
-  COLOR_MAIN_DARK,
-  COLOR_MAIN_MEDIUM_DARK,
-  COLOR_MAIN_MEDIUM_LIGHT,
+  COLOR_MAIN_MEDIUM_DARK
 } from "../constants";
 import { InputField } from "./InputField";
 

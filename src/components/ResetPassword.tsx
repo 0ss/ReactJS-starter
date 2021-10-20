@@ -2,15 +2,14 @@ import { Box, Text } from "@chakra-ui/layout";
 import { Flex } from "@chakra-ui/react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { Link } from "react-router-dom";
-import { COLOR_MAIN_LIGHT, COLOR_MAIN_MEDIUM_DARK, ROUTES } from "../constants";
+import { Link, useParams } from "react-router-dom";
+import { COLOR_MAIN_LIGHT, ROUTES } from "../constants";
 import { useResetPasswordMutation } from "../queries/graphql";
+import PersonWithPhoneSvg from "../svgs/PersonWithPhoneSvg";
 import { extractError } from "../utils/extractError";
 import { AuthForm } from "./AuthForm";
 import { AuthFormButton } from "./AuthFormButton";
 import { InputField } from "./InputField";
-import { useHistory, useParams } from "react-router-dom";
-import PersonWithPhoneSvg from "../svgs/PersonWithPhoneSvg";
 
 const PersonYogaSvg = React.lazy(() => import("../svgs/PersonYogaSvg"));
 interface ResetPasswordProps {}

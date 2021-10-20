@@ -5,15 +5,11 @@ import {
   HStack,
   IconButton,
   Stack,
-  useDisclosure,
+  useDisclosure
 } from "@chakra-ui/react";
 import React from "react";
-import { Link } from "react-router-dom";
 import { ROUTES } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
-import { Feedbackness } from "../svgs/Feedbackness";
-import FeedbacknessCharLogo from "../svgs/feedbackness-char.png";
-import { FeedbacknessChar } from "../svgs/FeedbacknessChar";
 import { NavLink } from "./NavLink";
 import { ProjectHeaderSelect } from "./ProjectHeaderSelect";
 

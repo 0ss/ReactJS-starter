@@ -1,5 +1,5 @@
 import { FormControl, FormLabel, Input } from "@chakra-ui/react";
-import React, { forwardRef } from "react";
+import React from "react";
 
 interface InputFieldProps extends React.HTMLProps<HTMLInputElement> {
   label: string;

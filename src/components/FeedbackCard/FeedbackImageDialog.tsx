@@ -1,14 +1,6 @@
-import { Button } from "@chakra-ui/button";
-import { useDisclosure, UseDisclosureProps } from "@chakra-ui/hooks";
-import { Box } from "@chakra-ui/layout";
+import { UseDisclosureProps } from "@chakra-ui/hooks";
 import {
-  Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalCloseButton,
-  ModalBody,
-  ModalFooter,
+  Modal, ModalBody, ModalContent, ModalOverlay
 } from "@chakra-ui/modal";
 import React from "react";
 

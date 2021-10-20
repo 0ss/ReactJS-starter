@@ -5,19 +5,9 @@ import {
   MenuButton,
   MenuDivider,
   MenuItem,
-  MenuList,
-  Modal,
-  ModalBody,
-  ModalCloseButton,
-  ModalContent,
-  ModalFooter,
-  ModalHeader,
-  ModalOverlay,
-  useDisclosure,
-  UseDisclosureProps,
+  MenuList, useDisclosure
 } from "@chakra-ui/react";
-import React, { useState } from "react";
-import { COLOR_MAIN_MEDIUM_LIGHT } from "../constants";
+import React from "react";
 import { CreateProjectModal } from "./CreateProjectModal";
 
 interface ProjectHeaderSelectProps {}

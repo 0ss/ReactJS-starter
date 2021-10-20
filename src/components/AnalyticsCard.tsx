@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, VStack } from "@chakra-ui/layout";
+import { Box, Heading, VStack } from "@chakra-ui/layout";
 import React from "react";
 
 interface AnalyticsCardProps {

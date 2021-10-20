@@ -1,5 +1,5 @@
+import { Box, Center, HStack, Link, LinkProps } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
-import { Box, Center, Flex, HStack, Link, LinkProps } from "@chakra-ui/react";
 import { useHistory } from "react-router";
 interface NavLinkProps extends LinkProps {
   name: string;
@@ -31,6 +31,7 @@ export const NavLink: React.FC<NavLinkProps> = ({
       fontSize={fontSize || "sm"}
       fontWeight={fontFamily || "semibold"}
       onClick={onClick}
+      as={'a'}
     >
       <HStack>
         <Center>

@@ -1,26 +1,21 @@
 import { ChevronDownIcon, ChevronUpIcon } from "@chakra-ui/icons";
 import {
   Box,
-  Button,
-  Flex,
-  HStack,
-  Link,
+  Button, Link,
   ScaleFade,
   Spacer,
   Stack,
   Text,
   useDisclosure,
-  VStack,
+  VStack
 } from "@chakra-ui/react";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 import React from "react";
 import {
-  COLOR_MAIN_DARK,
-  COLOR_MAIN_LIGHT,
-  COLOR_MAIN_MEDIUM_DARK,
-  COLOR_MAIN_MEDIUM_LIGHT,
-  IDEA,
+  COLOR_MAIN_MEDIUM_DARK, IDEA,
   ISSUE,
-  OTHER,
+  OTHER
 } from "../../constants";
 import { CountryImage } from "../CountryImage";
 import { FeedbackCardContainer } from "./FeedbackCardContainer";
@@ -29,9 +24,6 @@ import { FeedbackCardText } from "./FeedbackCardText";
 import { FeedbackImageDialog } from "./FeedbackImageDialog";
 import { FeedbackMetadata } from "./FeedbackMetadata";
 import { FeedbackTags } from "./FeedbackTags";
-import dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-import { isEmptyObj } from "../../utils/isEmptyObj";
 dayjs.extend(relativeTime);
 
 export interface FeedbackCardProps {

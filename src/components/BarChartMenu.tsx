@@ -5,7 +5,7 @@ import {
   LAST_6_MONTHS,
   LAST_MONTH,
   LAST_WEEK,
-  TODAY,
+  TODAY
 } from "../constants";
 interface BarChartMenuProps {}
 export const BarChartMenu = ({}) => {

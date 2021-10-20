@@ -1,10 +1,7 @@
-import { Box, Button, Center, Heading, VStack } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { Box, Button, Heading, VStack } from "@chakra-ui/react";
 import React from "react";
 import {
-  COLOR_MAIN_DARK,
-  COLOR_MAIN_MEDIUM_DARK,
-  COLOR_MAIN_MEDIUM_LIGHT,
+  COLOR_MAIN_DARK, COLOR_MAIN_MEDIUM_LIGHT
 } from "../constants";
 
 interface Page404Props {}

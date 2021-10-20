@@ -1,11 +1,9 @@
-import React, { Component } from "react";
+import React from "react";
 import {
-  Redirect,
   Route,
   RouteComponentProps,
-  RouteProps,
+  RouteProps
 } from "react-router-dom";
-import { ROUTES } from "../constants";
 import { Spinner } from "./Spinner";
 
 type PrivateRouteProps = RouteProps & {
