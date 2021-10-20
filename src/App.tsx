@@ -14,6 +14,8 @@ import { EVENTS, ROUTES } from "./constants";
 const SignIn = React.lazy(() => import("./components/SignIn"));
 const SignUp = React.lazy(() => import("./components/SignUp"));
 const ResetPassword = React.lazy(() => import("./components/ResetPassword"));
+const ConfirmResetPassword = React.lazy(() => import("./components/ConfirmResetPassword"));
+
 const Dashboard = React.lazy(() => import("./components/Dashboard"));
 
 /**
@@ -52,7 +54,7 @@ export const App: React.FC = () => {
             />
             <Route
               path={ROUTES.CONFIRM_RESET_PASSWORD}
-              component={ResetPassword}
+              component={ConfirmResetPassword}
             />
             <Route path={ROUTES.PROJECT} component={Project} />
             <Route exact path={ROUTES.PROJECT_TEAM} component={Project} />
