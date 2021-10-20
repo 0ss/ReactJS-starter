@@ -13,7 +13,7 @@ import {
   IDEA,
   ISSUE,
   OTHER,
-  ROUTES,
+  ROUTES
 } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
 import { useProjectLocation } from "../hooks/useProjectLocation";
