@@ -97,6 +97,7 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
           onChange={handleSignupUserInput}
           required={true}
         />
+        <Text color={'gray.500'} fontSize={'xs'} textAlign="left">5 characters minimum</Text>
       </Box>
       <Box py={3}>
         <AuthFormButton type="submit" isSubmit={isSubmit}>

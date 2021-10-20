@@ -63,6 +63,9 @@ const ConfirmResetPassword: React.FC<ConfirmResetPasswordProps> = ({}) => {
           type="Password"
           onChange={(e) => setPassword((e.target as HTMLInputElement).value)}
         />
+        <Text color={"gray.500"} fontSize={"xs"} textAlign="left">
+          5 characters minimum
+        </Text>
       </Box>
       <Box py={3}>
         <InputField
