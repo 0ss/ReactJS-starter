@@ -1,34 +1,24 @@
 import { Box, Text } from "@chakra-ui/layout";
-import { Flex } from "@chakra-ui/react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
-import { Link, useParams } from "react-router-dom";
-import {
-  COLOR_MAIN_DARK,
-  COLOR_MAIN_LIGHT,
-  COLOR_MAIN_MEDIUM_DARK,
-  ROUTES,
-} from "../constants";
-import { useResetPasswordMutation } from "../queries/graphql";
+import { useParams } from "react-router-dom";
+import { COLOR_MAIN_DARK, ROUTES } from "../constants";
+import { useConfirmResetPasswordMutation } from "../queries/graphql";
 import PersonWithPhoneSvg from "../svgs/PersonWithPhoneSvg";
 import { extractError } from "../utils/extractError";
 import { AuthForm } from "./AuthForm";
 import { AuthFormButton } from "./AuthFormButton";
 import { InputField } from "./InputField";
-
+import { useHistory } from "react-router-dom";
 interface ConfirmResetPasswordProps {}
 
 const ConfirmResetPassword: React.FC<ConfirmResetPasswordProps> = ({}) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-
+  const history = useHistory();
   const [isSubmit, setIsSubmit] = useState(false);
-  const [resetPassword] = useResetPasswordMutation();
+  const [resetPassword] = useConfirmResetPasswordMutation();
   const { token } = useParams<{ token: string }>();
-  //   onChange={(e) => {
-  //     setEmail((e.target as HTMLInputElement).value);
-  //     console.log(email);
-  //   }}
   return (
     <AuthForm
       bgSvg={
@@ -40,16 +30,28 @@ const ConfirmResetPassword: React.FC<ConfirmResetPasswordProps> = ({}) => {
       heading={"Set Or Reset Your New Password"}
       onSubmit={async (e) => {
         try {
-          console.log("hey");
-
           setIsSubmit(true);
           if (confirmPassword !== password) {
             toast.error("Passwords don't match ");
+            setIsSubmit(false);
+            return;
           }
-          console.log("2222222222");
-
+          const res = await resetPassword({
+            variables: {
+              confirmResetPasswordInput: {
+                password,
+                confirmPassword,
+                token,
+              },
+            },
+          });
+          if (res?.data?.confirmResetPassword) {
+            toast.success("New password has been set ✨");
+            history.push(ROUTES.SIGN_IN);
+          }
           setIsSubmit(false);
         } catch (e) {
+          console.log(e);
           toast.error(extractError(e));
           setIsSubmit(false);
         }
