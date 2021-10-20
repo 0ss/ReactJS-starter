@@ -3,5 +3,5 @@
 - development https://dev.feedbackness.com
 
 #### Learning / Todo  🎈
-- Learn yarn
-- add env 
+- [ ] Learn yarn
+- [ ] add env 
