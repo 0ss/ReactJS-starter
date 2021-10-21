@@ -11,9 +11,9 @@ import React from "react";
 import { lazily } from "react-lazily";
 import { ROUTES } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
-import { NavLink } from "./NavLink";
-const { ProjectHeaderSelect } = lazily(() => import("./ProjectHeaderSelect"));
 
+const { ProjectHeaderSelect } = lazily(() => import("./ProjectHeaderSelect"));
+const { NavLink } = lazily(() => import("./NavLink"));
 interface ProjectHeaderProps {}
 
 const Links: Array<{ name: string; url: string }> = [

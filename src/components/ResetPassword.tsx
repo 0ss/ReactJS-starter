@@ -7,11 +7,13 @@ import { Link, useParams } from "react-router-dom";
 import { COLOR_MAIN_LIGHT, ROUTES } from "../constants";
 import { useResetPasswordMutation } from "../queries/graphql";
 import { extractError } from "../utils/extractError";
-import { AuthForm } from "./AuthForm";
-import { AuthFormButton } from "./AuthFormButton";
-import { InputField } from "./InputField";
 
-const { PersonWithPhoneSvg } = lazily(() => import("../svgs/PersonWithPhoneSvg"));
+const { InputField } = lazily(() => import("./InputField"));
+const { AuthFormButton } = lazily(() => import("./AuthFormButton"));
+const { AuthForm } = lazily(() => import("./AuthForm"));
+const { PersonWithPhoneSvg } = lazily(
+  () => import("../svgs/PersonWithPhoneSvg")
+);
 interface ResetPasswordProps {}
 
 const ResetPassword: React.FC<ResetPasswordProps> = ({}) => {

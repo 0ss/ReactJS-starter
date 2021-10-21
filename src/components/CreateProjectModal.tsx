@@ -9,11 +9,12 @@ import {
   ModalOverlay, UseDisclosureProps
 } from "@chakra-ui/react";
 import React from "react";
+import { lazily } from "react-lazily";
 import {
   COLOR_MAIN_MEDIUM_DARK
 } from "../constants";
-import { InputField } from "./InputField";
 
+const { InputField } = lazily(() => import("./InputField"));
 interface CreateProjectModalProps extends UseDisclosureProps {}
 export const CreateProjectModal: React.FC<CreateProjectModalProps> = ({
   isOpen,

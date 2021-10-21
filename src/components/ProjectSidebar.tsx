@@ -2,12 +2,13 @@ import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { Box, Flex, HStack, Spacer } from "@chakra-ui/layout";
 import { IconButton, useDisclosure } from "@chakra-ui/react";
 import React from "react";
-import { Feedbackness } from "../svgs/Feedbackness";
-import { FeedbacknessChar } from "../svgs/FeedbacknessChar";
+import { lazily } from "react-lazily";
 import { ProjectHeaderSelect } from "./ProjectHeaderSelect";
 
-interface ProjectSidebarProps {}
 
+const { Feedbackness } = lazily(() => import("../svgs/Feedbackness"));
+const { FeedbacknessChar } = lazily(() => import("../svgs/FeedbacknessChar"));
+interface ProjectSidebarProps {}
 export const ProjectSidebar: React.FC<ProjectSidebarProps> = ({ children }) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 

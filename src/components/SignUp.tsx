@@ -5,8 +5,8 @@ import { lazily } from "react-lazily";
 import { Link } from "react-router-dom";
 import { COLOR_MAIN_MEDIUM_LIGHT, ROUTES } from "../constants";
 import { useRegisterMutation } from "../queries/graphql";
-import { InputField } from "./InputField";
 
+const { InputField } = lazily(() => import("./InputField"));
 const { SocialMediaButtons } = lazily(() => import("./SocialMediaButtons"));
 const { AuthFormButton } = lazily(() => import("./AuthFormButton"));
 const { AuthForm } = lazily(() => import("./AuthForm"));

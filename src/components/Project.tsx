@@ -12,6 +12,7 @@ import React from "react";
 import { AiOutlineTeam } from "react-icons/ai";
 import { IoAnalyticsOutline, IoSettingsOutline } from "react-icons/io5";
 import { VscSignOut } from "react-icons/vsc";
+import { lazily } from "react-lazily";
 import { VictoryBar, VictoryChart, VictoryPie } from "victory";
 import {
   COLOR_IDEA,
@@ -25,13 +26,16 @@ import {
 import { useAuthToken } from "../hooks/useAuthToken";
 import { useProjectLocation } from "../hooks/useProjectLocation";
 import { random } from "../utils/random";
-import { AnalyticsCard } from "./AnalyticsCard";
-import { BarChartMenu } from "./BarChartMenu";
-import { ChartStatLabel } from "./ChartStatLabel";
-import { FeedbackCard, FeedbackCardProps } from "./FeedbackCard";
-import { FeedbackTags } from "./FeedbackCard/FeedbackTags";
-import { NavLink } from "./NavLink";
-import { ProjectSidebar } from "./ProjectSidebar";
+import { FeedbackCardProps } from "./FeedbackCard";
+
+const { ProjectSidebar } = lazily(() => import("./ProjectSidebar"));
+const { NavLink } = lazily(() => import("./NavLink"));
+const { FeedbackTags } = lazily(() => import("./FeedbackCard/FeedbackTags"));
+const { FeedbackCard } = lazily(() => import("./FeedbackCard"));
+const { ChartStatLabel } = lazily(() => import("./ChartStatLabel"));
+const { BarChartMenu } = lazily(() => import("./BarChartMenu"));
+const { AnalyticsCard } = lazily(() => import("./AnalyticsCard"));
+
 interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const [authToken, setAuthToken] = useAuthToken();
@@ -156,12 +160,12 @@ export const Project: React.FC<ProjectProps> = ({}) => {
             </VictoryChart>
           </Box>
         </Stack>
-        <HStack spacing={'8'} mt={'16'} mb={'4'}>
+        <HStack spacing={"8"} mt={"16"} mb={"4"}>
           <Text fontSize={"xs"}>FILTER BY TYPE</Text>
           <HStack>
-            <FeedbackTags type={"issue"} size={'sm'} count={'243'} />
-            <FeedbackTags type={"idea"}  size={'sm'}/>
-            <FeedbackTags type={"other"}  size={'sm'} />
+            <FeedbackTags type={"issue"} size={"sm"} count={"243"} />
+            <FeedbackTags type={"idea"} size={"sm"} />
+            <FeedbackTags type={"other"} size={"sm"} />
           </HStack>
         </HStack>
         <VStack

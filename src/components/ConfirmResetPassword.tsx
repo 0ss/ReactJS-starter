@@ -11,8 +11,9 @@ import { lazily } from "react-lazily";
 
 const { AuthFormButton } = lazily(() => import("./AuthFormButton"));
 const { AuthForm } = lazily(() => import("./AuthForm"));
-const { PersonWithPhoneSvg } = lazily(() => import("../svgs/PersonWithPhoneSvg"));
-
+const { PersonWithPhoneSvg } = lazily(
+  () => import("../svgs/PersonWithPhoneSvg")
+);
 interface ConfirmResetPasswordProps {}
 const ConfirmResetPassword: React.FC<ConfirmResetPasswordProps> = ({}) => {
   const [password, setPassword] = useState("");

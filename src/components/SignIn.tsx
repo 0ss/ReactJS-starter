@@ -3,15 +3,14 @@ import { Flex } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { COLOR_MAIN_DARK, COLOR_MAIN_LIGHT, COLOR_MAIN_MEDIUM_DARK, ROUTES } from "../constants";
-import { AuthForm } from "./AuthForm";
-import { AuthFormButton } from "./AuthFormButton";
 import { InputField } from "./InputField";
 import { SocialMediaButtons } from "./SocialMediaButtons";
 import { toast } from "react-hot-toast";
 import { lazily } from "react-lazily";
 
 const { PersonWithPhoneSvg } = lazily(() => import("../svgs/PersonWithPhoneSvg"));
-
+const { AuthFormButton } = lazily(() => import("./AuthFormButton"));
+const { AuthForm } = lazily(() => import("./AuthForm"));
 
 interface SignInProps {}
 const SignIn: React.FC<SignInProps> = ({}) => {
