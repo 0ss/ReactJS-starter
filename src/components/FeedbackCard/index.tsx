@@ -52,6 +52,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
   os,
   browser,
   metadata,
+  archived
 }) => {
   const { isOpen: isOpenCard, onToggle: onToggleCard } = useDisclosure();
   const {
@@ -158,7 +159,11 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
                 bgColor={COLOR_MAIN_MEDIUM_DARK}
                 color={"white"}
               >
-                Archive
+                {
+                  archived 
+                  ? "Archive"
+                  : "Unarchive"
+                }
               </Button>
             </FeedbackCardLine>
             {!isMetadata ? (
