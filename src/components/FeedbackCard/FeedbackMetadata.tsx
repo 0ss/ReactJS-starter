@@ -9,7 +9,6 @@ interface FeedbackMetadataProps {
 export const FeedbackMetadata: React.FC<FeedbackMetadataProps> = ({
   metadata,
 }) => {
-  console.log(Object.keys(metadata))
   return (
     <Flex fontSize={"sm"} spacing={"3"} flexWrap={"wrap"}>
       {Object.keys(metadata).map(key => {

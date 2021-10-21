@@ -1,5 +1,12 @@
-import { Box, Divider, Heading, Stack, VStack } from "@chakra-ui/layout";
-import { Flex } from "@chakra-ui/react";
+import {
+  Box,
+  Divider,
+  Heading,
+  HStack,
+  Stack,
+  VStack,
+} from "@chakra-ui/layout";
+import { Flex, Text } from "@chakra-ui/react";
 import * as faker from "faker";
 import React from "react";
 import { AiOutlineTeam } from "react-icons/ai";
@@ -22,6 +29,7 @@ import { AnalyticsCard } from "./AnalyticsCard";
 import { BarChartMenu } from "./BarChartMenu";
 import { ChartStatLabel } from "./ChartStatLabel";
 import { FeedbackCard, FeedbackCardProps } from "./FeedbackCard";
+import { FeedbackTags } from "./FeedbackCard/FeedbackTags";
 import { NavLink } from "./NavLink";
 import { ProjectSidebar } from "./ProjectSidebar";
 interface ProjectProps {}
@@ -43,7 +51,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
             "https://feedbackness.s3.us-east-2.amazonaws.com/Feedbackness-logo.jpg",
           os: random(["Mac OS", "WIndows 10", "Ubunto", "Cent OS"]),
           page: "/home",
-          archived: random([true,false]),
+          archived: random([true, false]),
           metadata: {
             userId: faker.datatype.uuid(),
             username: faker.internet.userName(),
@@ -97,7 +105,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
         <Box fontSize={"sm"}></Box>
         <Stack
           mt={"3"}
-          justifyContent={'space-between'}
+          justifyContent={"space-between"}
           direction={["column", "column", "column", "row"]}
         >
           <Box p={"2"} bg={"white"} borderRadius={"lg"}>
@@ -148,9 +156,17 @@ export const Project: React.FC<ProjectProps> = ({}) => {
             </VictoryChart>
           </Box>
         </Stack>
+        <HStack spacing={'8'} mt={'16'} mb={'4'}>
+          <Text fontSize={"xs"}>FILTER BY TYPE</Text>
+          <HStack>
+            <FeedbackTags type={"issue"} />
+            <FeedbackTags type={"idea"} />
+            <FeedbackTags type={"other"} />
+          </HStack>
+        </HStack>
         <VStack
           bgColor={"white"}
-          mt={"16"}
+          // mt={"16"}
           h={"full"}
           spacing={0}
           borderRadius={"lg"}
