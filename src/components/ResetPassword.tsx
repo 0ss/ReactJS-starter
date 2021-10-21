@@ -2,6 +2,7 @@ import { Box, Text } from "@chakra-ui/layout";
 import { Flex } from "@chakra-ui/react";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import { lazily } from "react-lazily";
 import { Link, useParams } from "react-router-dom";
 import { COLOR_MAIN_LIGHT, ROUTES } from "../constants";
 import { useResetPasswordMutation } from "../queries/graphql";
@@ -10,9 +11,8 @@ import { AuthForm } from "./AuthForm";
 import { AuthFormButton } from "./AuthFormButton";
 import { InputField } from "./InputField";
 
-const PersonWithPhoneSvg = React.lazy(
-  () => import("../svgs/PersonWithPhoneSvg")
-);interface ResetPasswordProps {}
+const { PersonWithPhoneSvg } = lazily(() => import("../svgs/PersonWithPhoneSvg"));
+interface ResetPasswordProps {}
 
 const ResetPassword: React.FC<ResetPasswordProps> = ({}) => {
   const [email, setEmail] = useState("");

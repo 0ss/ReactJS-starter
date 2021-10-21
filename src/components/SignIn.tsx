@@ -8,10 +8,10 @@ import { AuthFormButton } from "./AuthFormButton";
 import { InputField } from "./InputField";
 import { SocialMediaButtons } from "./SocialMediaButtons";
 import { toast } from "react-hot-toast";
+import { lazily } from "react-lazily";
 
-const PersonWithPhoneSvg = React.lazy(
-  () => import("../svgs/PersonWithPhoneSvg")
-);
+const { PersonWithPhoneSvg } = lazily(() => import("../svgs/PersonWithPhoneSvg"));
+
 
 interface SignInProps {}
 const SignIn: React.FC<SignInProps> = ({}) => {

@@ -4,7 +4,6 @@ import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
 import { COLOR_MAIN_DARK, ROUTES } from "../constants";
 import { useConfirmResetPasswordMutation } from "../queries/graphql";
-import PersonWithPhoneSvg from "../svgs/PersonWithPhoneSvg";
 import { extractError } from "../utils/extractError";
 import { InputField } from "./InputField";
 import { useHistory } from "react-router-dom";
@@ -12,6 +11,7 @@ import { lazily } from "react-lazily";
 
 const { AuthFormButton } = lazily(() => import("./AuthFormButton"));
 const { AuthForm } = lazily(() => import("./AuthForm"));
+const { PersonWithPhoneSvg } = lazily(() => import("../svgs/PersonWithPhoneSvg"));
 
 interface ConfirmResetPasswordProps {}
 const ConfirmResetPassword: React.FC<ConfirmResetPasswordProps> = ({}) => {

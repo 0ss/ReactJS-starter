@@ -10,9 +10,7 @@ import { InputField } from "./InputField";
 const { SocialMediaButtons } = lazily(() => import("./SocialMediaButtons"));
 const { AuthFormButton } = lazily(() => import("./AuthFormButton"));
 const { AuthForm } = lazily(() => import("./AuthForm"));
-const PersonWithPhoneSvg = React.lazy(
-  () => import("../svgs/PersonWithPhoneSvg")
-);
+const { PersonWithPhoneSvg } = lazily(() => import("../svgs/PersonWithPhoneSvg"));
 
 interface SignUpProps {}
 const SignUp: React.FC<SignUpProps> = ({}) => {
