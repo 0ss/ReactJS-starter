@@ -9,6 +9,7 @@ import { Project } from "./components/Project";
 import { Spinner } from "./components/Spinner";
 import { EVENTS, ROUTES } from "./constants";
 import { useProjectStore } from "./hooks/useStore";
+import { useUserQuery } from "./queries/graphql";
 /**
  * Lazy Route
  */
@@ -32,14 +33,14 @@ Sentry.init({
  * App
  */
 export const App: React.FC = () => {
-  // const { data, loading, error } = useUserQuery({
-  //   fetchPolicy: "network-only",
-  // });
-  // console.log(data)
+  const { data, loading, error } = useUserQuery({
+    fetchPolicy: "network-only",
+  });
+  console.log(data)
 
-  // if (data?.user?.email && data?.user?.id) {
-  //   Sentry.setUser({ id: data.user.id, email: data.user.email });
-  // }
+  if (data?.user?.email && data?.user?.id) {
+    Sentry.setUser({ id: data.user.id, email: data.user.email });
+  }
   const projectTimeRange =  useProjectStore(state => state.projectTimeRange)
   const projectFeedbackType =  useProjectStore(state => state.projectFeedbackType)
 
