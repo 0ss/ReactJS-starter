@@ -1,7 +1,8 @@
 import { Box, Center, Divider, Heading } from "@chakra-ui/react";
 import React, { ReactNode } from "react";
+import { lazily } from "react-lazily";
 import { useAuthToken } from "../hooks/useAuthToken";
-import { Feedbackness } from "../svgs/Feedbackness";
+const { Feedbackness } = lazily(() => import("../svgs/Feedbackness"));
 
 interface AuthFormProps extends React.HTMLProps<HTMLFormElement> {
   heading: string;
