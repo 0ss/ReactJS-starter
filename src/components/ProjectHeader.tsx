@@ -5,13 +5,14 @@ import {
   HStack,
   IconButton,
   Stack,
-  useDisclosure
+  useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
+import { lazily } from "react-lazily";
 import { ROUTES } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
 import { NavLink } from "./NavLink";
-import { ProjectHeaderSelect } from "./ProjectHeaderSelect";
+const { ProjectHeaderSelect } = lazily(() => import("./ProjectHeaderSelect"));
 
 interface ProjectHeaderProps {}
 
