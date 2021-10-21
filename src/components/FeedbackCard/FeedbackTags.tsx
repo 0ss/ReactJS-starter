@@ -21,7 +21,7 @@ export const FeedbackTags: React.FC<FeedbackTagsProps> = ({
   return (
     <Badge fontSize={size} colorScheme={colors[type]}>
       {type.toUpperCase()}
-      {count ? `:${{ count }}` : null}
+      {count ? `: ${ count }` : null}
     </Badge>
   );
 };

@@ -159,9 +159,9 @@ export const Project: React.FC<ProjectProps> = ({}) => {
         <HStack spacing={'8'} mt={'16'} mb={'4'}>
           <Text fontSize={"xs"}>FILTER BY TYPE</Text>
           <HStack>
-            <FeedbackTags type={"issue"} />
-            <FeedbackTags type={"idea"} />
-            <FeedbackTags type={"other"} />
+            <FeedbackTags type={"issue"} size={'sm'} count={'243'} />
+            <FeedbackTags type={"idea"}  size={'sm'}/>
+            <FeedbackTags type={"other"}  size={'sm'} />
           </HStack>
         </HStack>
         <VStack
