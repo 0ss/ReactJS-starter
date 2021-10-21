@@ -13,7 +13,7 @@ import {
   IDEA,
   ISSUE,
   OTHER,
-  ROUTES
+  ROUTES,
 } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
 import { useProjectLocation } from "../hooks/useProjectLocation";
@@ -90,13 +90,13 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           align={["center"]}
         >
           <AnalyticsCard heading={"3422"} desc={"Total Feedbacks"} />
-          <AnalyticsCard m={"3"} heading={"3422"} desc={"Total Feedbacks"} />
-          <AnalyticsCard heading={"3422"} desc={"Total Feedbacks"} />
+          <AnalyticsCard m={"3"} heading={"3422"} desc={"Total Engagment"} />
+          <AnalyticsCard m={"0"} heading={"3422"} desc={"Total Engagment"} />
         </Flex>
         <Box fontSize={"sm"}></Box>
         <Stack
           mt={"3"}
-          w={"auto"}
+          justifyContent={'space-between'}
           direction={["column", "column", "column", "row"]}
         >
           <Box p={"2"} bg={"white"} borderRadius={"lg"}>
