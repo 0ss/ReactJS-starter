@@ -1,20 +1,20 @@
 import { Box, Divider, Flex, HStack, Text } from "@chakra-ui/layout";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import { lazily } from "react-lazily";
 import { Link } from "react-router-dom";
 import { COLOR_MAIN_MEDIUM_LIGHT, ROUTES } from "../constants";
 import { useRegisterMutation } from "../queries/graphql";
-import { AuthForm } from "./AuthForm";
-import { AuthFormButton } from "./AuthFormButton";
 import { InputField } from "./InputField";
-import { SocialMediaButtons } from "./SocialMediaButtons";
 
+const { SocialMediaButtons } = lazily(() => import("./SocialMediaButtons"));
+const { AuthFormButton } = lazily(() => import("./AuthFormButton"));
+const { AuthForm } = lazily(() => import("./AuthForm"));
 const PersonWithPhoneSvg = React.lazy(
   () => import("../svgs/PersonWithPhoneSvg")
 );
 
 interface SignUpProps {}
-
 const SignUp: React.FC<SignUpProps> = ({}) => {
   const [signupUserInput, setSignupUserInput] = useState({
     name: "",
@@ -97,7 +97,9 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
           onChange={handleSignupUserInput}
           required={true}
         />
-        <Text color={'gray.500'} fontSize={'xs'} textAlign="left">5 characters minimum</Text>
+        <Text color={"gray.500"} fontSize={"xs"} textAlign="left">
+          5 characters minimum
+        </Text>
       </Box>
       <Box py={3}>
         <AuthFormButton type="submit" isSubmit={isSubmit}>

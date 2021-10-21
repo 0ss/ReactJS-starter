@@ -6,12 +6,14 @@ import { COLOR_MAIN_DARK, ROUTES } from "../constants";
 import { useConfirmResetPasswordMutation } from "../queries/graphql";
 import PersonWithPhoneSvg from "../svgs/PersonWithPhoneSvg";
 import { extractError } from "../utils/extractError";
-import { AuthForm } from "./AuthForm";
-import { AuthFormButton } from "./AuthFormButton";
 import { InputField } from "./InputField";
 import { useHistory } from "react-router-dom";
-interface ConfirmResetPasswordProps {}
+import { lazily } from "react-lazily";
 
+const { AuthFormButton } = lazily(() => import("./AuthFormButton"));
+const { AuthForm } = lazily(() => import("./AuthForm"));
+
+interface ConfirmResetPasswordProps {}
 const ConfirmResetPassword: React.FC<ConfirmResetPasswordProps> = ({}) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
