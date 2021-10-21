@@ -2,7 +2,7 @@ import { Box, Divider, Flex, HStack, Text } from "@chakra-ui/layout";
 import React, { useState } from "react";
 import toast from "react-hot-toast";
 import { lazily } from "react-lazily";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { COLOR_MAIN_MEDIUM_LIGHT, ROUTES } from "../constants";
 import { useRegisterMutation } from "../queries/graphql";
 
@@ -14,6 +14,7 @@ const { PersonWithPhoneSvg } = lazily(() => import("../svgs/PersonWithPhoneSvg")
 
 interface SignUpProps {}
 const SignUp: React.FC<SignUpProps> = ({}) => {
+  const history = useHistory()
   const [signupUserInput, setSignupUserInput] = useState({
     name: "",
     email: "",
@@ -55,7 +56,7 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
             // }
           });
           // if(res.data?.signupUser?.user){
-          //     history.push(ROUTES.DASHBOARD)
+          //     history.push(ROUTES.PROJECT)
           // }
         } catch (e: any) {
           setIsSubmit(false);

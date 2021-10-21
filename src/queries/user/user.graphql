@@ -1,0 +1,29 @@
+query user {
+    user {
+        createdAt
+        email
+        id
+        name
+        socialId
+        socialProvider
+        userProject {
+            project {
+                createdAt
+                id
+                name
+                projectMember {
+                    role
+                    user {
+                        createdAt
+                        email
+                        id
+                        name
+                        socialId
+                        socialProvider
+                    }
+                }
+            }
+            role
+        }
+    }
+}
