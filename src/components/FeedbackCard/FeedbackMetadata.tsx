@@ -9,9 +9,10 @@ interface FeedbackMetadataProps {
 export const FeedbackMetadata: React.FC<FeedbackMetadataProps> = ({
   metadata,
 }) => {
+  console.log(Object.keys(metadata))
   return (
     <Flex fontSize={"sm"} spacing={"3"} flexWrap={"wrap"}>
-      {Object.entries(metadata).map((key, value) => {
+      {Object.keys(metadata).map(key => {
         return (
           <HStack key={Math.random()} my={"1.5"} mr={"2"} spacing={0}>
             <Box
@@ -22,8 +23,8 @@ export const FeedbackMetadata: React.FC<FeedbackMetadataProps> = ({
               borderRightRadius={"none"}
               py={"1"}
               px={"2"}
-              bgColor={COLOR_MAIN_DARK}
-              color={"white"}
+              bgColor={COLOR_MAIN_LIGHT}
+              color={"pink.800"}
             >
               {key}
             </Box>
@@ -33,12 +34,12 @@ export const FeedbackMetadata: React.FC<FeedbackMetadataProps> = ({
               borderBottomRadius={"md"}
               borderLeftRadius={"none"}
               fontSize={"xs"}
-              color={"pink.800"}
+              color={"white"}
               py={"1"}
               px={"2"}
-              bgColor={COLOR_MAIN_LIGHT}
+              bgColor={COLOR_MAIN_DARK}
             >
-              {value}
+              {metadata[key]}
             </Box>
           </HStack>
         );
