@@ -13,6 +13,7 @@ import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import React from "react";
 import {
+  COLOR_MAIN_DARK,
   COLOR_MAIN_MEDIUM_DARK, IDEA,
   ISSUE,
   OTHER
@@ -37,6 +38,7 @@ export interface FeedbackCardProps {
   os: string;
   browser: string;
   metadata: Object;
+  archived: boolean
 }
 
 export const FeedbackCard: React.FC<FeedbackCardProps> = ({
@@ -150,7 +152,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
               <Spacer />
               <Button
                 _hover={{
-                  backgroundColor: COLOR_MAIN_MEDIUM_DARK,
+                  border:"2px solid gray"
                 }}
                 size={"sm"}
                 bgColor={COLOR_MAIN_MEDIUM_DARK}

@@ -43,6 +43,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
             "https://feedbackness.s3.us-east-2.amazonaws.com/Feedbackness-logo.jpg",
           os: random(["Mac OS", "WIndows 10", "Ubunto", "Cent OS"]),
           page: "/home",
+          archived: random([true,false]),
           metadata: {
             userId: faker.datatype.uuid(),
             username: faker.internet.userName(),
@@ -169,6 +170,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
                 metadata={e?.metadata}
                 os={e?.os}
                 page={e?.page}
+                archived={e?.archived}
               />
               <Divider />
             </Box>
