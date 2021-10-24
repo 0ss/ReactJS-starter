@@ -81,6 +81,7 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
                     type="text"
                     value={signupUserInput.name}
                     onChange={handleSignupUserInput}
+                    required={true}
                 />
             </Box>
             <Box py={3}>
