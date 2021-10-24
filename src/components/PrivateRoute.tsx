@@ -38,5 +38,4 @@ export const PrivateRoute: React.FC<PrivateRouteProps> = ({
 }
 
 let { a: newVariable } = obj
-console.log(newVariable) // outputs: "thing A"
  */

@@ -5,6 +5,7 @@ interface NavLinkProps extends LinkProps {
   name: string;
   url: string;
   icon?: ReactNode;
+  onClick?: () => void
 }
 export const NavLink: React.FC<NavLinkProps> = ({
   name,
@@ -12,10 +13,12 @@ export const NavLink: React.FC<NavLinkProps> = ({
   icon,
   fontSize,
   fontFamily,
+  onClick : onClickProp
 }) => {
   const history = useHistory();
   const onClick = (e: any) => {
     e?.preventDefault();
+    onClickProp?.()
     history.push(url);
   };
   return (

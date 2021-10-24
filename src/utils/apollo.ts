@@ -2,14 +2,19 @@ import { ApolloClient, from, HttpLink, InMemoryCache } from "@apollo/client";
 import { REACT_APP_GRAPHQL_URL } from "../constants";
 import { AUTH_TOKEN, useAuthToken } from "../hooks/useAuthToken";
 import { onError } from "@apollo/client/link/error";
+import { setContext } from '@apollo/client/link/context';
 
+ 
 const httpLink = new HttpLink({
   uri: "http://192.168.100.3:3000/api/graphql",
   credentials: "include",
-  headers: {
-    Authorization: `Bearer ${localStorage.getItem(AUTH_TOKEN)}`,
-  },
 });
+const setAuthorizationLink = setContext((_, { headers }) => ({
+  headers: {
+    headers,
+    authorization: `Bearer ${ localStorage.getItem('auth_token') }`
+  }
+}));
 const errorLink = onError(({ graphQLErrors, networkError }) => {
   if (graphQLErrors)
     graphQLErrors.forEach(({ message, locations, path }) =>
@@ -20,7 +25,8 @@ const errorLink = onError(({ graphQLErrors, networkError }) => {
 
   if (networkError) console.log(`[Network error]: ${networkError}`);
 });
-export const client = new ApolloClient({
+
+export const apolloClient = new ApolloClient({
   cache: new InMemoryCache(),
-  link: from([errorLink, httpLink]),
+  link: from([setAuthorizationLink, errorLink, httpLink]),
 });

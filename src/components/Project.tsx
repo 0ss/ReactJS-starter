@@ -25,6 +25,8 @@ import {
 } from "../constants";
 import { useAuthToken } from "../hooks/useAuthToken";
 import { useProjectLocation } from "../hooks/useProjectLocation";
+import { UserDocument, useUserQuery } from "../queries/graphql";
+import { apolloClient } from "../utils/apollo";
 import { random } from "../utils/random";
 import { FeedbackCardProps } from "./FeedbackCard";
 
@@ -40,6 +42,9 @@ interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const [authToken, setAuthToken] = useAuthToken();
   const location = useProjectLocation();
+  const { data, loading, error } = useUserQuery()
+  console.log('project', ' data: ', data , 'loading: ', loading, 'error: ', error)
+   
   const feedbacks: Array<FeedbackCardProps> = Array(40)
     .fill(null)
     .map(
@@ -90,7 +95,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
             name={"Sign out"}
             icon={<VscSignOut size={18} />}
             url={ROUTES.HOME}
-            onClick={() => setAuthToken("")}
+            onClick={() =>setAuthToken("")}
           />
         </VStack>
       </ProjectSidebar>

@@ -7,6 +7,7 @@ import { InputField } from "./InputField";
 import { SocialMediaButtons } from "./SocialMediaButtons";
 import { toast } from "react-hot-toast";
 import { lazily } from "react-lazily";
+import { useUserQuery } from "../queries/graphql";
 
 const { PersonWithPhoneSvg } = lazily(() => import("../svgs/PersonWithPhoneSvg"));
 const { AuthFormButton } = lazily(() => import("./AuthFormButton"));
@@ -15,6 +16,8 @@ const { AuthForm } = lazily(() => import("./AuthForm"));
 interface SignInProps {}
 const SignIn: React.FC<SignInProps> = ({}) => {
   const [isSubmit, setIsSubmit] = useState(false);
+  const { data, loading, error } = useUserQuery()
+  console.log('data: ', data , 'loading: ', loading, 'error: ', error)
   return (
     <AuthForm
       heading={"Log in"}

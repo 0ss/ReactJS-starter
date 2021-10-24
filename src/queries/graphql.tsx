@@ -250,7 +250,7 @@ export type RegisterMutationVariables = Exact<{
 }>;
 
 
-export type RegisterMutation = { __typename?: 'Mutation', register: { __typename?: 'UserToken', token: string, user: { __typename?: 'User', createdAt: any, email: string, id: string, name: string, socialId?: Maybe<string>, socialProvider?: Maybe<SocialProvider> } } };
+export type RegisterMutation = { __typename?: 'Mutation', register: { __typename?: 'UserToken', token: string, user: { __typename?: 'User', createdAt: any, email: string, id: string, name: string, socialId?: Maybe<string>, socialProvider?: Maybe<SocialProvider>, userProject: Array<{ __typename?: 'UserProject', role: UserProjectRole, project: { __typename?: 'Project', createdAt: any, id: string, name: string, projectMember: Array<{ __typename?: 'ProjectMember', role: UserProjectRole, user: { __typename?: 'User', email: string, id: string, name: string } }> } }> } } };
 
 export type ResetPasswordMutationVariables = Exact<{
   email: Scalars['String'];
@@ -262,7 +262,7 @@ export type ResetPasswordMutation = { __typename?: 'Mutation', resetPassword: bo
 export type UserQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type UserQuery = { __typename?: 'Query', user?: Maybe<{ __typename?: 'User', createdAt: any, email: string, id: string, name: string, socialId?: Maybe<string>, socialProvider?: Maybe<SocialProvider>, userProject: Array<{ __typename?: 'UserProject', role: UserProjectRole, project: { __typename?: 'Project', createdAt: any, id: string, name: string, projectMember: Array<{ __typename?: 'ProjectMember', role: UserProjectRole, user: { __typename?: 'User', createdAt: any, email: string, id: string, name: string, socialId?: Maybe<string>, socialProvider?: Maybe<SocialProvider> } }> } }> }> };
+export type UserQuery = { __typename?: 'Query', user?: Maybe<{ __typename?: 'User', createdAt: any, email: string, id: string, name: string, socialId?: Maybe<string>, socialProvider?: Maybe<SocialProvider>, userProject: Array<{ __typename?: 'UserProject', role: UserProjectRole, project: { __typename?: 'Project', createdAt: any, id: string, name: string, projectMember: Array<{ __typename?: 'ProjectMember', role: UserProjectRole, user: { __typename?: 'User', email: string, id: string, name: string } }> } }> }> };
 
 
 export const ConfirmResetPasswordDocument = gql`
@@ -359,6 +359,22 @@ export const RegisterDocument = gql`
       name
       socialId
       socialProvider
+      userProject {
+        project {
+          createdAt
+          id
+          name
+          projectMember {
+            role
+            user {
+              email
+              id
+              name
+            }
+          }
+        }
+        role
+      }
     }
   }
 }
@@ -437,12 +453,9 @@ export const UserDocument = gql`
         projectMember {
           role
           user {
-            createdAt
             email
             id
             name
-            socialId
-            socialProvider
           }
         }
       }

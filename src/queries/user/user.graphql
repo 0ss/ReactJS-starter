@@ -14,12 +14,9 @@ query user {
                 projectMember {
                     role
                     user {
-                        createdAt
                         email
                         id
                         name
-                        socialId
-                        socialProvider
                     }
                 }
             }
