@@ -21,7 +21,6 @@ export const InputField: React.FC<InputFieldProps> = ({ ...props }) => {
         px={4}
         size={"sm"}
         fontSize={"sm"}
-        isRequired={props.required}
         focusBorderColor={"none"}
         bgColor={"gray.100"}
         rounded={"lg"}
