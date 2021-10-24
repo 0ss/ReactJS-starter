@@ -81,7 +81,7 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
                     type="text"
                     value={signupUserInput.name}
                     onChange={handleSignupUserInput}
-                    required={true}
+                    required
                 />
             </Box>
             <Box py={3}>
@@ -92,7 +92,7 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
                     type="email"
                     value={signupUserInput.email}
                     onChange={handleSignupUserInput}
-                    required={true}
+                    required
                 />
             </Box>
             <Box py={3}>
@@ -103,7 +103,7 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
                     type="Password"
                     value={signupUserInput.password}
                     onChange={handleSignupUserInput}
-                    required={true}
+                    required
                 />
                 <Text color={"gray.500"} fontSize={"xs"} textAlign="left">
                     5 characters minimum
