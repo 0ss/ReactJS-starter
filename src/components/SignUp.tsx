@@ -37,7 +37,6 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
     if(!loading && !!data?.user) {
         console.log(data.user.userProject[0].project)
         const randomProjectId = random(data.user.userProject).project.id
-        const route = `${ROUTES.PROJECT}`
         history.push(ROUTES.PROJECT.replace(':id',randomProjectId))
     }
     const handleSignupUserInput = (e: React.ChangeEvent<HTMLInputElement>) => {
