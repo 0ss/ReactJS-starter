@@ -72,6 +72,7 @@ const SignIn: React.FC<SignInProps> = ({}) => {
                     placeholder="Enter your email"
                     label="Email address"
                     type="email"
+                    required
                 />
             </Box>
             <Box py={3}>
@@ -80,6 +81,7 @@ const SignIn: React.FC<SignInProps> = ({}) => {
                     placeholder="Enter your password"
                     label="Password"
                     type="Password"
+                    required
                 />
             </Box>
             <Box py={3}>
