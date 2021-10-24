@@ -32,13 +32,7 @@ const SignUp: React.FC<SignUpProps> = ({}) => {
     })
     const [isSubmit, setIsSubmit] = useState(false)
     const [register] = useRegisterMutation()
-    const { data, loading, error } = useUserQuery()
 
-    if(!loading && !!data?.user) {
-        console.log(data.user.userProject[0].project)
-        const randomProjectId = random(data.user.userProject).project.id
-        history.push(ROUTES.PROJECT.replace(':id',randomProjectId))
-    }
     const handleSignupUserInput = (e: React.ChangeEvent<HTMLInputElement>) => {
         const target = e.target as HTMLInputElement
         setSignupUserInput({
