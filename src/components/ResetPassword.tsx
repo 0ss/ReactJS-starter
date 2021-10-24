@@ -50,6 +50,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = ({}) => {
           label="Email address"
           type="email"
           value={email}
+          required
           onChange={(e) => {
             setEmail((e.target as HTMLInputElement).value);
             console.log(email);
