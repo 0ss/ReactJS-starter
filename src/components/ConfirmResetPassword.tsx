@@ -66,6 +66,7 @@ const ConfirmResetPassword: React.FC<ConfirmResetPasswordProps> = ({}) => {
           placeholder="Enter your password"
           label="New Password"
           type="Password"
+          required
           onChange={(e) => setPassword((e.target as HTMLInputElement).value)}
         />
         <Text color={"gray.500"} fontSize={"xs"} textAlign="left">
@@ -78,6 +79,7 @@ const ConfirmResetPassword: React.FC<ConfirmResetPasswordProps> = ({}) => {
           placeholder="Enter your password"
           label="Confirm New Password"
           type="Password"
+          required
           onChange={(e) =>
             setConfirmPassword((e.target as HTMLInputElement).value)
           }
