@@ -1,16 +1,26 @@
 import { CloseIcon, HamburgerIcon } from "@chakra-ui/icons";
 import { Box, Flex, HStack, Spacer } from "@chakra-ui/layout";
-import { IconButton, useDisclosure } from "@chakra-ui/react";
+import { IconButton, useDisclosure, VStack } from "@chakra-ui/react";
 import React from "react";
+import { AiOutlineTeam } from "react-icons/ai";
+import { IoAnalyticsOutline, IoSettingsOutline } from "react-icons/io5";
+import { VscSignOut } from "react-icons/vsc";
 import { lazily } from "react-lazily";
+import { NavLink } from "./NavLink";
+import { ROUTES } from "../constants";
 import { ProjectHeaderSelect } from "./ProjectHeaderSelect";
-
+import { useAuthToken } from "../hooks/useAuthToken";
 
 const { Feedbackness } = lazily(() => import("../svgs/Feedbackness"));
 const { FeedbacknessChar } = lazily(() => import("../svgs/FeedbacknessChar"));
-interface ProjectSidebarProps {}
-export const ProjectSidebar: React.FC<ProjectSidebarProps> = ({ children }) => {
+interface ProjectSidebarProps {
+  projectLocation: string;
+}
+export const ProjectSidebar: React.FC<ProjectSidebarProps> = ({
+  projectLocation: location,
+}) => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [_, setAuthToken] = useAuthToken();
 
   return (
     <>
@@ -45,7 +55,31 @@ export const ProjectSidebar: React.FC<ProjectSidebarProps> = ({ children }) => {
             </HStack>
             <ProjectHeaderSelect />
           </Box>
-          {children}
+          <VStack spacing={5} align={"stretch"}>
+            <NavLink
+              name={"Dashboard"}
+              url={`${location}/`}
+              icon={<IoAnalyticsOutline size={18} />}
+            />
+            <NavLink
+              name={"Team"}
+              url={`${location}/team`}
+              icon={<AiOutlineTeam size={18} />}
+            />
+            <NavLink
+              name={"Settings"}
+              url={`${location}/settings`}
+              icon={<IoSettingsOutline size={18} />}
+            />
+          </VStack>
+          <VStack mt={"48"} spacing={3} align={"stretch"}>
+            <NavLink
+              name={"Sign out"}
+              icon={<VscSignOut size={18} />}
+              url={ROUTES.HOME}
+              onClick={() => setAuthToken("")}
+            />
+          </VStack>
         </Flex>
       </Flex>
       {!isOpen && (
