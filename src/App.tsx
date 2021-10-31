@@ -3,6 +3,7 @@ import * as Integrations from "@sentry/integrations"
 import * as Sentry from "@sentry/react"
 import React, { useEffect } from "react"
 import { Toaster } from "react-hot-toast"
+import { lazily } from "react-lazily"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import { Page404 } from "./components/Page404"
 import { Project } from "./components/Project"
@@ -20,7 +21,9 @@ const ResetPassword = React.lazy(() => import("./components/ResetPassword"))
 const ConfirmResetPassword = React.lazy(
     () => import("./components/ConfirmResetPassword")
 )
-
+const { Team } = lazily(
+    () => import("./components/Team")
+)
 const Dashboard = React.lazy(() => import("./components/Dashboard"))
 
 /**
@@ -64,7 +67,7 @@ export const App: React.FC = () => {
                         <Route
                             exact
                             path={ROUTES.PROJECT_TEAM}
-                            component={Project}
+                            component={Team}
                         />
                         <Route path={ROUTES.HELP} component={Project} />
                         <Route component={Page404} />

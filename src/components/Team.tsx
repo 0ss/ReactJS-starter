@@ -4,7 +4,7 @@ interface TeamProps {
     
 }
 
-export const Team = (props: Props) => {
+export const Team : React.FC<TeamProps>= ({}) => {
     return (
         <div>
             
