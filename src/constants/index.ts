@@ -3,14 +3,13 @@ import { config } from "dotenv";
 config(); // env variables parse
 export const enum ROUTES {
   HOME = "/",
-
   SIGN_UP = "/signup",
   SIGN_IN = "/signin",
   RESET_PASSWORD = "/reset-password/",
   CONFIRM_RESET_PASSWORD = "/reset-password/:token",
   PROJECT = "/project/:id",
-  PROJECT_TEAM = "project/:id/team",
-  ANALYTICS = "project/:id/analytics",
+  PROJECT_TEAM = "/project/:id/team",
+  ANALYTICS = "/project/:id/analytics",
   HELP = "/help",
 }
 
