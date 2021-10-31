@@ -4,12 +4,13 @@ import {
   Heading,
   HStack,
   Stack,
-  VStack
+  VStack,
 } from "@chakra-ui/layout";
 import { Flex, Text } from "@chakra-ui/react";
 import * as faker from "faker";
 import React from "react";
 import { lazily } from "react-lazily";
+import { useParams } from "react-router-dom";
 import { VictoryBar, VictoryChart, VictoryPie } from "victory";
 import {
   COLOR_IDEA,
@@ -17,7 +18,7 @@ import {
   COLOR_OTHER,
   IDEA,
   ISSUE,
-  OTHER
+  OTHER,
 } from "../constants";
 import { useProjectLocation } from "../hooks/useProjectLocation";
 import { useUserQuery } from "../queries/graphql";
@@ -34,9 +35,19 @@ const { AnalyticsCard } = lazily(() => import("./AnalyticsCard"));
 interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const location = useProjectLocation();
-  const { data, loading, error } = useUserQuery()
-  console.log('project', ' data: ', data , 'loading: ', loading, 'error: ', error)
-   
+  const { id } = useParams<{ id: string }>();
+
+  const { data, loading, error } = useUserQuery();
+  console.log(
+    "project",
+    " data: ",
+    data,
+    "loading: ",
+    loading,
+    "error: ",
+    error
+  );
+
   const feedbacks: Array<FeedbackCardProps> = Array(40)
     .fill(null)
     .map(
@@ -64,7 +75,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
     );
   return (
     <Flex mx={{ base: "0", md: "14" }} maxWidth={"full"}>
-      <ProjectSidebar projectLocation={location}/>
+      <ProjectSidebar projectLocation={location} />
       <Box p={"14"} maxWidth={"full"} alignItems={"center"}>
         <Heading mb={5}>Analytics Overview</Heading>
         <Flex
