@@ -50,7 +50,9 @@ export const Team: React.FC<TeamProps> = ({}) => {
               <Badge>member</Badge>
             </Flex>
             <Divider />
-
+            <Box mt={'5'}>
+              <input />
+            </Box>
         </Box>
       </Box>
     </Flex>
