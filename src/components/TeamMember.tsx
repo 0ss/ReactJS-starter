@@ -1,4 +1,4 @@
-import { Flex, Badge, Text } from "@chakra-ui/layout";
+import { Flex, Badge, Text, Box, HStack } from "@chakra-ui/layout";
 import React from "react";
 
 interface TeamMemberProps {
@@ -10,7 +10,16 @@ export const TeamMember: React.FC<TeamMemberProps> = ({ email, role }) => {
   return (
     <Flex alignItems={"center"} justifyContent={"space-between"} my={"3"}>
       <Text>{email}</Text>
-      <Badge colorScheme={role === 'admin' ? 'red' : 'linkedin'}>{role}</Badge>
+      <HStack spacing={"3"}>
+        {role !== "admin" ? (
+          <Badge fontSize={"xx-small"} colorScheme={"red"}>
+            REMOVE
+          </Badge>
+        ) : null}
+        <Badge colorScheme={role === "admin" ? "red" : "linkedin"}>
+          {role}
+        </Badge>
+      </HStack>
     </Flex>
   );
 };
