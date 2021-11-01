@@ -16,9 +16,11 @@ export const TeamMember: React.FC<TeamMemberProps> = ({ email, role }) => {
             REMOVE
           </Badge>
         ) : null}
-        <Badge colorScheme={role === "admin" ? "red" : "linkedin"}>
-          {role}
-        </Badge>
+        {role === "admin" ? (
+          <Badge colorScheme={"orange"}>{role}</Badge>
+        ) : (
+          <Badge>{role}</Badge>
+        )}
       </HStack>
     </Flex>
   );
