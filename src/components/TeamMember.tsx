@@ -12,7 +12,7 @@ export const TeamMember: React.FC<TeamMemberProps> = ({ email, role }) => {
       <Text>{email}</Text>
       <HStack spacing={"3"}>
         {role !== "admin" ? (
-          <Badge fontSize={"xx-small"} colorScheme={"red"}>
+          <Badge as={'button'} fontSize={"xx-small"} colorScheme={"red"}>
             REMOVE
           </Badge>
         ) : null}
