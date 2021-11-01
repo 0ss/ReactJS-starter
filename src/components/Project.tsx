@@ -21,6 +21,7 @@ import {
   OTHER,
 } from "../constants";
 import { useProjectLocation } from "../hooks/useProjectLocation";
+import { useProjectStore } from "../hooks/useStore";
 import { useUserQuery } from "../queries/graphql";
 import { random } from "../utils/random";
 import { FeedbackCardProps } from "./FeedbackCard";
@@ -36,7 +37,7 @@ interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const location = useProjectLocation();
   const { id } = useParams<{ id: string }>();
-
+  const feedbackType = useProjectStore(state => state.projectFeedbackType)
   const { data, loading, error } = useUserQuery();
   console.log(
     "project",
