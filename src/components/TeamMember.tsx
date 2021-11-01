@@ -10,7 +10,7 @@ export const TeamMember: React.FC<TeamMemberProps> = ({ email, role }) => {
   return (
     <Flex alignItems={"center"} justifyContent={"space-between"} my={"3"}>
       <Text>{email}</Text>
-      <Badge colorScheme={"red"}>{role}</Badge>
+      <Badge colorScheme={role === 'admin' ? 'red' : 'linkedin'}>{role}</Badge>
     </Flex>
   );
 };
