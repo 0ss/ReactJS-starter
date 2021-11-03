@@ -38,7 +38,10 @@ interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const location = useProjectLocation();
   const { id } = useParams<{ id: string }>();
-  const s= useProjectStore(state => state.projectFeedbackType)
+  const projectFeedbackType = useProjectStore(
+    (state) => state.projectFeedbackType
+  );
+  const projectTimeRange = useProjectStore((state) => state.projectTimeRange);
   const { data, loading, error } = useUserQuery();
   console.log(
     "project",
@@ -50,7 +53,6 @@ export const Project: React.FC<ProjectProps> = ({}) => {
     error
   );
 
- 
   return (
     <Flex mx={{ base: "0", md: "14" }} maxWidth={"full"}>
       <ProjectSidebar projectLocation={location} />
@@ -137,7 +139,10 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           alignItems={"start"}
           width={"full"}
         >
-          <ProjectFeedback />
+          <ProjectFeedback
+            projectFeedbackType={projectFeedbackType}
+            projectTimeRange={projectTimeRange}
+          />
         </VStack>
       </Box>
     </Flex>
