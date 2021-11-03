@@ -6,12 +6,14 @@ interface FeedbackTagsProps {
   type: typeof ISSUE | typeof IDEA | typeof OTHER;
   size?: string;
   count?: number | string;
+  onClick: () => void
 }
 
 export const FeedbackTags: React.FC<FeedbackTagsProps> = ({
   type,
   size,
   count,
+  onClick
 }) => {
   const colors = {
     issue: "red",
@@ -19,7 +21,7 @@ export const FeedbackTags: React.FC<FeedbackTagsProps> = ({
     other: "gray",
   };
   return (
-    <Badge fontSize={size} colorScheme={colors[type]}>
+    <Badge fontSize={size} colorScheme={colors[type]} onClick={onClick}>
       {type.toUpperCase()}
       {count ? `: ${ count }` : null}
     </Badge>
