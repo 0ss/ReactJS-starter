@@ -25,6 +25,7 @@ import { useProjectStore } from "../hooks/useStore";
 import { useUserQuery } from "../queries/graphql";
 import { random } from "../utils/random";
 import { FeedbackCardProps } from "./FeedbackCard";
+import { ProjectFeedback } from "./ProjectFeedback";
 
 const { ProjectSidebar } = lazily(() => import("./ProjectSidebar"));
 const { FeedbackTags } = lazily(() => import("./FeedbackCard/FeedbackTags"));
@@ -37,7 +38,7 @@ interface ProjectProps {}
 export const Project: React.FC<ProjectProps> = ({}) => {
   const location = useProjectLocation();
   const { id } = useParams<{ id: string }>();
-  const feedbackType = useProjectStore(state => state.projectFeedbackType)
+  const s= useProjectStore(state => state.projectFeedbackType)
   const { data, loading, error } = useUserQuery();
   console.log(
     "project",
@@ -49,31 +50,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
     error
   );
 
-  const feedbacks: Array<FeedbackCardProps> = Array(40)
-    .fill(null)
-    .map(
-      (e) =>
-        ({
-          type: random([ISSUE, OTHER, IDEA]),
-          browser: random(["Edge", "FireFox", "Chrome", "Brave"]),
-          country: faker.address.countryCode().toLowerCase(),
-          content: faker.lorem.lines(2),
-          date: faker.date.past().toString(),
-          device: random(["smartphone", "desktop"]),
-          image:
-            "https://feedbackness.s3.us-east-2.amazonaws.com/Feedbackness-logo.jpg",
-          os: random(["Mac OS", "WIndows 10", "Ubunto", "Cent OS"]),
-          page: "/home",
-          archived: random([true, false]),
-          metadata: {
-            userId: faker.datatype.uuid(),
-            username: faker.internet.userName(),
-            email: faker.internet.email(),
-            phone: faker.phone.phoneNumber(),
-            music: faker.music.genre(),
-          },
-        } as FeedbackCardProps)
-    );
+ 
   return (
     <Flex mx={{ base: "0", md: "14" }} maxWidth={"full"}>
       <ProjectSidebar projectLocation={location} />
@@ -160,24 +137,7 @@ export const Project: React.FC<ProjectProps> = ({}) => {
           alignItems={"start"}
           width={"full"}
         >
-          {feedbacks.map((e, i) => (
-            <Box key={i * 10} w={"full"}>
-              <FeedbackCard
-                browser={e?.browser}
-                content={e?.content}
-                country={e?.country}
-                date={e?.date}
-                device={e?.device}
-                type={e?.type}
-                image={e?.image}
-                metadata={e?.metadata}
-                os={e?.os}
-                page={e?.page}
-                archived={e?.archived}
-              />
-              <Divider />
-            </Box>
-          ))}
+          <ProjectFeedback />
         </VStack>
       </Box>
     </Flex>

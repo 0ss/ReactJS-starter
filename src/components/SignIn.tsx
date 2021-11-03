@@ -13,6 +13,7 @@ import { SocialMediaButtons } from "./SocialMediaButtons"
 import { toast } from "react-hot-toast"
 import { lazily } from "react-lazily"
 import { useLoginMutation, useUserQuery } from "../queries/graphql"
+import { useAuthToken } from "../hooks/useAuthToken"
 
 const { PersonWithPhoneSvg } = lazily(
     () => import("../svgs/PersonWithPhoneSvg")
@@ -22,6 +23,7 @@ const { AuthForm } = lazily(() => import("./AuthForm"))
 
 interface SignInProps {}
 const SignIn: React.FC<SignInProps> = ({}) => {
+    const [_, setAuthToken] = useAuthToken()
     const [isSubmit, setIsSubmit] = useState(false)
     const [login] = useLoginMutation()
     const [loginUserInput, setLoginUserInput] = useState({
@@ -116,6 +118,3 @@ const SignIn: React.FC<SignInProps> = ({}) => {
     )
 }
 export default SignIn
-function setAuthToken(token: any) {
-    throw new Error("Function not implemented.")
-}
