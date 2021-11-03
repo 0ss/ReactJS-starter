@@ -25,18 +25,17 @@ export type ProjectFeedbackType =
 export interface ProjectStore {
   projectTimeRange: ProjectTimeRange;
   projectFeedbackType: ProjectFeedbackType;
-  changeProjectTimeRange: (p: ProjectTimeRange) => void;
-  changeProjectFeedbackType: (p: ProjectFeedbackType) => void;
+  setProjectTimeRange: (p: ProjectTimeRange) => void;
+  setProjectFeedbackType: (p: ProjectFeedbackType) => void;
 }
 
 export const useProjectStore = create<ProjectStore>((set) => ({
   projectTimeRange: ALL_TIME,
   projectFeedbackType: ALL_FEEDBACK,
-  changeProjectTimeRange: (projectTimeRange: ProjectTimeRange) => {
+  setProjectTimeRange: (projectTimeRange: ProjectTimeRange) => {
     set({ projectTimeRange });
   },
-  changeProjectFeedbackType: (projectFeedbackType: ProjectFeedbackType) => {
+  setProjectFeedbackType: (projectFeedbackType: ProjectFeedbackType) => {
     set({ projectFeedbackType });
   },
 }));
-
