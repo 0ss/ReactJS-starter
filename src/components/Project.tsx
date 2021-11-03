@@ -28,7 +28,7 @@ import { FeedbackCardProps } from "./FeedbackCard";
 import { ProjectFeedback } from "./ProjectFeedback";
 
 const { ProjectSidebar } = lazily(() => import("./ProjectSidebar"));
-const { FeedbackTags } = lazily(() => import("./FeedbackTags"));
+const { FeedbackTags } = lazily(() => import("./FeedbackCard/FeedbackTags"));
 const { FeedbackCard } = lazily(() => import("./FeedbackCard"));
 const { ChartStatLabel } = lazily(() => import("./ChartStatLabel"));
 const { BarChartMenu } = lazily(() => import("./BarChartMenu"));
@@ -42,6 +42,15 @@ export const Project: React.FC<ProjectProps> = ({}) => {
     (state) => state.projectFeedbackType
   );
   const projectTimeRange = useProjectStore((state) => state.projectTimeRange);
+
+  const setProjectFeedbackType = useProjectStore(
+    (state) => state.setProjectFeedbackType
+  );
+
+  const setProjectTimeRange = useProjectStore(
+    (state) => state.setProjectTimeRange
+  );
+
   const { data, loading, error } = useUserQuery();
   console.log(
     "project",
@@ -125,9 +134,9 @@ export const Project: React.FC<ProjectProps> = ({}) => {
         <HStack spacing={"8"} mt={"16"} mb={"4"}>
           <Text fontSize={"xs"}>FILTER BY TYPE</Text>
           <HStack>
-            <FeedbackTags type={"issue"} size={"sm"} count={"243"} />
+            {/* <FeedbackTags type={"issue"} size={"sm"} count={"243"} />
             <FeedbackTags type={"idea"} size={"sm"} />
-            <FeedbackTags type={"other"} size={"sm"} />
+            <FeedbackTags type={"other"} size={"sm"} /> */}
           </HStack>
         </HStack>
         <VStack

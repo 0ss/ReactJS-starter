@@ -24,7 +24,7 @@ import { FeedbackCardLine } from "./FeedbackCardLine";
 import { FeedbackCardText } from "./FeedbackCardText";
 import { FeedbackImageDialog } from "./FeedbackImageDialog";
 import { FeedbackMetadata } from "./FeedbackMetadata";
-import { FeedbackTags } from "../FeedbackTags";
+import { FeedbackTags } from "./FeedbackTags";
 dayjs.extend(relativeTime);
 
 export interface FeedbackCardProps {
@@ -65,7 +65,7 @@ export const FeedbackCard: React.FC<FeedbackCardProps> = ({
     <FeedbackCardContainer isOpen={isOpenCard} onToggle={onToggleCard}>
       <VStack p={"3"} spacing={"3"}>
         <Stack direction={["column", "column", "row"]} w={"full"}>
-          <FeedbackTags type={type} />
+          {/* <FeedbackTags type={type} /> */}
           <Spacer />
           <Text fontSize={"sm"} color={"gray"}>
             {dayjs(date).fromNow()}

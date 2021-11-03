@@ -1,6 +1,6 @@
 import { Badge } from "@chakra-ui/layout";
 import React from "react";
-import { IDEA, ISSUE, OTHER } from "../constants";
+import { IDEA, ISSUE, OTHER } from "../../constants";
 
 interface FeedbackTagsProps {
   type: typeof ISSUE | typeof IDEA | typeof OTHER;
