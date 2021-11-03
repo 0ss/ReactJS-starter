@@ -21,7 +21,7 @@ import {
   OTHER,
 } from "../constants";
 import { useProjectLocation } from "../hooks/useProjectLocation";
-import { useProjectStore } from "../hooks/useStore";
+import { useProjectStore } from "../hooks/useProjectStore";
 import { useUserQuery } from "../queries/graphql";
 import { random } from "../utils/random";
 import { FeedbackCardProps } from "./FeedbackCard";

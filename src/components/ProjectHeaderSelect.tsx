@@ -5,7 +5,8 @@ import {
   MenuButton,
   MenuDivider,
   MenuItem,
-  MenuList, useDisclosure
+  MenuList,
+  useDisclosure,
 } from "@chakra-ui/react";
 import React from "react";
 import { CreateProjectModal } from "./CreateProjectModal";

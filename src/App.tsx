@@ -1,17 +1,15 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import * as Integrations from "@sentry/integrations";
 import * as Sentry from "@sentry/react";
-import React, { useEffect } from "react";
+import React from "react";
 import { Toaster } from "react-hot-toast";
 import { lazily } from "react-lazily";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Page404 } from "./components/Page404";
 import { Project } from "./components/Project";
 import { Spinner } from "./components/Spinner";
-import { EVENTS, ROUTES } from "./constants";
-import { useProjectStore } from "./hooks/useStore";
-import { UserDocument, UserQuery, useUserQuery } from "./queries/graphql";
-import { apolloClient } from "./utils/apollo";
+import { ROUTES } from "./constants";
+import { useProjectStore } from "./hooks/useProjectStore";
 /**
  * Lazy Route
  */
