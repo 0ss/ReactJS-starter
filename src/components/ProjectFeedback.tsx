@@ -2,10 +2,14 @@ import { Divider, Box } from "@chakra-ui/react";
 import faker from "faker";
 import React from "react";
 import { ISSUE, OTHER, IDEA } from "../constants";
+import { ProjectFeedbackType, ProjectTimeRange } from "../hooks/useProjectStore";
 import { random } from "../utils/random";
 import { FeedbackCard, FeedbackCardProps } from "./FeedbackCard";
 
-interface ProjectFeedbackProps {}
+interface ProjectFeedbackProps {
+  projectTimeRange : ProjectTimeRange
+  projectFeedbackType: ProjectFeedbackType
+}
 
 export const ProjectFeedback = ({}) => {
   const feedbacks: Array<FeedbackCardProps> = Array(40)

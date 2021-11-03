@@ -10,13 +10,13 @@ import {
   IDEA,
 } from "../constants";
 
-type ProjectTimeRange =
+export type ProjectTimeRange =
   | typeof ALL_TIME
   | typeof LAST_WEEK
   | typeof LAST_MONTH
   | typeof LAST_6_MONTHS;
 
-type ProjectFeedbackType =
+export type ProjectFeedbackType =
   | typeof ALL_FEEDBACK
   | typeof ISSUE
   | typeof IDEA
