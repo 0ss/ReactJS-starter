@@ -11,7 +11,11 @@ interface ProjectFeedbackProps {
   projectFeedbackType: ProjectFeedbackType
 }
 
-export const ProjectFeedback : React.FC<ProjectFeedbackProps> = ({}) => {
+export const ProjectFeedback : React.FC<ProjectFeedbackProps> = ({
+  projectFeedbackType,
+  projectTimeRange
+}) => {
+  console.log(projectFeedbackType, projectTimeRange)
   const feedbacks: Array<FeedbackCardProps> = Array(40)
     .fill(null)
     .map(

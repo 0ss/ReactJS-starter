@@ -28,7 +28,7 @@ import { FeedbackCardProps } from "./FeedbackCard";
 import { ProjectFeedback } from "./ProjectFeedback";
 
 const { ProjectSidebar } = lazily(() => import("./ProjectSidebar"));
-const { FeedbackTags } = lazily(() => import("./FeedbackCard/FeedbackTags"));
+const { FeedbackTags } = lazily(() => import("./FeedbackTags"));
 const { FeedbackCard } = lazily(() => import("./FeedbackCard"));
 const { ChartStatLabel } = lazily(() => import("./ChartStatLabel"));
 const { BarChartMenu } = lazily(() => import("./BarChartMenu"));

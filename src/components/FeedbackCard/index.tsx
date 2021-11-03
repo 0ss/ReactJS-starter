@@ -24,7 +24,7 @@ import { FeedbackCardLine } from "./FeedbackCardLine";
 import { FeedbackCardText } from "./FeedbackCardText";
 import { FeedbackImageDialog } from "./FeedbackImageDialog";
 import { FeedbackMetadata } from "./FeedbackMetadata";
-import { FeedbackTags } from "./FeedbackTags";
+import { FeedbackTags } from "../FeedbackTags";
 dayjs.extend(relativeTime);
 
 export interface FeedbackCardProps {
