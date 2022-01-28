@@ -1,8 +1,3 @@
-#### Deployments 🚀
+#### React.JS Starter 🚀
 
-- development https://dev.feedbackness.com
 
-#### Learning / Todo 🎈
-
-- [ ] Learn yarn
-- [ ] add env
